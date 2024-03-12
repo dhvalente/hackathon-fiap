@@ -12,21 +12,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "tb_addresses")
-public class Address{
+public class Endereco {
 
     @Id
     @Column(name = "id_address")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String street;
+    private String rua;
 
-    private String number;
+    private String numero;
 
-    private String city;
+    private String cidade;
 
-    private String district;
+    private String bairro;
 
-    private String state;
+    private String estado;
+
+    private String cep;
 
 }

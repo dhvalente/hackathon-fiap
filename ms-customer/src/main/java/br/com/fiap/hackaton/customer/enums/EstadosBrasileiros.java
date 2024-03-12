@@ -5,7 +5,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum BrazilianState {
+public enum EstadosBrasileiros {
     ACRE("AC", "Acre", "Acre", 1),
     ALAGOAS("AL", "Alagoas", "Alagoas", 2),
     AMAPA("AP", "Amapá", "Amapa", 3),
@@ -39,7 +39,7 @@ public enum BrazilianState {
     private final String descriptionWithoutSpecialCharacters;
     private final Integer id;
 
-    BrazilianState(String abbreviation, String description, String descriptionWithoutSpecialCharacters, int id) {
+    EstadosBrasileiros(String abbreviation, String description, String descriptionWithoutSpecialCharacters, int id) {
         this.abbreviation = abbreviation;
         this.description = description;
         this.descriptionWithoutSpecialCharacters = normalizeString(descriptionWithoutSpecialCharacters);
@@ -67,19 +67,19 @@ public enum BrazilianState {
         String withoutAccents = normalized.replaceAll("\\p{M}", "");
         return withoutAccents.substring(0, 1).toUpperCase() + withoutAccents.substring(1).toLowerCase();
     }
-    private static final Map<String, BrazilianState> Lookup = new HashMap<>();
+    private static final Map<String, EstadosBrasileiros> Lookup = new HashMap<>();
 
     static {
-        for (BrazilianState keyValue : EnumSet.allOf(BrazilianState.class))
+        for (EstadosBrasileiros keyValue : EnumSet.allOf(EstadosBrasileiros.class))
             Lookup.put(keyValue.getDescriptionWithoutSpecialCharacters(), keyValue);
     }
 
-    public static BrazilianState get(String description) {
+    public static EstadosBrasileiros get(String description) {
         return Lookup.get(normalizeString(description));
     }
 
-    public static BrazilianState getBrazilianStateByAbbreviation(String abbreviation) {
-        for (BrazilianState keyValue : EnumSet.allOf(BrazilianState.class))
+    public static EstadosBrasileiros getBrazilianStateByAbbreviation(String abbreviation) {
+        for (EstadosBrasileiros keyValue : EnumSet.allOf(EstadosBrasileiros.class))
             if (keyValue.getAbbreviation().equals(abbreviation))
                 return keyValue;
         return null;

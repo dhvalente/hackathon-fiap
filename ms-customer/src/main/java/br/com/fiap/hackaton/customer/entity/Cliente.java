@@ -1,5 +1,6 @@
 package br.com.fiap.hackaton.customer.entity;
 
+import br.com.fiap.hackaton.customer.enums.NiveisDeAcesso;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,17 +8,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity(name = "tb_users")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Customer implements UserDetails {
+public class Cliente implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,9 +37,11 @@ public class Customer implements UserDetails {
 
     private String birthDate;
 
+    private NiveisDeAcesso role;
+
     @OneToOne
     @Cascade(CascadeType.ALL)
-    private Address address;
+    private Endereco endereco;
 
     private String phoneNumber;
 
@@ -44,11 +49,18 @@ public class Customer implements UserDetails {
 
     private String country;
 
+    private String senha;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN")
+        if(this.role == NiveisDeAcesso.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN")
                 , new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
     }
 
     @Override
