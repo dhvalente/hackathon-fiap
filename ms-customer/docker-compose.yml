@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: userms
+    environment:
+      MYSQL_ROOT_PASSWORD: fiap-root
+      MYSQL_DATABASE: userms-mysql
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: fiap
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
