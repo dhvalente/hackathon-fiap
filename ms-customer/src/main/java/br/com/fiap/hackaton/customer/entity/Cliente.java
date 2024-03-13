@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class Cliente implements UserDetails {
 
     private String passaporte;
 
-    private String dataDeAniversario;
+    private LocalDate dataDeAniversario;
 
     private Generos genero;
 
@@ -48,15 +49,17 @@ public class Cliente implements UserDetails {
 
     private String telefone;
 
-    private NiveisDeAcesso role;
+    private NiveisDeAcesso nivel;
 
     private String email;
+
+    private String usuario;
 
     private String senha;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.role == NiveisDeAcesso.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN")
+        if(this.nivel == NiveisDeAcesso.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN")
                 , new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
@@ -68,7 +71,7 @@ public class Cliente implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return usuario;
     }
 
     @Override
