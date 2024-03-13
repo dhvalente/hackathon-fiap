@@ -1,5 +1,6 @@
 package br.com.fiap.hackaton.customer.entity;
 
+import br.com.fiap.hackaton.customer.enums.Generos;
 import br.com.fiap.hackaton.customer.enums.NiveisDeAcesso;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,27 +28,29 @@ public class Cliente implements UserDetails {
     @Column(name = "id_user")
     private Long id;
 
-    private String name;
+    private String nome;
 
-    private String lastName;
+    private String sobrenome;
 
     private String cpf;
 
-    private String passPort;
+    private String passaporte;
 
-    private String birthDate;
+    private String dataDeAniversario;
 
-    private NiveisDeAcesso role;
+    private Generos genero;
 
     @OneToOne
     @Cascade(CascadeType.ALL)
     private Endereco endereco;
 
-    private String phoneNumber;
+    private String paisDeOrigem;
+
+    private String telefone;
+
+    private NiveisDeAcesso role;
 
     private String email;
-
-    private String country;
 
     private String senha;
 
@@ -87,9 +90,5 @@ public class Cliente implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-/*@PrePersist
-    private void setRegistrationDate(){
-        setRegistrationDate(LocalDateTime.now());
-    }*/
 
 }
