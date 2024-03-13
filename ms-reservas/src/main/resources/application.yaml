@@ -1,8 +1,8 @@
 server:
-  port: 8081
+  port: 8080
 spring:
   application:
-    name: micro-notificacao
+    name: micro-reservas
   rabbitmq:
     host: localhost
     port: 5672
