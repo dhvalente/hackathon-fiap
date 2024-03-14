@@ -903,3 +903,36 @@ net.sf.jsqlparser.util.validation.metadata.DatabaseException: Cliente com ID: 2 
 2024-03-14T09:15:40.707-03:00  INFO 10156 --- [http-nio-8080-exec-10] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - obterClientePorId - PARAMETER[4]
 2024-03-14T09:15:40.710-03:00  INFO 10156 --- [http-nio-8080-exec-10] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - obterClientePorId - PARAMETER[4]
 2024-03-14T09:15:40.715-03:00  INFO 10156 --- [http-nio-8080-exec-10] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - delete - PARAMETER[4}]
+2024-03-14T09:24:02.635-03:00  INFO 10156 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-14T09:24:02.636-03:00  INFO 10156 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-14T09:24:02.644-03:00  INFO 10156 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-14T09:24:05.048-03:00  INFO 17768 --- [main] b.c.f.h.customer.CustomerApplication     : Starting CustomerApplication using Java 21.0.2 with PID 17768 (C:\Users\DIOGO\Desktop\Development\REPOSITORY\BFF\FIAP\hackathon-fiap\ms-customer\target\classes started by DIOGO in C:\Users\DIOGO\Desktop\Development\REPOSITORY\BFF\FIAP\hackathon-fiap)
+2024-03-14T09:24:05.050-03:00  INFO 17768 --- [main] b.c.f.h.customer.CustomerApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-03-14T09:24:05.499-03:00  INFO 17768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-14T09:24:05.500-03:00  INFO 17768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-03-14T09:24:05.518-03:00  INFO 17768 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.customer.repository.ClienteRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-03-14T09:24:05.519-03:00  INFO 17768 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.customer.repository.EnderecoRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-03-14T09:24:05.519-03:00  INFO 17768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
+2024-03-14T09:24:05.525-03:00  INFO 17768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-14T09:24:05.526-03:00  INFO 17768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-14T09:24:05.542-03:00  INFO 17768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+2024-03-14T09:24:05.848-03:00  INFO 17768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-14T09:24:05.856-03:00  INFO 17768 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-14T09:24:05.856-03:00  INFO 17768 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-14T09:24:05.891-03:00  INFO 17768 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-14T09:24:05.891-03:00  INFO 17768 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 817 ms
+2024-03-14T09:24:05.985-03:00  INFO 17768 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-14T09:24:06.024-03:00  INFO 17768 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-14T09:24:06.046-03:00  INFO 17768 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-14T09:24:06.189-03:00  INFO 17768 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-14T09:24:06.205-03:00  INFO 17768 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-14T09:24:06.408-03:00  INFO 17768 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@527d48db
+2024-03-14T09:24:06.410-03:00  INFO 17768 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-14T09:24:07.035-03:00  INFO 17768 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-14T09:24:07.077-03:00  INFO 17768 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-14T09:24:07.354-03:00  WARN 17768 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-14T09:24:07.886-03:00  INFO 17768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-14T09:24:07.892-03:00  INFO 17768 --- [main] b.c.f.h.customer.CustomerApplication     : Started CustomerApplication in 3.09 seconds (process running for 3.455)
+2024-03-14T09:24:41.409-03:00  INFO 17768 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-14T09:24:41.411-03:00  INFO 17768 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-14T09:24:41.418-03:00  INFO 17768 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
