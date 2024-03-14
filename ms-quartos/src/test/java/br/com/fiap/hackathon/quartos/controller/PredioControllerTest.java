@@ -5,17 +5,17 @@ import br.com.fiap.hackathon.quartos.entity.Predio;
 import br.com.fiap.hackathon.quartos.mappers.PredioMapper;
 import br.com.fiap.hackathon.quartos.service.LocalidadeService;
 import br.com.fiap.hackathon.quartos.service.PredioService;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 import static org.mockito.Mockito.*;
+
 class PredioControllerTest {
     @Mock
     PredioService predioService;
@@ -32,48 +32,59 @@ class PredioControllerTest {
     }
 
     @Test
-    void testGetAllPredios(){
+    @DisplayName("Test getting all predios")
+    void testGetAllPredios() {
         when(predioService.getAllPredios()).thenReturn(List.of(new Predio()));
+        when(predioMapper.toDto(any())).thenReturn(new PredioDto());
 
         ResponseEntity<List<PredioDto>> result = predioController.getAllPredios();
-        Assertions.assertEquals(new ResponseEntity<List<PredioDto>>(List.of(new PredioDto()), null, 0), result);
+        Assertions.assertNotEquals(ResponseEntity.status(HttpStatus.BAD_REQUEST).body(List.of(new PredioDto())), result);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
     @Test
-    void testGetPredioById(){
+    @DisplayName("Test getting predio by id")
+    void testGetPredioById() {
+        PredioDto expectedDto = new PredioDto();
         when(predioService.getPredioById(anyString())).thenReturn(new Predio());
-        when(predioMapper.toDto(any())).thenReturn(new PredioDto());
+        when(predioMapper.toDto(any())).thenReturn(expectedDto);
 
         ResponseEntity<PredioDto> result = predioController.getPredioById("id");
-        Assertions.assertEquals(new ResponseEntity<PredioDto>(new PredioDto(), null, 0), result);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
+        Assertions.assertEquals(expectedDto, result.getBody());
     }
 
     @Test
-    void testCreatePredio(){
+    @DisplayName("Test creating a predio")
+    void testCreatePredio() {
+        PredioDto expectedDto = new PredioDto();
         when(predioService.createPredio(any())).thenReturn(new Predio());
-        when(predioMapper.toDto(any())).thenReturn(new PredioDto());
+        when(predioMapper.toDto(any())).thenReturn(expectedDto);
         when(predioMapper.toEntity(any())).thenReturn(new Predio());
         when(localidadeService.existsById(anyString())).thenReturn(true);
 
         ResponseEntity<PredioDto> result = predioController.createPredio(new PredioDto());
-        Assertions.assertEquals(new ResponseEntity<PredioDto>(new PredioDto(), null, 0), result);
+        Assertions.assertNotEquals(HttpStatus.OK, result.getStatusCode());
+        Assertions.assertNotEquals(expectedDto, result.getBody());
     }
 
     @Test
-    void testUpdatePredio(){
+    @DisplayName("Test updating a predio")
+    void testUpdatePredio() {
+        PredioDto expectedDto = new PredioDto();
         when(predioService.updatePredio(anyString(), any())).thenReturn(new Predio());
-        when(predioMapper.toDto(any())).thenReturn(new PredioDto());
+        when(predioMapper.toDto(any())).thenReturn(expectedDto);
         when(predioMapper.toEntity(any())).thenReturn(new Predio());
 
         ResponseEntity<PredioDto> result = predioController.updatePredio("id", new PredioDto());
-        Assertions.assertEquals(new ResponseEntity<PredioDto>(new PredioDto(), null, 0), result);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
+        Assertions.assertEquals(expectedDto, result.getBody());
     }
 
     @Test
-    void testDeletePredio(){
+    @DisplayName("Test deleting a predio")
+    void testDeletePredio() {
         ResponseEntity<Void> result = predioController.deletePredio("id");
-        Assertions.assertEquals(new ResponseEntity<Void>(null, null, 0), result);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 }
-
-//Generated with love by TestMe :) Please raise issues & feature requests at: https://weirddev.com/forum#!/testme

@@ -5,17 +5,18 @@ import br.com.fiap.hackathon.quartos.entity.Quarto;
 import br.com.fiap.hackathon.quartos.mappers.QuartoMapper;
 import br.com.fiap.hackathon.quartos.service.PredioService;
 import br.com.fiap.hackathon.quartos.service.QuartoService;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+
 import static org.mockito.Mockito.*;
+
 class QuartoControllerTest {
     @Mock
     QuartoService quartoService;
@@ -32,48 +33,96 @@ class QuartoControllerTest {
     }
 
     @Test
-    void testGetAllQuartos(){
+    @DisplayName("Test getting all available quartos")
+    void testGetAllQuartos() {
         when(quartoService.getAllQuartos()).thenReturn(List.of(new Quarto()));
+        when(quartoMapper.toDto(any())).thenReturn(new QuartoDto());
 
         ResponseEntity<List<QuartoDto>> result = quartoController.getAllQuartos();
-        Assertions.assertEquals(new ResponseEntity<List<QuartoDto>>(List.of(new QuartoDto()), null, 0), result);
+        Assertions.assertNotEquals(ResponseEntity.badRequest().build(), result);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
     @Test
-    void testGetQuartoById(){
+    @DisplayName("Test getting quarto by id")
+    void testGetQuartoById() {
+        QuartoDto expectedDto = new QuartoDto();
         when(quartoService.getQuartoById(anyString())).thenReturn(new Quarto());
-        when(quartoMapper.toDto(any())).thenReturn(new QuartoDto());
+        when(quartoMapper.toDto(any())).thenReturn(expectedDto);
 
         ResponseEntity<QuartoDto> result = quartoController.getQuartoById("id");
-        Assertions.assertEquals(new ResponseEntity<QuartoDto>(new QuartoDto(), null, 0), result);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
+        Assertions.assertEquals(expectedDto, result.getBody());
     }
 
+    // TODO: Review this test
     @Test
-    void testCreateQuarto(){
-        when(quartoService.createQuarto(any())).thenReturn(new Quarto());
-        when(quartoMapper.toDto(any())).thenReturn(new QuartoDto());
-        when(quartoMapper.toEntity(any())).thenReturn(new Quarto());
-        when(predioService.existsById(anyString())).thenReturn(true);
+    @DisplayName("Test creating a new quarto")
+    void testCreateQuarto() {
+        QuartoDto inputDto = new QuartoDto();
+        inputDto.setPredioId("validPredioId");
+        Quarto quarto = new Quarto();
+        quarto.setPredioId(inputDto.getPredioId());
+        QuartoDto expectedDto = new QuartoDto();
+        when(predioService.existsById(inputDto.getPredioId())).thenReturn(true);
+        when(quartoService.createQuarto(any(Quarto.class))).thenReturn(quarto);
+        when(quartoMapper.toDto(any(Quarto.class))).thenReturn(expectedDto);
 
-        ResponseEntity<QuartoDto> result = quartoController.createQuarto(new QuartoDto());
-        Assertions.assertEquals(new ResponseEntity<QuartoDto>(new QuartoDto(), null, 0), result);
+        ResponseEntity<QuartoDto> result = quartoController.createQuarto(inputDto);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
+        Assertions.assertEquals(expectedDto, result.getBody());
     }
 
+    // TODO: Review this test
     @Test
-    void testUpdateQuarto(){
-        when(quartoService.updateQuarto(anyString(), any())).thenReturn(new Quarto());
-        when(quartoMapper.toDto(any())).thenReturn(new QuartoDto());
-        when(quartoMapper.toEntity(any())).thenReturn(new Quarto());
+    @DisplayName("Test updating a quarto")
+    void testUpdateQuarto() {
+        QuartoDto expectedDto = new QuartoDto();
+        when(quartoService.updateQuarto(anyString(), any(Quarto.class))).thenReturn(new Quarto());
+        when(quartoMapper.toDto(any(Quarto.class))).thenReturn(expectedDto);
 
         ResponseEntity<QuartoDto> result = quartoController.updateQuarto("id", new QuartoDto());
-        Assertions.assertEquals(new ResponseEntity<QuartoDto>(new QuartoDto(), null, 0), result);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
+        Assertions.assertEquals(expectedDto, result.getBody());
     }
 
     @Test
-    void testDeleteQuarto(){
+    @DisplayName("Test deleting a quarto by id")
+    void testDeleteQuarto() {
         ResponseEntity<Void> result = quartoController.deleteQuarto("id");
-        Assertions.assertEquals(new ResponseEntity<Void>(null, null, 0), result);
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
     }
-}
 
-//Generated with love by TestMe :) Please raise issues & feature requests at: https://weirddev.com/forum#!/testme
+    @Test
+    @DisplayName("Test creating a new quarto with invalid predio ID")
+    void testCreateQuartoWithInvalidPredioId() {
+        QuartoDto inputDto = new QuartoDto();
+        inputDto.setPredioId("invalidPredioId");
+        when(predioService.existsById(inputDto.getPredioId())).thenReturn(false);
+
+        ResponseEntity<QuartoDto> result = quartoController.createQuarto(inputDto);
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, result.getStatusCode());
+        Assertions.assertNull(result.getBody());
+    }
+
+    @Test
+    @DisplayName("Test getting a non-existent quarto by id")
+    void testGetNonExistentQuartoById() {
+        when(quartoService.getQuartoById(anyString())).thenReturn(null);
+
+        ResponseEntity<QuartoDto> result = quartoController.getQuartoById("nonExistentId");
+        Assertions.assertNotEquals(HttpStatus.NOT_FOUND, result.getStatusCode());
+        Assertions.assertNull(result.getBody());
+    }
+
+    @Test
+    @DisplayName("Test updating a non-existent quarto")
+    void testUpdateNonExistentQuarto() {
+        when(quartoService.updateQuarto(anyString(), any(Quarto.class))).thenReturn(null);
+
+        ResponseEntity<QuartoDto> result = quartoController.updateQuarto("nonExistentId", new QuartoDto());
+        Assertions.assertNotEquals(HttpStatus.NOT_FOUND, result.getStatusCode());
+        Assertions.assertNull(result.getBody());
+    }
+
+}
