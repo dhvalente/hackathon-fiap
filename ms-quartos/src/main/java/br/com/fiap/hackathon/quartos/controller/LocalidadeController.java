@@ -12,6 +12,10 @@ import br.com.fiap.hackathon.quartos.mappers.QuartoMapper;
 import br.com.fiap.hackathon.quartos.service.LocalidadeService;
 import br.com.fiap.hackathon.quartos.service.PredioService;
 import br.com.fiap.hackathon.quartos.service.QuartoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Objects;
@@ -46,6 +50,14 @@ public class LocalidadeController {
   }
 
   @GetMapping
+  @Operation(
+      summary = "Lista todas as localidades",
+      responses = {
+        @ApiResponse(
+            description = "Sucesso",
+            responseCode = "200",
+            content = @Content(schema = @Schema(implementation = LocalidadeDto.class)))
+      })
   public ResponseEntity<List<LocalidadeDto>> getAllLocalidades() {
     return ResponseEntity.ok(
         localidadeService.getAllLocalidades().stream()
@@ -65,11 +77,28 @@ public class LocalidadeController {
   }
 
   @GetMapping("/{id}")
+  @Operation(
+      summary = "Busca uma localidade pelo ID",
+      responses = {
+        @ApiResponse(
+            description = "Sucesso",
+            responseCode = "200",
+            content = @Content(schema = @Schema(implementation = LocalidadeDto.class))),
+        @ApiResponse(description = "Não encontrado", responseCode = "404")
+      })
   public ResponseEntity<LocalidadeDto> getLocalidadeById(@PathVariable String id) {
     return ResponseEntity.ok(localidadeMapper.toDto(localidadeService.getLocalidadeById(id)));
   }
 
   @PostMapping
+  @Operation(
+      summary = "Cria uma nova localidade",
+      responses = {
+        @ApiResponse(
+            description = "Criado",
+            responseCode = "201",
+            content = @Content(schema = @Schema(implementation = LocalidadeDto.class)))
+      })
   public ResponseEntity<LocalidadeDto> createLocalidade(
       @RequestBody @Valid LocalidadeDto localidadeDto) {
     Localidade localidade = localidadeMapper.toEntity(localidadeDto);
@@ -89,6 +118,15 @@ public class LocalidadeController {
   }
 
   @PutMapping("/{id}")
+  @Operation(
+      summary = "Atualiza uma localidade existente",
+      responses = {
+        @ApiResponse(
+            description = "Sucesso",
+            responseCode = "200",
+            content = @Content(schema = @Schema(implementation = LocalidadeDto.class))),
+        @ApiResponse(description = "Não encontrado", responseCode = "404")
+      })
   public ResponseEntity<LocalidadeDto> updateLocalidade(
       @PathVariable String id, @RequestBody LocalidadeDto localidadeDto) {
     Localidade localidade = localidadeMapper.toEntity(localidadeDto);
@@ -108,6 +146,12 @@ public class LocalidadeController {
   }
 
   @DeleteMapping("/{id}")
+  @Operation(
+      summary = "Deleta uma localidade",
+      responses = {
+        @ApiResponse(description = "Sucesso", responseCode = "200"),
+        @ApiResponse(description = "Não encontrado", responseCode = "404")
+      })
   public ResponseEntity<Void> deleteLocalidade(@PathVariable String id) {
     localidadeService.deleteLocalidade(id);
     return ResponseEntity.ok().build();

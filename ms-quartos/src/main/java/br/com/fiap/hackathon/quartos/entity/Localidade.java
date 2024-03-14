@@ -1,6 +1,8 @@
 package br.com.fiap.hackathon.quartos.entity;
 
 import br.com.fiap.hackathon.quartos.enums.Amenidade;
+
+import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -17,5 +19,5 @@ public class Localidade {
 
   private List<Amenidade> amenidades;
 
-  @DBRef private List<Predio> predios;
+  @DBRef private List<Predio> predios = new ArrayList<>();
 }
