@@ -36,19 +36,17 @@ class ClienteControllerTest {
     public void testCreatePost() {
         ClienteRecord clienteRecordMock = mock(ClienteRecord.class);
 
-        // Definindo comportamento esperado
         when(clienteRecordMock.nome()).thenReturn("Fulano");
         when(clienteRecordMock.sobrenome()).thenReturn("Silva");
         when(clienteRecordMock.cpf()).thenReturn("12345678900");
         when(clienteRecordMock.passaporte()).thenReturn("ABC123");
         when(clienteRecordMock.dataDeAniversario()).thenReturn(LocalDate.of(1990, 1, 1));
         when(clienteRecordMock.genero()).thenReturn(Generos.MASCULINO);
-        when(clienteRecordMock.endereco()).thenReturn(new Endereco(/* Preencha os campos do Endereco conforme necessário */));
+        when(clienteRecordMock.endereco()).thenReturn(new Endereco(1L,"Rua das Flores", "123", "São Paulo", "Centro", "SP", "01234-567"));
         when(clienteRecordMock.paisDeOrigem()).thenReturn("Brasil");
         when(clienteRecordMock.email()).thenReturn("fulano@example.com");
         when(clienteRecordMock.telefone()).thenReturn("123456789");
 
-        // Teste
         assertEquals("Fulano", clienteRecordMock.nome());
         assertEquals("Silva", clienteRecordMock.sobrenome());
         assertEquals("12345678900", clienteRecordMock.cpf());
@@ -59,10 +57,8 @@ class ClienteControllerTest {
         Cliente cliente = new Cliente(/* mock com os campos preenchidos */);
         when(clienteService.criarCliente(clienteRecordMock)).thenReturn(cliente);
 
-        // Testing
         ResponseEntity<Cliente> response = clienteController.createPost(clienteRecordMock);
 
-        // Verification
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(cliente, response.getBody());
     }
@@ -79,6 +75,39 @@ class ClienteControllerTest {
         // Verification
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(page, response.getBody());
+    }
+
+    @Test
+    public void testFindById() {
+
+        Cliente clienteMock = new Cliente();
+        clienteMock.setId(1L);
+        clienteMock.setNome("Teste Cliente");
+
+        when(clienteService.obterClientePorId(1L)).thenReturn(clienteMock);
+
+        ResponseEntity<Cliente> response = clienteController.findById(1L);
+
+        assertEquals(200, response.getStatusCodeValue());
+
+        Cliente clienteRetornado = response.getBody();
+        assertEquals(1L, clienteRetornado.getId());
+        assertEquals("Teste Cliente", clienteRetornado.getNome());
+    }
+
+    @Test
+    public void testExcluir() {
+        // Configurando o comportamento do clienteService para não fazer nada (void method)
+        doNothing().when(clienteService).excluirCliente(1L);
+
+        // Chamando o método excluir do controller
+        ResponseEntity<Void> response = clienteController.excluir(1L);
+
+        // Verificando o status da resposta
+        assertEquals(204, response.getStatusCodeValue());
+
+        // Verificando se o método excluirCliente do serviço foi chamado corretamente
+        verify(clienteService).excluirCliente(1L);
     }
 
 }
