@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "cd2a6397-4726-4b87-a49b-ad8f6fc18bf1",
+		"name": "ms-servicos-opcionais",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30959640"
+	},
+	"item": [
+		{
+			"name": "cadastro de serviços",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"nome\":\"Massagem\",\r\n    \"valor\":\"250.00\",\r\n\t\"tipo\":\"SERVICO\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/servicos-opcionais",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"servicos-opcionais"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastro de itens",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"nome\":\"Cerveja\",\r\n    \"valor\":\"5.00\",\r\n\t\"tipo\":\"ITEM\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/servicos-opcionais",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"servicos-opcionais"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar todos serviços e opcionais",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/servicos-opcionais?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"servicos-opcionais"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "atualizar servicos e opcionais",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Chocolate\",\r\n    \"valor\": \"3.0\",\r\n    \"tipo\": \"ITEM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/servicos-opcionais/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"servicos-opcionais",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excluir serviços e opcionais",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/servicos-opcionais/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"servicos-opcionais",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selecionar por id um serviço ou opcionais ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/servicos-opcionais/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"servicos-opcionais",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selecionar por nome de serviço ou opcionais",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/servicos-opcionais/nome?nome=Chocolate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"servicos-opcionais",
+						"nome"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "Chocolate"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
