@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ms-usuarios:
+    container_name: ms-servicos
+    image: postgres:9.4
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: dbServicos
+    ports:
+      - 5432:5432
