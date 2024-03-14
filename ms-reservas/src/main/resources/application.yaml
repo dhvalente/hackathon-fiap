@@ -8,3 +8,7 @@ spring:
     port: 5672
     username: guest
     password: guest
+  rabbitmq-channel:
+    exchangeName: evento.direct
+    queueName: notificacao.email
+    routingKey: notificacao.email
