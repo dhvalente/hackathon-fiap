@@ -40,10 +40,7 @@ public class ClienteServiceImpl implements ClienteService {
                     .genero(clienteRecord.genero())
                     .endereco(clienteRecord.endereco())
                     .paisDeOrigem(clienteRecord.paisDeOrigem())
-                    .nivel(clienteRecord.nivel())
                     .email(clienteRecord.email())
-                    .usuario(clienteRecord.usuario())
-                    .senha(clienteRecord.senha())
                     .telefone(clienteRecord.telefone())
                     .build();
             return clienteRepository.save(cliente);
@@ -69,10 +66,7 @@ public class ClienteServiceImpl implements ClienteService {
                             cliente.getGenero(),
                             cliente.getEndereco(),
                             cliente.getPaisDeOrigem(),
-                            cliente.getNivel(),
                             cliente.getEmail(),
-                            cliente.getUsuario(),
-                            cliente.getSenha(),
                             cliente.getTelefone()))
                     .toList());
         } catch (Exception e) {
@@ -117,7 +111,7 @@ public class ClienteServiceImpl implements ClienteService {
         try {
             obterClientePorId(id);
             clienteRepository.deleteById(id);
-        } catch (Exception e) {
+        } catch (DatabaseException e) {
             throw new DatabaseException(e.getMessage());
         } finally {
             log.info("FINAL - [Cliente] - delete - PARAMETER[{}}]", id);
