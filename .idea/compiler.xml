@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ms-reservas" />
         <module name="quartos" />
+        <module name="ms-servicos" />
         <module name="ms-notificacao" />
         <module name="ms-costumer" />
         <module name="commons" />
@@ -25,6 +26,7 @@
       <module name="ms-costumer" options="-parameters" />
       <module name="ms-notificacao" options="-parameters" />
       <module name="ms-reservas" options="-parameters" />
+      <module name="ms-servicos" options="-parameters" />
       <module name="quartos" options="-parameters" />
     </option>
   </component>
