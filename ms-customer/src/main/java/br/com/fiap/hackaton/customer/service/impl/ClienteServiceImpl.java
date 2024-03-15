@@ -121,7 +121,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     private void validaPaisDeOrigem(ClienteRecord clienteRecord) {
-        if (!clienteRecord.paisDeOrigem().equalsIgnoreCase("brasil")) {
+        if (!clienteRecord.paisDeOrigem().equalsIgnoreCase("brasil") && clienteRecord.passaporte() == null) {
             throw new PassaparteObrigatorioException();
         }
     }
