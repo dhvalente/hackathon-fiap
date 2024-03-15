@@ -60,9 +60,8 @@
     "Spring Boot.CustomerApplication.executor": "Run",
     "Spring Boot.MsQuartosApplication.executor": "Run",
     "Spring Boot.MsServicosApplication.executor": "Run",
-    "git-widget-placeholder": "ms-servicos",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DIOGO/Desktop/Development/REPOSITORY/BFF/HACKATHON/hackathon-fiap",
+    "last_opened_file_path": "/Users/mathsena/Desktop/fiap-hack/hackathon-fiap/ms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -75,6 +74,16 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.fiap.hackaton.ms.reservas.domain" />
+      <recent name="br.com.fiap.hackaton.ms.reservas.service" />
+      <recent name="br.com.fiap.hackaton.ms.reservas.controller" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -84,7 +93,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CustomerApplication">
+  <component name="RunManager" selected="Spring Boot.Application (1)">
     <configuration name="ClienteApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-costumer" />
       <extension name="coverage">
@@ -205,7 +214,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-5f3ff201" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
       </set>
     </attachedChunks>
   </component>
@@ -222,6 +232,7 @@
       <workItem from="1710460096526" duration="4193000" />
       <workItem from="1710464309770" duration="34000" />
       <workItem from="1710464351729" duration="233000" />
+      <workItem from="1710542334247" duration="520000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção do security">
       <option name="closed" value="true" />

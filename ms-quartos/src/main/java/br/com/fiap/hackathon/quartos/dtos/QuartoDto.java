@@ -24,7 +24,7 @@ public class QuartoDto {
       value = "0.0",
       inclusive = false,
       message = "O valor da diária deve ser maior que zero")
-  private BigDecimal valorDiaria;
+  private double valorDiaria;
 
   @NotEmpty(message = "A lista de móveis não pode estar vazia")
   private List<Movel> moveis;
