@@ -1,5 +1,6 @@
 package br.com.fiap.hackathon.quartos.controller;
 
+import br.com.fiap.hackathon.quartos.Exception.GenericException;
 import br.com.fiap.hackathon.quartos.dtos.LocalidadeDto;
 import br.com.fiap.hackathon.quartos.dtos.PredioDto;
 import br.com.fiap.hackathon.quartos.dtos.QuartoDto;
@@ -87,6 +88,9 @@ public class LocalidadeController {
         @ApiResponse(description = "Não encontrado", responseCode = "404")
       })
   public ResponseEntity<LocalidadeDto> getLocalidadeById(@PathVariable String id) {
+    if(!localidadeService.existsById(id)){
+      throw new GenericException("Não existe uma localidade cadastrada com esse ID: " + id + "! não é possível continuar!");
+    }
     return ResponseEntity.ok(localidadeMapper.toDto(localidadeService.getLocalidadeById(id)));
   }
 
@@ -101,19 +105,31 @@ public class LocalidadeController {
       })
   public ResponseEntity<LocalidadeDto> createLocalidade(
       @RequestBody @Valid LocalidadeDto localidadeDto) {
+
+    if(localidadeService.existsById(localidadeDto.getId())){
+      throw new GenericException("Já existe uma localidade cadastrada com esse ID: " + localidadeDto.getId() + "! não é possível continuar!");
+    }
+
     Localidade localidade = localidadeMapper.toEntity(localidadeDto);
-    localidade = localidadeService.createLocalidade(localidade);
 
     for (PredioDto predioDto : localidadeDto.getPredios()) {
       Predio predio = predioMapper.toEntity(predioDto);
-      predio = predioService.createPredio(predio);
+      if (predioService.existsById(predioDto.getId())) {
+        throw new GenericException("O prédio com ID " + predioDto.getId() + " já está cadastrado!");
+      } else {
+        predio = predioService.createPredio(predio);
+      }
 
       for (QuartoDto quartoDto : predioDto.getQuartos()) {
         Quarto quarto = quartoMapper.toEntity(quartoDto);
-        quartoService.createQuarto(quarto);
+        if (quartoService.existsById(quartoDto.getId())) {
+          throw new GenericException("O quarto com ID " + quartoDto.getId() + " já está cadastrado!");
+        } else {
+          quarto =  quartoService.createQuarto(quarto);
+        }
       }
     }
-
+    localidade = localidadeService.createLocalidade(localidade);
     return ResponseEntity.ok(localidadeMapper.toDto(localidade));
   }
 
@@ -129,16 +145,30 @@ public class LocalidadeController {
       })
   public ResponseEntity<LocalidadeDto> updateLocalidade(
       @PathVariable String id, @RequestBody LocalidadeDto localidadeDto) {
+
+    if(!localidadeService.existsById(id)){
+      throw new GenericException("Não existe uma localidade cadastrada com esse ID: " + id + "! não é possível continuar!");
+    }
+
     Localidade localidade = localidadeMapper.toEntity(localidadeDto);
     localidade = localidadeService.updateLocalidade(id, localidade);
 
     for (PredioDto predioDto : localidadeDto.getPredios()) {
       Predio predio = predioMapper.toEntity(predioDto);
-      predio = predioService.updatePredio(predioDto.getId(), predio);
+      if (!predioService.existsById(predioDto.getId())) {
+        throw new GenericException("Não existe o prédio com ID " + predioDto.getId());
+      } else {
+        predio = predioService.updatePredio(predioDto.getId(), predio);
+      }
 
       for (QuartoDto quartoDto : predioDto.getQuartos()) {
         Quarto quarto = quartoMapper.toEntity(quartoDto);
-        quartoService.updateQuarto(quartoDto.getId(), quarto);
+        if (!quartoService.existsById(quartoDto.getId())) {
+          throw new GenericException("Não existe o quarto com ID " + quartoDto.getId());
+        } else {
+          quartoService.updateQuarto(quartoDto.getId(), quarto);
+        }
+
       }
     }
 
@@ -153,6 +183,9 @@ public class LocalidadeController {
         @ApiResponse(description = "Não encontrado", responseCode = "404")
       })
   public ResponseEntity<Void> deleteLocalidade(@PathVariable String id) {
+    if(!localidadeService.existsById(id)){
+      throw new GenericException("Não existe uma localidade cadastrada com esse ID: " + id + "! não é possível continuar!");
+    }
     localidadeService.deleteLocalidade(id);
     return ResponseEntity.ok().build();
   }

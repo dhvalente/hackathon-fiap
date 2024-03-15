@@ -69,4 +69,10 @@ public class QuartoService {
       throw new RuntimeException("Quarto não encontrado para o ID: " + id);
     }
   }
+
+  public boolean existsById(String quartoId) {
+    boolean exists = quartoRepository.existsById(quartoId);
+    log.info("Verificando existência do quarto com ID: {}. Existe? {}", quartoId, exists);
+    return exists;
+  }
 }

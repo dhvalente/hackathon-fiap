@@ -13,7 +13,7 @@ public class QuartoDto {
   @Schema(description = "Identificador único do quarto", example = "1", required = true)
   private String id;
 
-  @Schema(description = "Tipo do quarto", example = "SINGLE", required = true)
+  @Schema(description = "Tipo do quarto", example = "STANDARD_SIMPLES", required = true)
   @NotNull(message = "O tipo do quarto não pode ser nulo")
   private TipoQuarto tipo;
 
