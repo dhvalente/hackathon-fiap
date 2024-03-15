@@ -1,0 +1,16 @@
+package br.com.fiap.hackaton.ms.notificacao.domain.dto;
+
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+@Builder
+public class NotificacaoDto {
+
+    private String titulo;
+    private List<String> destinatarios;
+    private String mensagem;
+
+}

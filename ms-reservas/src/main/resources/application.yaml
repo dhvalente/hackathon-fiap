@@ -9,6 +9,6 @@ spring:
     username: guest
     password: guest
   rabbitmq-channel:
-    exchangeName: evento.direct
-    queueName: notificacao.email
+    exchangeName: evento.topic
+    queueName: notificacao
     routingKey: notificacao.email

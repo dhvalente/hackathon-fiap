@@ -1,17 +1,16 @@
 version: "3.2"
 services:
   rabbitmq:
-    image: rabbitmq:3-management-alpine
+    image: rabbitmq:3-management
     container_name: 'rabbitmq'
     ports:
         - 5672:5672
         - 15672:15672
+        - 15692:15692
     volumes:
-        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+      - ./rabbitmq_definitions.json:/etc/rabbitmq/definitions.json
     networks:
         - rabbitmq_hackaton_fiap
-
 networks:
   rabbitmq_hackaton_fiap:
     driver: bridge

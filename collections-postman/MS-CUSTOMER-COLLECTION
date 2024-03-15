@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "513557de-631f-4fd4-8d0e-2acf9859fea1",
+		"name": "Hackathon Fiap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29520919"
+	},
+	"item": [
+		{
+			"name": "Criar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"João\",\r\n  \"sobrenome\": \"da Silva\",\r\n  \"cpf\": \"123.456.789-00\",\r\n  \"passaporte\": \"ABC123\",\r\n  \"dataDeAniversario\": \"1990-01-01\",\r\n  \"genero\": \"MASCULINO\",\r\n  \"endereco\": {\r\n    \"rua\": \"Rua das Flores\",\r\n    \"numero\": 123,\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"paisDeOrigem\": \"Brasil\",\r\n  \"nivel\": \"USER\",\r\n  \"email\": \"joao@example.com\",\r\n  \"usuario\": \"joaosilva\",\r\n  \"senha\": \"senha123\",\r\n  \"telefone\": \"(11) 91234-5678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/clientes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"clientes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/clientes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"clientes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"João\",\r\n  \"sobrenome\": \"da Silva\",\r\n  \"cpf\": \"123.456.789-00\",\r\n  \"passaporte\": \"ABC123\",\r\n  \"dataDeAniversario\": \"1990-01-01\",\r\n  \"genero\": \"FEMININO\",\r\n  \"endereco\": {\r\n    \"rua\": \"Rua das Flores\",\r\n    \"numero\": 123,\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"paisDeOrigem\": \"Brasil\",\r\n  \"nivel\": \"USER\",\r\n  \"email\": \"joao@example.com\",\r\n  \"usuario\": \"joaosilva\",\r\n  \"senha\": \"senha123\",\r\n  \"telefone\": \"(11) 91234-5678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/clientes/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"clientes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
