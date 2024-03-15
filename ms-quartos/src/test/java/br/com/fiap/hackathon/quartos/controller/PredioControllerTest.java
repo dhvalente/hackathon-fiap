@@ -1,6 +1,7 @@
 package br.com.fiap.hackathon.quartos.controller;
 
 import br.com.fiap.hackathon.quartos.dtos.PredioDto;
+import br.com.fiap.hackathon.quartos.entity.Localidade;
 import br.com.fiap.hackathon.quartos.entity.Predio;
 import br.com.fiap.hackathon.quartos.mappers.PredioMapper;
 import br.com.fiap.hackathon.quartos.service.LocalidadeService;
@@ -12,8 +13,10 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class PredioControllerTest {
@@ -32,59 +35,93 @@ class PredioControllerTest {
     }
 
     @Test
-    @DisplayName("Test getting all predios")
     void testGetAllPredios() {
-        when(predioService.getAllPredios()).thenReturn(List.of(new Predio()));
-        when(predioMapper.toDto(any())).thenReturn(new PredioDto());
+        List<Predio> predios = new ArrayList<>();
+        Predio predio = new Predio();
+        predios.add(predio);
 
-        ResponseEntity<List<PredioDto>> result = predioController.getAllPredios();
-        Assertions.assertNotEquals(ResponseEntity.status(HttpStatus.BAD_REQUEST).body(List.of(new PredioDto())), result);
-        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
+        List<PredioDto> prediosDto = new ArrayList<>();
+        PredioDto predioDto = new PredioDto();
+        prediosDto.add(predioDto);
+
+        when(predioService.getAllPredios()).thenReturn(predios);
+        when(predioMapper.toDto(predio)).thenReturn(predioDto);
+
+        ResponseEntity<List<PredioDto>> response = predioController.getAllPredios();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(prediosDto, response.getBody());
     }
 
     @Test
-    @DisplayName("Test getting predio by id")
     void testGetPredioById() {
-        PredioDto expectedDto = new PredioDto();
-        when(predioService.getPredioById(anyString())).thenReturn(new Predio());
-        when(predioMapper.toDto(any())).thenReturn(expectedDto);
+        String id = "1";
+        Predio predio = new Predio();
+        predio.setId(id);
 
-        ResponseEntity<PredioDto> result = predioController.getPredioById("id");
-        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
-        Assertions.assertEquals(expectedDto, result.getBody());
+        PredioDto predioDto = new PredioDto();
+        predioDto.setId(id);
+
+        when(predioService.existsById(id)).thenReturn(true);
+        when(predioService.getPredioById(id)).thenReturn(predio);
+        when(predioMapper.toDto(predio)).thenReturn(predioDto);
+
+        ResponseEntity<PredioDto> response = predioController.getPredioById(id);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(predioDto, response.getBody());
     }
 
     @Test
-    @DisplayName("Test creating a predio")
     void testCreatePredio() {
-        PredioDto expectedDto = new PredioDto();
-        when(predioService.createPredio(any())).thenReturn(new Predio());
-        when(predioMapper.toDto(any())).thenReturn(expectedDto);
-        when(predioMapper.toEntity(any())).thenReturn(new Predio());
-        when(localidadeService.existsById(anyString())).thenReturn(true);
+        // Mock de entrada
+        PredioDto predioDto = new PredioDto();
 
-        ResponseEntity<PredioDto> result = predioController.createPredio(new PredioDto());
-        Assertions.assertNotEquals(HttpStatus.OK, result.getStatusCode());
-        Assertions.assertNotEquals(expectedDto, result.getBody());
+        Localidade localidade = new Localidade();
+
+        Predio predio = new Predio();
+
+        when(localidadeService.existsById(any())).thenReturn(true);
+        when(predioService.existsById(any())).thenReturn(false);
+        when(localidadeService.getLocalidadeById(any())).thenReturn(localidade);
+        when(predioMapper.toEntity(predioDto)).thenReturn(predio);
+        when(predioService.createPredio(predio)).thenReturn(predio);
+        when(predioMapper.toDto(predio)).thenReturn(predioDto);
+
+        ResponseEntity<PredioDto> response = predioController.createPredio(predioDto);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(predioDto, response.getBody());
     }
 
     @Test
-    @DisplayName("Test updating a predio")
     void testUpdatePredio() {
-        PredioDto expectedDto = new PredioDto();
-        when(predioService.updatePredio(anyString(), any())).thenReturn(new Predio());
-        when(predioMapper.toDto(any())).thenReturn(expectedDto);
-        when(predioMapper.toEntity(any())).thenReturn(new Predio());
+        String id = "1";
+        PredioDto predioDto = new PredioDto();
+        predioDto.setId(id);
 
-        ResponseEntity<PredioDto> result = predioController.updatePredio("id", new PredioDto());
-        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
-        Assertions.assertEquals(expectedDto, result.getBody());
+        Predio predio = new Predio();
+        predio.setId(id);
+
+        when(predioService.existsById(id)).thenReturn(true);
+        when(predioMapper.toEntity(predioDto)).thenReturn(predio);
+        when(predioService.updatePredio(id, predio)).thenReturn(predio);
+        when(predioMapper.toDto(predio)).thenReturn(predioDto);
+
+        ResponseEntity<PredioDto> response = predioController.updatePredio(id, predioDto);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(predioDto, response.getBody());
     }
 
     @Test
-    @DisplayName("Test deleting a predio")
     void testDeletePredio() {
-        ResponseEntity<Void> result = predioController.deletePredio("id");
-        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
+        String id = "1";
+
+        when(predioService.existsById(id)).thenReturn(true);
+
+        ResponseEntity<Void> response = predioController.deletePredio(id);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 }

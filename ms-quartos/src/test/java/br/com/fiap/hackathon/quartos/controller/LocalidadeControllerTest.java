@@ -1,26 +1,28 @@
 package br.com.fiap.hackathon.quartos.controller;
 
+import br.com.fiap.hackathon.quartos.Exception.GenericException;
 import br.com.fiap.hackathon.quartos.dtos.LocalidadeDto;
 import br.com.fiap.hackathon.quartos.entity.Localidade;
-import br.com.fiap.hackathon.quartos.entity.Predio;
-import br.com.fiap.hackathon.quartos.entity.Quarto;
 import br.com.fiap.hackathon.quartos.mappers.LocalidadeMapper;
 import br.com.fiap.hackathon.quartos.mappers.PredioMapper;
 import br.com.fiap.hackathon.quartos.mappers.QuartoMapper;
 import br.com.fiap.hackathon.quartos.service.LocalidadeService;
 import br.com.fiap.hackathon.quartos.service.PredioService;
 import br.com.fiap.hackathon.quartos.service.QuartoService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 class LocalidadeControllerTest {
@@ -40,59 +42,118 @@ class LocalidadeControllerTest {
   @Test
   @DisplayName("Testa a obtenção de todas as localidades")
   void testGetAllLocalidades() {
-    when(localidadeService.getAllLocalidades()).thenReturn(List.of(new Localidade()));
-    when(localidadeMapper.toDto(any())).thenReturn(new LocalidadeDto());
+    Localidade localidade = new Localidade();
+    LocalidadeDto localidadeDto = new LocalidadeDto();
 
-    ResponseEntity<List<LocalidadeDto>> result = localidadeController.getAllLocalidades();
-    Assertions.assertEquals(ResponseEntity.ok(List.of(new LocalidadeDto())), result);
+    when(localidadeService.getAllLocalidades()).thenReturn(Collections.singletonList(localidade));
+    when(localidadeMapper.toDto(localidade)).thenReturn(localidadeDto);
+
+    ResponseEntity<List<LocalidadeDto>> response = localidadeController.getAllLocalidades();
+
+    assertEquals(HttpStatus.OK, response.getStatusCode());
+    assertEquals(Collections.singletonList(localidadeDto), response.getBody());
   }
 
   @Test
   @DisplayName("Testa a obtenção de uma localidade pelo ID")
   void testGetLocalidadeById() {
-    when(localidadeService.getLocalidadeById(anyString())).thenReturn(new Localidade());
-    when(localidadeMapper.toDto(any())).thenReturn(new LocalidadeDto());
+    String id = "1";
+    Localidade localidade = new Localidade();
+    LocalidadeDto localidadeDto = new LocalidadeDto();
 
-    ResponseEntity<LocalidadeDto> result = localidadeController.getLocalidadeById("id");
-    Assertions.assertEquals(ResponseEntity.ok(new LocalidadeDto()), result);
+    when(localidadeService.existsById(id)).thenReturn(true);
+    when(localidadeService.getLocalidadeById(id)).thenReturn(localidade);
+    when(localidadeMapper.toDto(localidade)).thenReturn(localidadeDto);
+
+    ResponseEntity<LocalidadeDto> response = localidadeController.getLocalidadeById(id);
+
+    assertEquals(HttpStatus.OK, response.getStatusCode());
+    assertEquals(localidadeDto, response.getBody());
+  }
+
+  @Test
+  @DisplayName("Testa o erro de Id da localidade não encontrado")
+  void testGetLocalidadeById_NotFound() {
+    String id = "1";
+
+    when(localidadeService.existsById(id)).thenReturn(false);
+
+    GenericException exception = assertThrows(GenericException.class,
+            () -> localidadeController.getLocalidadeById(id));
+
+    assertEquals("Não existe uma localidade cadastrada com esse ID: " + id + "! não é possível continuar!",
+            exception.getMessage());
   }
 
   @Test
   @DisplayName("Testa a criação de uma localidade")
   void testCreateLocalidade() {
-    when(localidadeService.createLocalidade(any())).thenReturn(new Localidade());
-    when(localidadeMapper.toDto(any())).thenReturn(new LocalidadeDto());
-    when(localidadeMapper.toEntity(any())).thenReturn(new Localidade());
-    when(predioService.createPredio(any())).thenReturn(new Predio());
-    when(predioMapper.toEntity(any())).thenReturn(new Predio());
-    when(quartoService.createQuarto(any())).thenReturn(new Quarto());
-    when(quartoMapper.toEntity(any())).thenReturn(new Quarto());
+    LocalidadeDto localidadeDto = new LocalidadeDto();
+    localidadeDto.setId("1");
 
-    ResponseEntity<LocalidadeDto> result =
-        localidadeController.createLocalidade(new LocalidadeDto());
-    Assertions.assertEquals(ResponseEntity.ok(new LocalidadeDto()), result);
+    Localidade localidade = new Localidade();
+
+    when(localidadeService.existsById(localidadeDto.getId())).thenReturn(false);
+    when(localidadeMapper.toEntity(localidadeDto)).thenReturn(localidade);
+    when(localidadeService.createLocalidade(localidade)).thenReturn(localidade);
+    when(localidadeMapper.toDto(localidade)).thenReturn(localidadeDto);
+
+    ResponseEntity<LocalidadeDto> response = localidadeController.createLocalidade(localidadeDto);
+
+    assertEquals(HttpStatus.OK, response.getStatusCode());
+    assertEquals(localidadeDto, response.getBody());
   }
 
   @Test
   @DisplayName("Testa a atualização de uma localidade")
   void testUpdateLocalidade() {
-    when(localidadeService.updateLocalidade(anyString(), any())).thenReturn(new Localidade());
-    when(localidadeMapper.toDto(any())).thenReturn(new LocalidadeDto());
-    when(localidadeMapper.toEntity(any())).thenReturn(new Localidade());
-    when(predioService.updatePredio(anyString(), any())).thenReturn(new Predio());
-    when(predioMapper.toEntity(any())).thenReturn(new Predio());
-    when(quartoService.updateQuarto(anyString(), any())).thenReturn(new Quarto());
-    when(quartoMapper.toEntity(any())).thenReturn(new Quarto());
+    String id = "1";
+    LocalidadeDto localidadeDto = new LocalidadeDto();
+    localidadeDto.setId(id);
 
-    ResponseEntity<LocalidadeDto> result =
-        localidadeController.updateLocalidade("id", new LocalidadeDto());
-    Assertions.assertEquals(ResponseEntity.ok(new LocalidadeDto()), result);
+    Localidade localidade = new Localidade();
+    localidade.setId(id);
+
+    when(localidadeService.existsById(id)).thenReturn(true);
+    when(localidadeMapper.toEntity(localidadeDto)).thenReturn(localidade);
+    when(localidadeService.updateLocalidade(id, localidade)).thenReturn(localidade);
+    when(localidadeMapper.toDto(localidade)).thenReturn(localidadeDto);
+
+    ResponseEntity<LocalidadeDto> response = localidadeController.updateLocalidade(id, localidadeDto);
+
+    assertEquals(HttpStatus.OK, response.getStatusCode());
+    assertEquals(localidadeDto, response.getBody());
+  }
+
+  @Test
+  @DisplayName("Testa o erro de Id da localidade não encontrado no update")
+  void testUpdateLocalidade_NonExistentId() {
+    String id = "1";
+    LocalidadeDto localidadeDto = new LocalidadeDto();
+    localidadeDto.setId(id);
+
+    when(localidadeService.existsById(id)).thenReturn(false);
+
+    GenericException exception = assertThrows(GenericException.class,
+            () -> localidadeController.updateLocalidade(id, localidadeDto));
+
+    assertEquals("Não existe uma localidade cadastrada com esse ID: " + id + "! não é possível continuar!",
+            exception.getMessage());
+
+    verify(localidadeService, never()).updateLocalidade(id, new Localidade());
   }
 
   @Test
   @DisplayName("Testa a deleção de uma localidade")
   void testDeleteLocalidade() {
-    ResponseEntity<Void> result = localidadeController.deleteLocalidade("id");
-    Assertions.assertEquals(ResponseEntity.ok().build(), result);
+    String id = "1";
+
+    when(localidadeService.existsById(id)).thenReturn(true);
+
+    ResponseEntity<Void> response = localidadeController.deleteLocalidade(id);
+
+    assertEquals(HttpStatus.OK, response.getStatusCode());
+
+    verify(localidadeService, times(1)).deleteLocalidade(id);
   }
 }
