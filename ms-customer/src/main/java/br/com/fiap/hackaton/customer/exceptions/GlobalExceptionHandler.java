@@ -20,6 +20,14 @@ public class GlobalExceptionHandler {
                 new ExceptionRecord(HttpStatus.NOT_FOUND, e.getMessage())
         );
     }
+
+    @ExceptionHandler(PassaparteObrigatorioException.class)
+    public ResponseEntity<ExceptionRecord> passaparteObrigatorioException(PassaparteObrigatorioException e){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionRecord(HttpStatus.BAD_REQUEST, e.getMessage())
+        );
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ExceptionValidationRecord> handleValidationExceptions(

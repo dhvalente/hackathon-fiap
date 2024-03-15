@@ -2,6 +2,7 @@ package br.com.fiap.hackaton.customer.service.impl;
 
 import br.com.fiap.hackaton.customer.entity.Cliente;
 import br.com.fiap.hackaton.customer.exceptions.ClienteNaoEncontradoException;
+import br.com.fiap.hackaton.customer.exceptions.PassaparteObrigatorioException;
 import br.com.fiap.hackaton.customer.records.ClienteRecord;
 import br.com.fiap.hackaton.customer.repository.ClienteRepository;
 import br.com.fiap.hackaton.customer.repository.EnderecoRepository;
@@ -30,6 +31,7 @@ public class ClienteServiceImpl implements ClienteService {
     public Cliente criarCliente(ClienteRecord clienteRecord) {
         log.info("START - [Cliente] - criar");
         try {
+            validaPaisDeOrigem(clienteRecord);
             enderecoRepository.save(clienteRecord.endereco());
             Cliente cliente = Cliente.builder()
                     .nome(clienteRecord.nome())
@@ -117,4 +119,12 @@ public class ClienteServiceImpl implements ClienteService {
             log.info("FINAL - [Cliente] - delete - PARAMETER[{}}]", id);
         }
     }
+
+    private void validaPaisDeOrigem(ClienteRecord clienteRecord) {
+        if (!clienteRecord.paisDeOrigem().equalsIgnoreCase("brasil")) {
+            throw new PassaparteObrigatorioException();
+        }
+    }
 }
+
+

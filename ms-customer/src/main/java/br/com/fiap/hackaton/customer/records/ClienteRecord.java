@@ -11,7 +11,7 @@ public record ClienteRecord(
         @NotEmpty(message = "{nome.required}") String nome,
         @NotEmpty(message = "{sobrenome.required}") String sobrenome,
         @NotEmpty(message = "{cpf.required}") String cpf ,
-        @NotEmpty(message = "{passaporte.required}") String passaporte ,
+        String passaporte ,
         @NotNull(message = "{dataDeAniversario.required}") LocalDate dataDeAniversario,
         @NotNull(message = "{genero.required}") Generos genero ,
         @NotNull(message = "{endereco.required}") Endereco endereco,
