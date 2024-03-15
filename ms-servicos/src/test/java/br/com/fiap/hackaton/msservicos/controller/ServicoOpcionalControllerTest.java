@@ -77,7 +77,12 @@ public class ServicoOpcionalControllerTest {
         servicoOpcional.setValor(5d);
         servicoOpcional.setId(id);
 
-        servicoEOpcionalResponse = new ServicoOpcionalResponse(servicoOpcional);
+        servicoEOpcionalResponse = new ServicoOpcionalResponse();
+
+        servicoEOpcionalResponse.setNome("Cerveja");
+        servicoEOpcionalResponse.setTipo(TipoServicosOpcionais.ITEM);
+        servicoEOpcionalResponse.setValor(5d);
+        servicoEOpcionalResponse.setId(id);
 
 
     }

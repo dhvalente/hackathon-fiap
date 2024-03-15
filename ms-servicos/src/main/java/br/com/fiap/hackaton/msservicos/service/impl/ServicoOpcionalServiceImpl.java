@@ -30,7 +30,11 @@ public class ServicoOpcionalServiceImpl implements IServicoOpcionalService {
         Page<ServicoOpcionalResponse> dtoPage = servicosEopcionais.map(new Function<ServicoOpcional, ServicoOpcionalResponse>() {
             @Override
             public ServicoOpcionalResponse apply(ServicoOpcional entity) {
-                ServicoOpcionalResponse dto = new ServicoOpcionalResponse(entity);
+                ServicoOpcionalResponse dto = new ServicoOpcionalResponse();
+                dto.setId(entity.getId());
+                dto.setNome(entity.getNome());
+                dto.setValor(entity.getValor());
+                dto.setTipo(entity.getTipo());
 
 
                 return dto;
@@ -39,15 +43,33 @@ public class ServicoOpcionalServiceImpl implements IServicoOpcionalService {
 
         return dtoPage;
 
-        //return servicosEopcionais;
     }
 
     @Override
     public ServicoOpcionalResponse adicionar(ServicoOpcionalRequest servicoOpcionalRequest) {
 
 
-        ServicoOpcional servicoOpcional = new ServicoOpcional(servicoOpcionalRequest);
-        return new ServicoOpcionalResponse(repository.save(servicoOpcional));
+        ServicoOpcional servicoOpcional = new ServicoOpcional();
+
+        servicoOpcional.setNome(servicoOpcionalRequest.getNome());
+        servicoOpcional.setTipo(servicoOpcionalRequest.getTipo());
+        servicoOpcional.setValor(servicoOpcionalRequest.getValor());
+
+        var servicoOpcionalLocalizado = repository.save(servicoOpcional);
+
+        ServicoOpcionalResponse servicoOpcionalResponse =
+                new ServicoOpcionalResponse();
+
+        servicoOpcionalResponse.setId(servicoOpcionalLocalizado.getId());
+        servicoOpcionalResponse.setNome(servicoOpcionalLocalizado.getNome());
+        servicoOpcionalResponse.setTipo(servicoOpcionalLocalizado.getTipo());
+        servicoOpcionalResponse.setValor(servicoOpcionalLocalizado.getValor());
+
+
+        return  servicoOpcionalResponse;
+
+
+
     }
 
     @Override
@@ -60,8 +82,20 @@ public class ServicoOpcionalServiceImpl implements IServicoOpcionalService {
         servicoOpcional.setTipo(servicoOpcionalRequest.getTipo());
         servicoOpcional.setValor(servicoOpcionalRequest.getValor());
 
+        var servicoOpcionalLocalizado = repository.save(servicoOpcional);
 
-        return new ServicoOpcionalResponse(repository.save(servicoOpcional));
+        ServicoOpcionalResponse servicoOpcionalResponse =
+                new ServicoOpcionalResponse();
+
+        servicoOpcionalResponse.setId(servicoOpcionalLocalizado.getId());
+        servicoOpcionalResponse.setNome(servicoOpcionalLocalizado.getNome());
+        servicoOpcionalResponse.setTipo(servicoOpcionalLocalizado.getTipo());
+        servicoOpcionalResponse.setValor(servicoOpcionalLocalizado.getValor());
+
+
+        return  servicoOpcionalResponse;
+
+
     }
 
     @Override
@@ -79,15 +113,31 @@ public class ServicoOpcionalServiceImpl implements IServicoOpcionalService {
         ServicoOpcional servicoOpcionalLocalizado = repository.findById(id).orElseThrow(
                 () ->  new RuntimeException("Registro nao existe!"));
 
-        return new ServicoOpcionalResponse(servicoOpcionalLocalizado);
+        ServicoOpcionalResponse servicoOpcionalResponse =
+                new ServicoOpcionalResponse();
+
+        servicoOpcionalResponse.setId(servicoOpcionalLocalizado.getId());
+        servicoOpcionalResponse.setNome(servicoOpcionalLocalizado.getNome());
+        servicoOpcionalResponse.setTipo(servicoOpcionalLocalizado.getTipo());
+        servicoOpcionalResponse.setValor(servicoOpcionalLocalizado.getValor());
+
+
+        return  servicoOpcionalResponse;
     }
 
     @Override
     public List<ServicoOpcionalResponse> buscarPorNome(String nome) {
         var servicosEopcionais = repository.findByNomeLike(nome);
         List<ServicoOpcionalResponse> servicoOpcionalResponses = new ArrayList<>();
-        servicosEopcionais.forEach(sp -> servicoOpcionalResponses.add(new ServicoOpcionalResponse(sp)));
+        servicosEopcionais.forEach(sp -> servicoOpcionalResponses.add(new ServicoOpcionalResponse(
+                sp.getId(),
+                sp.getNome(),
+                sp.getValor(),
+                sp.getTipo()
+       )));
         return servicoOpcionalResponses;
     }
+
+
 
 }

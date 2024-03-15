@@ -10,6 +10,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -19,6 +29,12 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -62,7 +78,7 @@
     "Spring Boot.MsServicosApplication.executor": "Run",
     "git-widget-placeholder": "ms-servicos",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DIOGO/Desktop/Development/REPOSITORY/BFF/HACKATHON/hackathon-fiap",
+    "last_opened_file_path": "C:/FIAP_POS/fase05/final02/hackathon-fiap",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -84,65 +100,62 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CustomerApplication">
-    <configuration name="ClienteApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-costumer" />
+  <component name="RunManager" selected="JUnit.ServicoOpcionalServiceImplTest">
+    <configuration name="ServicoOpcionalControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-servicos" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.*" />
+          <option name="PATTERN" value="br.com.fiap.hackaton.msservicos.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer" />
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.ClienteApplicationTests" />
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.msservicos.controller" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.msservicos.controller.ServicoOpcionalControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteApplicationTests.applicationStarts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-costumer" />
+    <configuration name="ServicoOpcionalRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-servicos" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.*" />
+          <option name="PATTERN" value="br.com.fiap.hackaton.msservicos.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer" />
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.ClienteApplicationTests" />
-      <option name="METHOD_NAME" value="applicationStarts" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClienteServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-costumer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.service.impl.ClienteServiceImplTest" />
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.msservicos.repository" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.msservicos.repository.ServicoOpcionalRepositoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteServiceImplTest.testAtualizarCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-costumer" />
+    <configuration name="ServicoOpcionalServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-servicos" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.service.impl.*" />
+          <option name="PATTERN" value="br.com.fiap.hackaton.msservicos.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.service.impl.ClienteServiceImplTest" />
-      <option name="METHOD_NAME" value="testAtualizarCliente" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.msservicos.service" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.msservicos.service.ServicoOpcionalServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="br.com.fiap.hackaton.msservicos in ms-servicos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-servicos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.fiap.hackaton.msservicos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.msservicos" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -194,11 +207,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ServicoOpcionalServiceImplTest" />
+        <item itemvalue="JUnit.ServicoOpcionalRepositoryTest" />
+        <item itemvalue="JUnit.ServicoOpcionalControllerTest" />
+        <item itemvalue="JUnit.br.com.fiap.hackaton.msservicos in ms-servicos" />
         <item itemvalue="JUnit.java in ms-costumer" />
-        <item itemvalue="JUnit.ClienteApplicationTests" />
-        <item itemvalue="JUnit.ClienteApplicationTests.applicationStarts" />
-        <item itemvalue="JUnit.ClienteServiceImplTest" />
-        <item itemvalue="JUnit.ClienteServiceImplTest.testAtualizarCliente" />
       </list>
     </recent_temporary>
   </component>

@@ -4,9 +4,11 @@ import br.com.fiap.hackaton.msservicos.dto.ServicoOpcionalRequest;
 import br.com.fiap.hackaton.msservicos.enums.TipoServicosOpcionais;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 
 @Getter
+@Setter
 @Entity
 @Table(name="TB_SERVICO_OPCIONAL")
 public class ServicoOpcional {
@@ -32,34 +34,9 @@ public class ServicoOpcional {
 
     }
 
-    public ServicoOpcional(ServicoOpcionalRequest servicoOpcionalRequest) {
 
-        this.setNome(servicoOpcionalRequest.getNome());
-        this.setTipo(servicoOpcionalRequest.getTipo());
-        this.setValor(servicoOpcionalRequest.getValor());
 
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setTipo(TipoServicosOpcionais tipo) {
-        this.tipo = tipo;
-    }
-
-    public void setValor(double valor) {
-
-        if(Double.compare(valor, this.getTipo().getvalorMinimo()) < 0 )
-            throw new IllegalArgumentException("Valor menor que o padronizado");
-
-        this.valor = valor;
-
-    }
 
 
 }
