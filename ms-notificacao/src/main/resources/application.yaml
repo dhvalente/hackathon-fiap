@@ -3,6 +3,18 @@ server:
 spring:
   application:
     name: micro-notificacao
+  amqp:
+    deserialization:
+      trust:
+        all: true
+  mail:
+    transport:
+      protocol: smtp
+    smtp:
+      auth: true
+      starttls:
+        enable: true
+    debug: true
   rabbitmq:
     host: localhost
     port: 5672

@@ -32,7 +32,6 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Docker.ms-customer: Compose Deployment.executor": "Run",
     "Docker.ms-servicos: Compose Deployment.executor": "Run",
     "JUnit.All in ms-costumer.executor": "Run",
     "JUnit.ClienteApplicationTests.applicationStarts.executor": "Run",
@@ -76,11 +75,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="br.com.fiap.hackaton.customer.exceptions" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -137,6 +131,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClienteServiceImplTest.testAtualizarCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-costumer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.fiap.hackaton.customer.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.service.impl.ClienteServiceImplTest" />
+      <option name="METHOD_NAME" value="testAtualizarCliente" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="java in ms-costumer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-costumer" />
       <option name="TEST_OBJECT" value="directory" />
@@ -182,21 +192,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ms-customer: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="ms-customer/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.ms-customer: Compose Deployment" />
         <item itemvalue="JUnit.java in ms-costumer" />
         <item itemvalue="JUnit.ClienteApplicationTests" />
         <item itemvalue="JUnit.ClienteApplicationTests.applicationStarts" />
         <item itemvalue="JUnit.ClienteServiceImplTest" />
+        <item itemvalue="JUnit.ClienteServiceImplTest.testAtualizarCliente" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +249,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/ms-customer/src/main/java/br/com/fiap/hackaton/customer/service/impl/ClienteServiceImpl.java</url>
-          <line>92</line>
+          <line>90</line>
           <properties class="br.com.fiap.hackaton.customer.service.impl.ClienteServiceImpl" method="atualizarCliente">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
