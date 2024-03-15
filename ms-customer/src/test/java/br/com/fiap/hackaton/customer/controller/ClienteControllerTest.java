@@ -110,4 +110,58 @@ class ClienteControllerTest {
         verify(clienteService).excluirCliente(1L);
     }
 
+
+    @Test
+    public void testUpdate() {
+        // Criando um ClienteRecord com valores fictícios
+        ClienteRecord clienteRecord = new ClienteRecord(
+                "João",
+                "Silva",
+                "123.456.789-00",
+                "AB123456",
+                LocalDate.of(1990, 5, 15),
+                Generos.MASCULINO,
+                new Endereco(1L,"Rua das Flores", "123", "São Paulo", "Centro", "SP", "01234-567"),
+                "Brasil",
+                "joao@example.com",
+                "123456789"
+        );
+
+        // Mock do cliente retornado pelo serviço após a atualização
+        Cliente clienteAtualizado = new Cliente(
+                1L,
+                "João",
+                "Silva",
+                "123.456.789-00",
+                "AB123456",
+                LocalDate.of(1990, 5, 15),
+                Generos.MASCULINO,
+                new Endereco(1L,"Rua das Flores", "123", "São Paulo", "Centro", "SP", "01234-567"),
+                "Brasil",
+                "123456789",
+                "joao@example.com"
+        );
+
+        // Configurando o comportamento do clienteService
+        when(clienteService.atualizarCliente(1L, clienteRecord)).thenReturn(clienteAtualizado);
+
+        // Chamando o método update do controller
+        ResponseEntity<Cliente> response = clienteController.update(1L, clienteRecord);
+
+        // Verificando o status da resposta
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+
+        // Verificando se o cliente retornado está correto
+        Cliente clienteRetornado = response.getBody();
+        assertEquals(1L, clienteRetornado.getId());
+        assertEquals("João", clienteRetornado.getNome());
+        assertEquals("Silva", clienteRetornado.getSobrenome());
+        assertEquals("123.456.789-00", clienteRetornado.getCpf());
+        assertEquals("AB123456", clienteRetornado.getPassaporte());
+        assertEquals(LocalDate.of(1990, 5, 15), clienteRetornado.getDataDeAniversario());
+        assertEquals(Generos.MASCULINO, clienteRetornado.getGenero());
+        assertEquals("Brasil", clienteRetornado.getPaisDeOrigem());
+        assertEquals("joao@example.com", clienteRetornado.getEmail());
+        assertEquals("123456789", clienteRetornado.getTelefone());
+    }
 }

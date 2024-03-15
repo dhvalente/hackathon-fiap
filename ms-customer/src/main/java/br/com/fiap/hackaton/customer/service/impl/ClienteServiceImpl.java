@@ -94,8 +94,8 @@ public class ClienteServiceImpl implements ClienteService {
                     .orElseThrow(() -> new ClienteNaoEncontradoException(id));
 
             BeanUtils.copyProperties(clienteRecord, existeCliente, "id");
-
-            return clienteRepository.save(existeCliente);
+            clienteRepository.save(existeCliente);
+            return existeCliente;
         } catch (Exception e) {
             throw new DatabaseException(e.getMessage());
         } finally {

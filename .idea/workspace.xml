@@ -13,6 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/3.2.3/spring-data-commons-3.2.3.jar!/org/springframework/data/repository/CrudRepository.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -30,9 +33,21 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Docker.ms-servicos: Compose Deployment.executor": "Run",
+    "JUnit.All in ms-costumer.executor": "Run",
+    "JUnit.ClienteApplicationTests.applicationStarts.executor": "Run",
+    "JUnit.ClienteApplicationTests.executor": "Run",
     "JUnit.ClienteControllerTest.executor": "Run",
     "JUnit.ClienteControllerTest.testCreatePost.executor": "Run",
     "JUnit.ClienteControllerTest.testFindById.executor": "Run",
+    "JUnit.ClienteControllerTest.testUpdate.executor": "Run",
+    "JUnit.ClienteServiceImplTest.executor": "Run",
+    "JUnit.ClienteServiceImplTest.testAtualizarCliente.executor": "Debug",
+    "JUnit.ClienteServiceImplTest.testCriarCliente.executor": "Run",
+    "JUnit.ClienteServiceImplTest.testObterTodosClientes.executor": "Run",
+    "JUnit.java in ms-costumer.executor": "Run",
+    "Maven.ms-costumer [clean].executor": "Run",
+    "Maven.ms-costumer [compile].executor": "Run",
+    "Maven.ms-costumer [install].executor": "Run",
     "Maven.ms-reservas [clean].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -40,11 +55,14 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.Application (1).executor": "Run",
+    "Spring Boot.Application.executor": "Run",
     "Spring Boot.CustomerApplication.executor": "Run",
+    "Spring Boot.MsQuartosApplication.executor": "Run",
     "Spring Boot.MsServicosApplication.executor": "Run",
     "git-widget-placeholder": "ms-servicos",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DIOGO/Desktop/Development/REPOSITORY/BFF/FIAP/hackathon-fiap/ms-servicos",
+    "last_opened_file_path": "C:/Users/DIOGO/Desktop/Development/REPOSITORY/BFF/HACKATHON/hackathon-fiap",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -53,7 +71,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "preferences.customizations",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -66,50 +84,73 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MsServicosApplication">
-    <configuration name="ClienteControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.CustomerApplication">
+    <configuration name="ClienteApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-costumer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.controller.*" />
+          <option name="PATTERN" value="br.com.fiap.hackaton.customer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.controller.ClienteControllerTest" />
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.ClienteApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteControllerTest.testCreatePost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClienteApplicationTests.applicationStarts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-costumer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.controller.*" />
+          <option name="PATTERN" value="br.com.fiap.hackaton.customer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.controller.ClienteControllerTest" />
-      <option name="METHOD_NAME" value="testCreatePost" />
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.ClienteApplicationTests" />
+      <option name="METHOD_NAME" value="applicationStarts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteControllerTest.testFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClienteServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-costumer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.controller.*" />
+          <option name="PATTERN" value="br.com.fiap.hackaton.customer.service.impl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.controller" />
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.controller.ClienteControllerTest" />
-      <option name="METHOD_NAME" value="testFindById" />
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.service.impl.ClienteServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClienteServiceImplTest.testAtualizarCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-costumer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.fiap.hackaton.customer.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.service.impl.ClienteServiceImplTest" />
+      <option name="METHOD_NAME" value="testAtualizarCliente" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in ms-costumer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-costumer" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/ms-customer/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,20 +192,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ms-servicos: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="ms-servicos/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.ms-servicos: Compose Deployment" />
-        <item itemvalue="JUnit.ClienteControllerTest" />
-        <item itemvalue="JUnit.ClienteControllerTest.testFindById" />
-        <item itemvalue="JUnit.ClienteControllerTest.testCreatePost" />
+        <item itemvalue="JUnit.java in ms-costumer" />
+        <item itemvalue="JUnit.ClienteApplicationTests" />
+        <item itemvalue="JUnit.ClienteApplicationTests.applicationStarts" />
+        <item itemvalue="JUnit.ClienteServiceImplTest" />
+        <item itemvalue="JUnit.ClienteServiceImplTest.testAtualizarCliente" />
       </list>
     </recent_temporary>
   </component>
@@ -185,6 +219,9 @@
       <updated>1710455840357</updated>
       <workItem from="1710455843593" duration="2771000" />
       <workItem from="1710458628582" duration="421000" />
+      <workItem from="1710460096526" duration="4193000" />
+      <workItem from="1710464309770" duration="34000" />
+      <workItem from="1710464351729" duration="233000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção do security">
       <option name="closed" value="true" />
@@ -206,6 +243,21 @@
     </ignored-roots>
     <MESSAGE value="Remoção do security" />
     <option name="LAST_COMMIT_MESSAGE" value="Remoção do security" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/ms-customer/src/main/java/br/com/fiap/hackaton/customer/service/impl/ClienteServiceImpl.java</url>
+          <line>90</line>
+          <properties class="br.com.fiap.hackaton.customer.service.impl.ClienteServiceImpl" method="atualizarCliente">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/hackathon_fiap$ClienteControllerTest.ic" NAME="ClienteControllerTest Coverage Results" MODIFIED="1710457912495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
