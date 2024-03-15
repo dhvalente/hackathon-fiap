@@ -1,2 +1,2 @@
 - [ ]  Colocar validação em respostas 400 na criação dos quartos e retornos
-- [ ]  Ajustar Null Pointer em Get All Localidades quando se remove o prédio
+- [x]  Ajustar Null Pointer em Get All Localidades quando se remove o prédio

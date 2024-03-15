@@ -16,7 +16,7 @@ public class Quarto {
   private TipoQuarto tipo;
   private int totalPessoas;
   private int totalCamas;
-  private BigDecimal valorDiaria;
+  private Double valorDiaria;
   private List<Movel> moveis;
 
   private String predioId;

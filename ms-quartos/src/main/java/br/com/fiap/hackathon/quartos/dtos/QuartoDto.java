@@ -33,7 +33,7 @@ public class QuartoDto {
       value = "0.0",
       inclusive = false,
       message = "O valor da diária deve ser maior que zero")
-  private BigDecimal valorDiaria;
+  private Double valorDiaria;
 
   @Schema(description = "Lista de móveis disponíveis no quarto", required = true)
   @NotEmpty(message = "A lista de móveis não pode estar vazia")
