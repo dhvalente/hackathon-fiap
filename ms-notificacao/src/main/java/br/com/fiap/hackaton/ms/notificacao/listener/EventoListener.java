@@ -51,9 +51,9 @@ public class EventoListener {
     private NotificacaoDto obterDadosParaNotificacao() {
 
         return NotificacaoDto.builder()
-                .destinatarios(Arrays.asList("williankaminski.santos@gmail.com"))
-                .titulo("mock")
-                .mensagem("mock")
+                .destinatario("williankaminski.santos@gmail.com")
+                .titulo("Sua reserva esta expirando")
+                .mensagem("Olá cliente, sua reserva esta expirando.")
                 .build();
     }
 

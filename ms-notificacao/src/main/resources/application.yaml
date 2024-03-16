@@ -20,3 +20,6 @@ spring:
     port: 5672
     username: guest
     password: guest
+  notificacao:
+    from: 'mathsenajp@gmail.com'
+    pass: 'omfd mgdm saoh znwc'
