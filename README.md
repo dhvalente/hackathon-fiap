@@ -35,9 +35,122 @@ Em resumo, pensamos em uma arquitetura de microserviços para fornecer uma estru
 
 Este módulo permite a administração detalhada dos quartos disponíveis nas propriedades hoteleiras, desde a definição das localidades e prédios até a configuração de cada quarto. Permite também a gestão de Enums como TipoQuarto, Movel e Amenidade.
 
+  Comandos curls para teste em linha de comando:
+  ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
+
+    Criar Localidade
+    curl --location --request POST 'http://localhost:8082/api/v1/localidades' \
+--header 'Content-Type: application/json' \
+--data '{
+  "id": "2",
+  "nome": "Fazenda da Pós Tech",
+  "endereco": {
+    "id": 1,
+    "rua": "Rua da Pós Tech, 567",
+    "numero": "567",
+    "cidade": "Cidade da Pós Tech",
+    "bairro": "Bairro da Pós Tech",
+    "estado": "Estado da Pós Tech",
+    "cep": "01000-002"
+  },
+  "amenidades": [
+    "PISCINA_ADULTO_AQUECIDA_COBERTA",
+    "PISCINA_ADULTO_NAO_AQUECIDA_ABERTA",
+    "PISCINA_INFANTIL_AQUECIDA_COBERTA",
+    "PISCINA_INFANTIL_NAO_AQUECIDA_ABERTA",
+    "RESTAURANTE_SELF_SERVICE",
+    "RESTAURANTE_SELF_SERVICE",
+    "RESTAURANTE_A_LA_CARTE",
+    "AREA_KIDS",
+    "EQUIPE_ENTRETENIMENTO_INFANTIL",
+    "EQUIPE_ENTRETENIMENTO_ADULTO"
+  ],
+  "predios": [
+    {
+      "id": "2",
+      "nome": "Casa Principal",
+      "quartos": [
+        {
+          "id": "1",
+          "tipo": "STANDARD_SIMPLES",
+          "totalPessoas": 2,
+          "totalCamas": 1,
+          "valorDiaria": 350.00,
+          "moveis": [
+            "SOFA"
+          ],
+          "predioId": "1"
+        }
+      ],
+       "localidadeId": "1"
+    }
+  ]
+}
+
+Lstar todas Localidades
+
+curl --location --request GET 'http://localhost:8082/api/v1/localidades'
+
+Listar localidade por ID
+
+curl --location --request GET 'http://localhost:8082/api/v1/localidades/1'
+
+Alterar localidade
+
+curl --location --request PUT 'http://localhost:8082/api/v1/localidades/1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "nome": "Fazenda da Pós Tech II",
+    "endereco": {
+        "id": 1,
+        "rua": "Rua da Pós Tech, 567",
+        "numero": "567",
+        "cidade": "Cidade da Pós Tech",
+        "bairro": "Bairro da Pós Tech",
+        "estado": "Estado da Pós Tech",
+        "cep": "01000-002"
+    },
+    "amenidades": [
+        "PISCINA_ADULTO_AQUECIDA_COBERTA",
+        "PISCINA_ADULTO_NAO_AQUECIDA_ABERTA",
+        "PISCINA_INFANTIL_AQUECIDA_COBERTA",
+        "PISCINA_INFANTIL_NAO_AQUECIDA_ABERTA",
+        "RESTAURANTE_SELF_SERVICE",
+        "RESTAURANTE_SELF_SERVICE",
+        "RESTAURANTE_A_LA_CARTE",
+        "AREA_KIDS",
+        "EQUIPE_ENTRETENIMENTO_INFANTIL"
+    ],
+    "predios": [
+        {
+            "id": "P00002",
+            "nome": "Casa Principal",
+            "quartos": [
+                {
+                    "id": "Q00001",
+                    "tipo": "STANDARD_SIMPLES",
+                    "totalPessoas": 2,
+                    "totalCamas": 1,
+                    "valorDiaria": 350.00,
+                    "moveis": [
+                        "SOFA"
+                    ]
+                }
+            ]
+        }
+
+    Excluir localidade por Id
+
+    curl --location --request DELETE 'http://localhost:8082/api/v1/localidades/1'
+
 ### 2. Gestão de Serviços e Opcionais
 
 Aqui, os administradores podem gerenciar todos os serviços extras e itens opcionais oferecidos aos hóspedes, facilitando a oferta e a cobrança desses serviços aos clientes.
+
+  Comandos curls para teste em linha de comando:
+  ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
+
+  
 
 ### 3. Gestão de Clientes
 
@@ -51,6 +164,56 @@ Este microserviço é responsável pela criação de reservas em hotéis. Ele in
 * Consulta a disponibilidade dos quartos no `ms-quartos`
 * Consulta serviços opcionais no `ms-servicos`
 * Envia notificações via e-mail através do microserviço de `notificação`
+
+  Comandos curls para teste em linha de comando:
+  ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
+
+  Criar Reserva:
+  curl --location --request POST 'http://localhost:8081/api/reservas' \
+--header 'Content-Type: application/json' \
+--data '{
+    "clienteId": 1,
+    "quartoIds": [
+        "Q00001"
+    ],
+    "servicoOpcionalIds": [
+        "1"
+    ],
+    "dataEntrada": "2024-05-16",
+    "dataSaida": "2024-05-17",
+    "numeroHospedes": 2
+  }'
+
+
+Buscar todas as Reservas:
+
+curl --location --request GET 'http://localhost:8081/api/reservas'
+
+Buscar Reserva por ID
+
+curl --location --request GET 'http://localhost:8081/api/reservas/65f4fe6248c78a4bb35193ba'
+
+Excluir Reserva
+
+curl --location --request DELETE 'http://localhost:8081/api/reservas/65f4fb4e2ca4fe461a4c0b8c'
+
+Alterar Reserva
+
+curl --location --request PUT 'http://localhost:8081/api/reservas/65f57f0609122e4ecaa9d3c8' \
+--header 'Content-Type: application/json' \
+--data '{
+    "clienteId": 1,
+    "quartoIds": [
+        "Q00001"
+    ],
+    "servicoOpcionalIds": [
+        "2"
+    ],
+    "dataEntrada": "2024-06-16",
+    "dataSaida": "2024-06-20",
+    "numeroHospedes": 2
+}'
+
 
 ### 5. ms-notificacao
 
