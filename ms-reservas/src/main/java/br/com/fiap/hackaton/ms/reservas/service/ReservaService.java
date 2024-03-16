@@ -33,7 +33,7 @@ public class ReservaService {
   @Autowired private ServicoOpcionalClient servicoOpcionalClient;
   @Autowired private QuartoClient quartoClient;
   @Autowired private ReservaRepository reservaRepository;
-  private Evento eventoService;
+  @Autowired private EventoService eventoService;
 
   public Reserva createReserva(ReservaDto reservaDTO) {
     log.info("Criando reserva para o cliente: {}", reservaDTO.getClienteId());
@@ -189,6 +189,21 @@ public class ReservaService {
     Cliente cliente =
             Objects.requireNonNull(clienteClient.findClienteById(reservaDTO.getClienteId()).getBody());
 
+    Metadados metadados = new Metadados();
+    metadados.setUUID(UUID.randomUUID().toString());
+    metadados.setDataHora(LocalDateTime.now().toString());
+    metadados.setTipoEvento(TipoEventoEnum.EXPIRACAO_RESERVA);
+
+    EventoExpiracaoReserva eventoExpiracaoReserva = new EventoExpiracaoReserva();
+    eventoExpiracaoReserva.setDestinatario(cliente.getEmail());
+    eventoExpiracaoReserva.setAssunto("Reserva Expirada");
+    eventoExpiracaoReserva.setMensagem("Olá usuario, sua reserva Expirada");
+
+    Evento evento = new Evento();
+    evento.setMetadados(metadados);
+    evento.setPayload(eventoExpiracaoReserva);
+
+    eventoService.publicarEvento(evento);
 
   }
 }
