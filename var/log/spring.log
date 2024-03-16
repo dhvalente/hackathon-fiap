@@ -1435,3 +1435,24 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 2024-03-15T21:58:15.483-03:00  INFO 18948 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [INICIO] - Publicacao Evento.
 2024-03-15T21:58:15.504-03:00  INFO 18948 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [SUCESSO] - Publicacao Evento - 103cc1c4-b9ed-418f-8cb2-6269513bf99b.
 2024-03-15T21:58:15.504-03:00  INFO 18948 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [FIM] - Publicacao Evento.
+2024-03-15T22:03:46.710-03:00  INFO 20672 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15T22:03:46.919-03:00  INFO 20672 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-15T22:03:47.036-03:00  INFO 20672 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-15T22:05:04.323-03:00  INFO 18948 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [INICIO] - Publicacao Evento.
+2024-03-15T22:05:04.364-03:00  INFO 18948 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [SUCESSO] - Publicacao Evento - 5b35b1f3-7770-4966-9a2d-dc10842f43ca.
+2024-03-15T22:05:04.365-03:00  INFO 18948 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [FIM] - Publicacao Evento.
+2024-03-15T22:18:54.881-03:00  INFO 18948 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [INICIO] - Publicacao Evento.
+2024-03-15T22:18:54.918-03:00  INFO 18948 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [SUCESSO] - Publicacao Evento - 0dbd56c8-1374-470e-85e8-9a2227145843.
+2024-03-15T22:18:54.918-03:00  INFO 18948 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [FIM] - Publicacao Evento.
+2024-03-15T22:19:44.078-03:00  INFO 18948 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [INICIO] - Publicacao Evento.
+2024-03-15T22:19:44.081-03:00  INFO 18948 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [SUCESSO] - Publicacao Evento - 01a83ff6-59fa-47fd-8e66-2d4587a71d79.
+2024-03-15T22:19:44.081-03:00  INFO 18948 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [FIM] - Publicacao Evento.
+2024-03-15T22:20:40.369-03:00  INFO 18948 --- [http-nio-8081-exec-2] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [INICIO] - Publicacao Evento.
+2024-03-15T22:20:40.369-03:00  INFO 18948 --- [http-nio-8081-exec-2] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [SUCESSO] - Publicacao Evento - 7e51f52b-9bb8-4e84-bceb-77bddd5cf842.
+2024-03-15T22:20:40.375-03:00  INFO 18948 --- [http-nio-8081-exec-2] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [FIM] - Publicacao Evento.
+2024-03-15T22:28:48.638-03:00  INFO 18948 --- [http-nio-8081-exec-4] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [INICIO] - Publicacao Evento.
+2024-03-15T22:28:48.665-03:00  INFO 18948 --- [http-nio-8081-exec-4] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [SUCESSO] - Publicacao Evento - b1bb49e2-59c7-401e-8f17-5cac0c57a6a1.
+2024-03-15T22:28:48.665-03:00  INFO 18948 --- [http-nio-8081-exec-4] b.c.f.h.m.r.service.EventoService        : [RabbitMQ] - [FIM] - Publicacao Evento.
+2024-03-15T22:33:12.082-03:00  INFO 18948 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15T22:33:12.127-03:00  INFO 18948 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-15T22:33:12.430-03:00  INFO 18948 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
