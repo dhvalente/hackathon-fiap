@@ -12,9 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "quartos")
 public class Quarto {
   @Id private String id;
+
   private TipoQuarto tipo;
   private int totalPessoas;
   private int totalCamas;
-  private BigDecimal valorDiaria;
+  private Double valorDiaria;
   private List<Movel> moveis;
+
+  private String predioId;
 }
