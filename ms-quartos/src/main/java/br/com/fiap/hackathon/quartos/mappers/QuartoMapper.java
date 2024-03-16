@@ -15,6 +15,8 @@ public class QuartoMapper {
         dto.setTotalCamas(quarto.getTotalCamas());
         dto.setValorDiaria(quarto.getValorDiaria());
         dto.setMoveis(quarto.getMoveis());
+        // Adicionando o mapeamento para predioId
+        dto.setPredioId(quarto.getPredioId());
         return dto;
     }
 
@@ -26,6 +28,8 @@ public class QuartoMapper {
         quarto.setTotalCamas(dto.getTotalCamas());
         quarto.setValorDiaria(dto.getValorDiaria());
         quarto.setMoveis(dto.getMoveis());
+        // Adicionando o mapeamento para predioId
+        quarto.setPredioId(dto.getPredioId());
         return quarto;
     }
 }

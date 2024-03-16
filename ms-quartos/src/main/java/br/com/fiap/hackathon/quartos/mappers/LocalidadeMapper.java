@@ -2,6 +2,8 @@ package br.com.fiap.hackathon.quartos.mappers;
 
 import br.com.fiap.hackathon.quartos.dtos.LocalidadeDto;
 import br.com.fiap.hackathon.quartos.entity.Localidade;
+
+import java.util.Objects;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,7 +22,10 @@ public class LocalidadeMapper {
     dto.setEndereco(enderecoMapper.toDto(localidade.getEndereco()));
     dto.setAmenidades(localidade.getAmenidades());
     dto.setPredios(
-        localidade.getPredios().stream().map(predioMapper::toDto).collect(Collectors.toList()));
+        localidade.getPredios().stream()
+                .filter(Objects::nonNull)
+                .map(predioMapper::toDto)
+                .collect(Collectors.toList()));
     return dto;
   }
 
