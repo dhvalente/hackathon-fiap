@@ -25,11 +25,11 @@ public class NotificacaoEmailServiceImpl implements NotificacaoService{
             log.info("[EMAIL] - [INICIO] - Processamento Evento Notificacao Email.");
 
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom("noreply@baeldung.com");
-            message.setTo(Arrays.toString(notificacao.getDestinatarios().toArray()));
+            message.setFrom("mathsenajp@gmail.com");
+            message.setTo("???");
             message.setSubject(notificacao.getTitulo());
             message.setText(notificacao.getMensagem());
-            //javaMailSender.send(message);
+            javaMailSender.send(message);
 
             log.info("[EMAIL] - [SUCESSO] - Processamento Evento Notificacao Email.");
             return true;
