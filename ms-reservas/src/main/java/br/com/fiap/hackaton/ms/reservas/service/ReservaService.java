@@ -186,8 +186,19 @@ public class ReservaService {
 
   public void notificar(ReservaDto reservaDTO) {
     log.info("Notificando cliente da reserva: {}", reservaDTO);
-    Cliente cliente =
-            Objects.requireNonNull(clienteClient.findClienteById(reservaDTO.getClienteId()).getBody());
+    String cliente =
+       Objects.requireNonNull(clienteClient.findClienteById(reservaDTO.getClienteId())
+                       .getBody())
+               .getEmail();
+    String mensagem = String.format(
+            "Olá %s, sua reserva foi criada com sucesso! Data de entrada: %s, Data de saída: %s ",
+            Objects.requireNonNull(clienteClient.findClienteById(reservaDTO.getClienteId())
+                            .getBody())
+                    .getNome(),
+            reservaDTO.getDataEntrada().toString(),
+            reservaDTO.getDataSaida().toString()
+
+    );
 
     Metadados metadados = new Metadados();
     metadados.setUUID(UUID.randomUUID().toString());
@@ -195,9 +206,10 @@ public class ReservaService {
     metadados.setTipoEvento(TipoEventoEnum.EXPIRACAO_RESERVA);
 
     EventoExpiracaoReserva eventoExpiracaoReserva = new EventoExpiracaoReserva();
-    eventoExpiracaoReserva.setDestinatario(cliente.getEmail());
-    eventoExpiracaoReserva.setAssunto("Reserva Expirada");
-    eventoExpiracaoReserva.setMensagem("Olá usuario, sua reserva Expirada");
+    eventoExpiracaoReserva.setDestinatario(cliente);
+    eventoExpiracaoReserva.setAssunto("Reserva Criada");
+    eventoExpiracaoReserva.setMensagem(mensagem);
+    log.info("Evento de expiração de reserva criado: {}", eventoExpiracaoReserva);
 
     Evento evento = new Evento();
     evento.setMetadados(metadados);
