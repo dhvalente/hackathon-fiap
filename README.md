@@ -38,7 +38,7 @@ Este módulo permite a administração detalhada dos quartos disponíveis nas pr
    Comandos curls para teste em linha de comando:
   ** Deixar em uma unica linha de comando do seu Sistema Operacional e tirar o caracter \ de quebra de linha.
 
-  Criar Localidade
+<p>Criar Localidade</p>
   curl --location --request POST 'http://localhost:8082/api/v1/localidades' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -87,15 +87,15 @@ Este módulo permite a administração detalhada dos quartos disponíveis nas pr
   ]
 }
 
-Lstar todas Localidades
+<p>Listar todas Localidades</p>
 
 curl --location --request GET 'http://localhost:8082/api/v1/localidades'
 
-Listar localidade por ID
+<p>Listar localidade por ID</p>
 
 curl --location --request GET 'http://localhost:8082/api/v1/localidades/1'
 
-Alterar localidade
+<p>Alterar localidade</p>
 
 curl --location --request PUT 'http://localhost:8082/api/v1/localidades/1' \
 --header 'Content-Type: application/json' \
@@ -139,7 +139,7 @@ curl --location --request PUT 'http://localhost:8082/api/v1/localidades/1' \
             ]
         }
 
-    Excluir localidade por Id
+    <p>Excluir localidade por Id</p>
 
     curl --location --request DELETE 'http://localhost:8082/api/v1/localidades/1'
 
@@ -150,7 +150,7 @@ Aqui, os administradores podem gerenciar todos os serviços extras e itens opcio
   Comandos curls para teste em linha de comando:
   ** Deixar em uma unica linha de comando do seu Sistema Operacional e tirar o caracter \ de quebra de linha.
 
-  Criar Serviço
+  <p>Criar Serviço</p>
   
   curl --location --request POST 'http://localhost:8085/servicos-opcionais' \
 --header 'Content-Type: application/json' \
@@ -161,7 +161,7 @@ Aqui, os administradores podem gerenciar todos os serviços extras e itens opcio
 
 }'
 
-Criar Opcionais
+<p>Criar Opcionais</p>
 
 curl --location --request POST 'http://localhost:8085/servicos-opcionais' \
 --header 'Content-Type: application/json' \
@@ -172,11 +172,11 @@ curl --location --request POST 'http://localhost:8085/servicos-opcionais' \
 
 }'
 
-Listar todos os serviços e Opcionais
+<p>Listar todos os serviços e Opcionais</p>
 
 curl --location --request GET 'http://localhost:8085/servicos-opcionais?page=0&size=10'
 
-Atualizar Serviços e Opcionais
+<p>Atualizar Serviços e Opcionais</p>
 
 curl --location --request PUT 'http://localhost:8085/servicos-opcionais/2' \
 --header 'Content-Type: application/json' \
@@ -186,15 +186,15 @@ curl --location --request PUT 'http://localhost:8085/servicos-opcionais/2' \
     "tipo": "ITEM"
 }'
 
-Excluir Serviços e Opcionais
+<p>Excluir Serviços e Opcionais</p>
 
 curl --location --request DELETE 'http://localhost:8085/servicos-opcionais/1'
 
-Selecionar por ID um Serviço
+<p>Selecionar por ID um Serviço</p>
 
 curl --location --request GET 'http://localhost:8085/servicos-opcionais/2'
 
-Selecionar por noe um serviço ou opcional
+<p>Selecionar por noe um serviço ou opcional</p>
 
 curl --location --request GET 'http://localhost:8085/servicos-opcionais/nome?nome=Chocolate'
 
@@ -208,7 +208,7 @@ Responsável pelo registro e manutenção das informações dos clientes do hote
   Comandos curls para teste em linha de comando:
   ** Deixar em uma unica linha de comando do seu Sistema Operacional e tirar o caracter \ de quebra de linha.
 
-Criar Cliente já com Endereço.
+<p>Criar Cliente já com Endereço.</p>
 
 curl --location --request POST 'http://localhost:8080/v1/clientes' \
 --header 'Content-Type: application/json' \
@@ -235,19 +235,19 @@ curl --location --request POST 'http://localhost:8080/v1/clientes' \
 }'
 
 
-Listar todos clientes
+<p>Listar todos clientes</p>
 
 curl --location --request GET 'http://localhost:8080/v1/clientes'
 
-Listar cliente por Id
+<p>Listar cliente por Id</p>
 
 curl --location --request GET 'http://localhost:8080/v1/clientes/1'
 
-Excluir cliente por ID
+<p>Excluir cliente por ID</p>
 
 curl --location --request DELETE 'http://localhost:8080/v1/clientes/1'
 
-Atualizar CLiente
+<p>Atualizar CLiente</p>
 
 curl --location --request PUT 'http://localhost:8080/v1/clientes/2' \
 --header 'Content-Type: application/json' \
@@ -287,7 +287,8 @@ Este microserviço é responsável pela criação de reservas em hotéis. Ele in
   Comandos curls para teste em linha de comando:
   ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
 
-  Criar Reserva:
+  <p>Criar Reserva</p>
+  
   curl --location --request POST 'http://localhost:8081/api/reservas' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -304,19 +305,19 @@ Este microserviço é responsável pela criação de reservas em hotéis. Ele in
   }'
 
 
-Buscar todas as Reservas:
+<p>Buscar todas as Reservas</p>
 
 curl --location --request GET 'http://localhost:8081/api/reservas'
 
-Buscar Reserva por ID
+<p>Buscar Reserva por ID</p>
 
 curl --location --request GET 'http://localhost:8081/api/reservas/65f4fe6248c78a4bb35193ba'
 
-Excluir Reserva
+<p>Excluir Reserva</p>
 
 curl --location --request DELETE 'http://localhost:8081/api/reservas/65f4fb4e2ca4fe461a4c0b8c'
 
-Alterar Reserva
+<p>Alterar Reserva</p>
 
 curl --location --request PUT 'http://localhost:8081/api/reservas/65f57f0609122e4ecaa9d3c8' \
 --header 'Content-Type: application/json' \
