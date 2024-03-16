@@ -1,8 +1,6 @@
 
 C
 ms-customer/pom.xml,7\b\7b94ee4cbd4c0b2c3fbf44a96b53ec2d322ded47
-B
-docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
 å
 \ms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas/configuration/RabbitMQConfig.java,d\6\d6e39230fbb7cbd87722c44357eb75b7adaba1be
 ì
@@ -33,7 +31,3 @@ C
 Zms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas/controller/TesteController.java,a\7\a7bc2c2b84a9657f22a40a0393e14bc1cb03c91e
 ç
 ]ms-notificacao/src/main/java/br/com/fiap/hackaton/ms/notificacao/listener/EventoListener.java,c\0\c001d9d73a547ba1791611a0ac7ef660feb96fd6
-{
-Kms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas/Application.java,a\5\a5e735760c02cd3090cc2e852930394d1e79fc0b
-Å
-Qms-notificacao/src/main/java/br/com/fiap/hackaton/ms/notificacao/Application.java,f\0\f08a607d1a2e5b2a3574b8ab80d6eefaa81c31d8
