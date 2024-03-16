@@ -10,6 +10,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -30,55 +38,66 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.ms-servicos: Compose Deployment.executor": "Run",
-    "JUnit.All in ms-costumer.executor": "Run",
-    "JUnit.ClienteApplicationTests.applicationStarts.executor": "Run",
-    "JUnit.ClienteApplicationTests.executor": "Run",
-    "JUnit.ClienteControllerTest.executor": "Run",
-    "JUnit.ClienteControllerTest.testCreatePost.executor": "Run",
-    "JUnit.ClienteControllerTest.testFindById.executor": "Run",
-    "JUnit.ClienteControllerTest.testUpdate.executor": "Run",
-    "JUnit.ClienteServiceImplTest.executor": "Run",
-    "JUnit.ClienteServiceImplTest.testAtualizarCliente.executor": "Debug",
-    "JUnit.ClienteServiceImplTest.testCriarCliente.executor": "Run",
-    "JUnit.ClienteServiceImplTest.testObterTodosClientes.executor": "Run",
-    "JUnit.java in ms-costumer.executor": "Run",
-    "Maven.ms-costumer [clean].executor": "Run",
-    "Maven.ms-costumer [compile].executor": "Run",
-    "Maven.ms-costumer [install].executor": "Run",
-    "Maven.ms-reservas [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Application (1).executor": "Run",
-    "Spring Boot.Application.executor": "Run",
-    "Spring Boot.CustomerApplication.executor": "Run",
-    "Spring Boot.MsQuartosApplication.executor": "Run",
-    "Spring Boot.MsServicosApplication.executor": "Run",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/mathsena/Desktop/fiap-hack/hackathon-fiap/ms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.customizations",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.ms-servicos: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in ms-costumer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteApplicationTests.applicationStarts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteControllerTest.testCreatePost.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteControllerTest.testFindById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteControllerTest.testUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteServiceImplTest.testAtualizarCliente.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.ClienteServiceImplTest.testCriarCliente.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClienteServiceImplTest.testObterTodosClientes.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in ms-costumer.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-costumer [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-costumer [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-costumer [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-costumer [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-notificacao [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-notificacao [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-reservas [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-reservas [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-reservas [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-servicos [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-servicos [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.quartos [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.quartos [compile].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CustomerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsQuartosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsServicosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mathsena/Desktop/fiap-hack/hackathon-fiap/ms-reservas/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.20689656&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ms-reservas/src/main/resources" />
       <recent name="$PROJECT_DIR$/ms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.fiap.hackaton.ms.reservas.client" />
       <recent name="br.com.fiap.hackaton.ms.reservas.domain" />
       <recent name="br.com.fiap.hackaton.ms.reservas.service" />
       <recent name="br.com.fiap.hackaton.ms.reservas.controller" />
@@ -89,11 +108,10 @@
       <set>
         <option value="MicronautRunConfigurationType" />
         <option value="QuarkusRunConfigurationType" />
-        <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application (1)">
+  <component name="RunManager" selected="Spring Boot.MsServicosApplication">
     <configuration name="ClienteApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-costumer" />
       <extension name="coverage">
@@ -140,22 +158,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClienteServiceImplTest.testAtualizarCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-costumer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.customer.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.service.impl.ClienteServiceImplTest" />
-      <option name="METHOD_NAME" value="testAtualizarCliente" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="java in ms-costumer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-costumer" />
       <option name="TEST_OBJECT" value="directory" />
@@ -165,16 +167,25 @@
       </method>
     </configuration>
     <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ms-reservas" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.fiap.hackaton.ms.reservas.Application" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="ms-notificacao" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.fiap.hackaton.ms.notificacao.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="ms-notificacao" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.fiap.hackaton.ms.notificacao.Application" />
+      <module name="ms-reservas" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.fiap.hackaton.ms.reservas.Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.fiap.hackaton.ms.reservas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -201,23 +212,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.ClienteApplicationTests" />
+      <item itemvalue="JUnit.ClienteApplicationTests.applicationStarts" />
+      <item itemvalue="JUnit.ClienteServiceImplTest" />
+      <item itemvalue="JUnit.java in ms-costumer" />
+      <item itemvalue="Spring Boot.Application (1)" />
+      <item itemvalue="Spring Boot.CustomerApplication" />
+      <item itemvalue="Spring Boot.MsQuartosApplication" />
+      <item itemvalue="Spring Boot.MsServicosApplication" />
+      <item itemvalue="Spring Boot.Application" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Application" />
         <item itemvalue="JUnit.java in ms-costumer" />
         <item itemvalue="JUnit.ClienteApplicationTests" />
         <item itemvalue="JUnit.ClienteApplicationTests.applicationStarts" />
         <item itemvalue="JUnit.ClienteServiceImplTest" />
-        <item itemvalue="JUnit.ClienteServiceImplTest.testAtualizarCliente" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-5f3ff201" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -232,7 +246,9 @@
       <workItem from="1710460096526" duration="4193000" />
       <workItem from="1710464309770" duration="34000" />
       <workItem from="1710464351729" duration="233000" />
-      <workItem from="1710542334247" duration="520000" />
+      <workItem from="1710542334247" duration="974000" />
+      <workItem from="1710543508927" duration="4142000" />
+      <workItem from="1710547669122" duration="1297000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção do security">
       <option name="closed" value="true" />
@@ -269,6 +285,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/hackathon_fiap$ClienteControllerTest.ic" NAME="ClienteControllerTest Coverage Results" MODIFIED="1710457912495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
