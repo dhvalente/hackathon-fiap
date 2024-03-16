@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,14 +37,9 @@ public class ReservaController {
             }),
         @ApiResponse(responseCode = "400", description = "Erro na requisição")
       })
-  public ResponseEntity<Reserva> createReserva(@RequestBody ReservaDto reservaDTO) {
-    try {
+  public ResponseEntity<Reserva> createReserva(@RequestBody @Valid ReservaDto reservaDTO) {
       Reserva reserva = reservaService.createReserva(reservaDTO);
       return ResponseEntity.ok(reserva);
-    } catch (IllegalStateException e) {
-      log.error("Erro ao criar reserva: {}", e.getMessage());
-      return ResponseEntity.badRequest().build();
-    }
   }
 
   @GetMapping
@@ -68,13 +64,8 @@ public class ReservaController {
         @ApiResponse(responseCode = "404", description = "Reserva não encontrada")
       })
   public ResponseEntity<Reserva> getReservaById(@PathVariable Long id) {
-    try {
       Reserva reserva = reservaService.findReservaById(id);
       return ResponseEntity.ok(reserva);
-    } catch (IllegalStateException e) {
-      log.error("Reserva não encontrada: {}", e.getMessage());
-      return ResponseEntity.notFound().build();
-    }
   }
 
   @PutMapping("/{id}")
@@ -93,13 +84,8 @@ public class ReservaController {
       })
   public ResponseEntity<Reserva> updateReserva(
       @PathVariable Long id, @RequestBody ReservaDto reservaDTO) {
-    try {
       Reserva updatedReserva = reservaService.updateReserva(id, reservaDTO);
       return ResponseEntity.ok(updatedReserva);
-    } catch (IllegalStateException e) {
-      log.error("Erro ao atualizar reserva: {}", e.getMessage());
-      return ResponseEntity.badRequest().build();
-    }
   }
 
   @DeleteMapping("/{id}")
@@ -110,12 +96,7 @@ public class ReservaController {
         @ApiResponse(responseCode = "404", description = "Reserva não encontrada")
       })
   public ResponseEntity<Void> deleteReserva(@PathVariable Long id) {
-    try {
       reservaService.deleteReserva(id);
       return ResponseEntity.ok().build();
-    } catch (IllegalStateException e) {
-      log.error("Erro ao remover reserva: {}", e.getMessage());
-      return ResponseEntity.notFound().build();
-    }
   }
 }
