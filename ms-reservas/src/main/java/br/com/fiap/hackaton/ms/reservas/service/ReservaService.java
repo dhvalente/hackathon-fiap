@@ -1,6 +1,7 @@
 package br.com.fiap.hackaton.ms.reservas.service;
 
 
+import br.com.fiap.hackathon.quartos.Exception.GenericException;
 import br.com.fiap.hackathon.quartos.dtos.QuartoDto;
 import br.com.fiap.hackaton.customer.entity.Cliente;
 import br.com.fiap.hackaton.ms.reservas.client.ClienteClient;
@@ -34,7 +35,7 @@ public class ReservaService {
     ResponseEntity<Cliente> clienteResponse = clienteClient.findClienteById(reservaDTO.getClienteId());
     if (clienteResponse.getStatusCode().isError() || clienteResponse.getBody() == null) {
       log.error("Cliente não encontrado: {}", reservaDTO.getClienteId());
-      throw new IllegalStateException("Cliente não encontrado.");
+      throw new GenericException("Cliente não encontrado.");
     }
     log.info("Cliente recuperado com sucesso: {}", clienteResponse.getBody());
 
@@ -48,13 +49,13 @@ public class ReservaService {
       ResponseEntity<QuartoDto> quartoResponse = quartoClient.getQuartoById(quartoId);
       if (quartoResponse.getStatusCode().isError() || quartoResponse.getBody() == null) {
         log.error("Quarto não encontrado: {}", quartoId);
-        throw new IllegalStateException("Quarto não encontrado: " + quartoId);
+        throw new GenericException("Quarto não encontrado: " + quartoId);
       }
 
       List<Reserva> reservasExistentes = reservaRepository.findByQuartoIdsContainsAndDataSaidaGreaterThanEqualAndDataEntradaLessThanEqual(quartoId, reservaDTO.getDataEntrada(), reservaDTO.getDataSaida());
       if (!reservasExistentes.isEmpty()) {
         log.error("Quarto já reservado para as datas solicitadas: {}", quartoId);
-        throw new IllegalStateException("Quarto já reservado para as datas solicitadas: " + quartoId);
+        throw new GenericException("Quarto já reservado para as datas solicitadas: " + quartoId);
       }
 
       log.info("Quarto disponível: {}", quartoResponse.getBody());
@@ -68,7 +69,7 @@ public class ReservaService {
       ResponseEntity<ServicoOpcionalResponse> servicoResponse = servicoOpcionalClient.buscarPorId(Long.parseLong(servicoId));
       if (servicoResponse.getStatusCode().isError() || servicoResponse.getBody() == null) {
         log.error("Serviço opcional não encontrado: {}", servicoId);
-        throw new IllegalStateException("Serviço opcional não encontrado: " + servicoId);
+        throw new GenericException("Serviço opcional não encontrado: " + servicoId);
       }
       log.info("Serviço opcional encontrado: {}", servicoResponse.getBody());
       valorTotal += servicoResponse.getBody().getValor(); // Os serviços opcionais são cobrados por reserva, não por dia
@@ -102,18 +103,18 @@ public class ReservaService {
     return reservaRepository
         .findById(reservaId)
         .orElseThrow(
-            () -> new IllegalStateException("Reserva não encontrada com ID: " + reservaId));
+            () -> new GenericException("Reserva não encontrada com ID: " + reservaId));
   }
 
   public Reserva updateReserva(String reservaId, ReservaDto reservaDTO) {
     log.info("Atualizando reserva com ID: {}", reservaId);
     Reserva reserva = reservaRepository.findById(String.valueOf(reservaId))
-            .orElseThrow(() -> new IllegalStateException("Reserva não encontrada com ID: " + reservaId));
+            .orElseThrow(() -> new GenericException("Reserva não encontrada com ID: " + reservaId));
 
     // Verifica se o cliente existe
     ResponseEntity<Cliente> clienteResponse = clienteClient.findClienteById(reservaDTO.getClienteId());
     if (clienteResponse.getStatusCode().isError() || clienteResponse.getBody() == null) {
-      throw new IllegalStateException("Cliente não encontrado.");
+      throw new GenericException("Cliente não encontrado.");
     }
 
     long quantidadeDeDias = ChronoUnit.DAYS.between(reservaDTO.getDataEntrada(), reservaDTO.getDataSaida()) + 1;
@@ -125,7 +126,7 @@ public class ReservaService {
     for (String quartoId : reservaDTO.getQuartoIds()) {
       ResponseEntity<QuartoDto> quartoResponse = quartoClient.getQuartoById(quartoId);
       if (quartoResponse.getStatusCode().isError() || quartoResponse.getBody() == null) {
-        throw new IllegalStateException("Quarto não encontrado: " + quartoId);
+        throw new GenericException("Quarto não encontrado: " + quartoId);
       }
 
       // Aqui você deve implementar uma lógica para verificar se o quarto está disponível
@@ -139,7 +140,7 @@ public class ReservaService {
     for (String servicoId : reservaDTO.getServicoOpcionalIds()) {
       ResponseEntity<ServicoOpcionalResponse> servicoResponse = servicoOpcionalClient.buscarPorId(Long.parseLong(servicoId));
       if (servicoResponse.getStatusCode().isError() || servicoResponse.getBody() == null) {
-        throw new IllegalStateException("Serviço opcional não encontrado: " + servicoId);
+        throw new GenericException("Serviço opcional não encontrado: " + servicoId);
       }
 
       valorTotal += servicoResponse.getBody().getValor();
@@ -161,7 +162,7 @@ public class ReservaService {
     log.info("Removendo reserva com ID: {}", reservaId);
     boolean exists = reservaRepository.existsById(String.valueOf(reservaId));
     if (!exists) {
-      throw new IllegalStateException("Reserva não encontrada com ID: " + reservaId);
+      throw new GenericException("Reserva não encontrada com ID: " + reservaId);
     }
     reservaRepository.deleteById(String.valueOf(reservaId));
   }

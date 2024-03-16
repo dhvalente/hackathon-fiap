@@ -11,5 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class EventoExpiracaoReserva implements Serializable {
 
+    private String destinatario;
+    private String assunto;
     private String mensagem;
 }

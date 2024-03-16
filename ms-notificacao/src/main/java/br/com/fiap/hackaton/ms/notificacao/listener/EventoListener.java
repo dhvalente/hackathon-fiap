@@ -1,6 +1,7 @@
 package br.com.fiap.hackaton.ms.notificacao.listener;
 
 import br.com.fiap.hackaton.ms.notificacao.domain.Evento;
+import br.com.fiap.hackaton.ms.notificacao.domain.EventoExpiracaoReserva;
 import br.com.fiap.hackaton.ms.notificacao.domain.dto.NotificacaoDto;
 import br.com.fiap.hackaton.ms.notificacao.service.NotificacaoEmailServiceImpl;
 import com.google.gson.Gson;
@@ -37,8 +38,7 @@ public class EventoListener {
             var metadados = evento.getMetadados();
 
             log.info("[RabbitMQ] - [SUCESSO] - Recebimento Evento - {}.", metadados.getUUID());
-            log.info("[RabbitMQ] >>> Processar Mensagem - {}", evento.toString());
-            notificacaoEmailService.notificar(obterDadosParaNotificacao());
+            notificacaoEmailService.notificar(evento.getPayload());
 
         }catch (AmqpException exception){
             log.error("[RabbitMQ] - [ERRO] - Recebimento Evento - {}.", exception.getStackTrace());
@@ -46,15 +46,6 @@ public class EventoListener {
             log.info("[RabbitMQ] - [FIM] - Recebimento Evento.");
         }
 
-    }
-
-    private NotificacaoDto obterDadosParaNotificacao() {
-
-        return NotificacaoDto.builder()
-                .destinatarios(Arrays.asList("williankaminski.santos@gmail.com"))
-                .titulo("mock")
-                .mensagem("mock")
-                .build();
     }
 
 }

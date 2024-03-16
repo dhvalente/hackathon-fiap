@@ -10,7 +10,7 @@ import java.util.List;
 public class NotificacaoDto {
 
     private String titulo;
-    private List<String> destinatarios;
+    private String destinatario;
     private String mensagem;
 
 }
