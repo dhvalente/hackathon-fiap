@@ -4,14 +4,10 @@ import br.com.fiap.hackathon.quartos.Exception.GenericException;
 import br.com.fiap.hackathon.quartos.dtos.PredioDto;
 import br.com.fiap.hackathon.quartos.entity.Localidade;
 import br.com.fiap.hackathon.quartos.entity.Predio;
-import br.com.fiap.hackathon.quartos.entity.Quarto;
 import br.com.fiap.hackathon.quartos.mappers.PredioMapper;
 import br.com.fiap.hackathon.quartos.mappers.QuartoMapper;
 import br.com.fiap.hackathon.quartos.service.LocalidadeService;
 import br.com.fiap.hackathon.quartos.service.PredioService;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import br.com.fiap.hackathon.quartos.service.QuartoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -19,8 +15,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/predios")

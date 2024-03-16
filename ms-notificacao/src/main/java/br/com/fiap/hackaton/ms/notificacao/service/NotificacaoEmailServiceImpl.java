@@ -1,5 +1,6 @@
 package br.com.fiap.hackaton.ms.notificacao.service;
 
+import br.com.fiap.hackaton.ms.notificacao.configuration.NotificacaoProperties;
 import br.com.fiap.hackaton.ms.notificacao.domain.dto.NotificacaoDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import java.util.Arrays;
 public class NotificacaoEmailServiceImpl implements NotificacaoService{
 
     private final JavaMailSender javaMailSender;
+    private final NotificacaoProperties notificacaoProperties;
 
     @Override
     public Boolean notificar(NotificacaoDto notificacao) {
@@ -25,8 +27,8 @@ public class NotificacaoEmailServiceImpl implements NotificacaoService{
             log.info("[EMAIL] - [INICIO] - Processamento Evento Notificacao Email.");
 
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom("mathsenajp@gmail.com");
-            message.setTo("???");
+            message.setFrom(notificacaoProperties.getFrom());
+            message.setTo(notificacao.getDestinatario());
             message.setSubject(notificacao.getTitulo());
             message.setText(notificacao.getMensagem());
             javaMailSender.send(message);
