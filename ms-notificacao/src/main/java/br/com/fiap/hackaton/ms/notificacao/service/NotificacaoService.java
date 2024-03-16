@@ -1,8 +1,8 @@
 package br.com.fiap.hackaton.ms.notificacao.service;
 
-import br.com.fiap.hackaton.ms.notificacao.domain.dto.NotificacaoDto;
+import br.com.fiap.hackaton.ms.notificacao.domain.EventoExpiracaoReserva;
 
 public interface NotificacaoService {
 
-    Boolean notificar(NotificacaoDto notificacao);
+    Boolean notificar(EventoExpiracaoReserva eventoExpiracaoReserva);
 }
