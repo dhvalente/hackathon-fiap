@@ -38,8 +38,8 @@ Este módulo permite a administração detalhada dos quartos disponíveis nas pr
   Comandos curls para teste em linha de comando:
   ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
 
-    Criar Localidade
-    curl --location --request POST 'http://localhost:8082/api/v1/localidades' \
+  Criar Localidade
+  curl --location --request POST 'http://localhost:8082/api/v1/localidades' \
 --header 'Content-Type: application/json' \
 --data '{
   "id": "2",
@@ -150,7 +150,55 @@ Aqui, os administradores podem gerenciar todos os serviços extras e itens opcio
   Comandos curls para teste em linha de comando:
   ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
 
-  
+  Criar Serviço
+  curl --location --request POST 'http://localhost:8085/servicos-opcionais' \
+--header 'Content-Type: application/json' \
+--data '{
+	"nome":"Massagem",
+    "valor":"250.00",
+	"tipo":"SERVICO"
+
+}'
+
+Criar Opcionais
+
+curl --location --request POST 'http://localhost:8085/servicos-opcionais' \
+--header 'Content-Type: application/json' \
+--data '{
+	"nome":"Cerveja",
+    "valor":"5.00",
+	"tipo":"ITEM"
+
+}'
+
+Listar todos os serviços e Opcionais
+
+curl --location --request GET 'http://localhost:8085/servicos-opcionais?page=0&size=10'
+
+Atualizar Serviços e Opcionais
+
+curl --location --request PUT 'http://localhost:8085/servicos-opcionais/2' \
+--header 'Content-Type: application/json' \
+--data '{
+    "nome": "Chocolate",
+    "valor": "3.0",
+    "tipo": "ITEM"
+}'
+
+Excluir Serviços e Opcionais
+
+curl --location --request DELETE 'http://localhost:8085/servicos-opcionais/1'
+
+Selecionar por ID um Serviço
+
+curl --location --request GET 'http://localhost:8085/servicos-opcionais/2'
+
+Selecionar por noe um serviço ou opcional
+
+curl --location --request GET 'http://localhost:8085/servicos-opcionais/nome?nome=Chocolate'
+
+
+
 
 ### 3. Gestão de Clientes
 
