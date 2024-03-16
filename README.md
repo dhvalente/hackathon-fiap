@@ -11,6 +11,7 @@ Este projeto é um Sistema de Gestão Hoteleira desenvolvido para atender às ne
 - **MongoDB**: Banco de dados não relacional utilizado para persistir as informações relacionadas aos quartos e outras entidades do sistema.
 - **MySQL**: Banco de dados relacional utilizado para armazenar outras informações do sistema.
 - **Postgres**: Outro banco de dados relacional utilizado para armazenamento de dados específicos do sistema.
+- **RabbitMQ**: Broker de mensageria responsavel pela comunicação assincrona para eventos de notificação de usuários.
 
 ## Arquitetura do Sistema
 
