@@ -1,15 +1,13 @@
 package br.com.fiap.hackaton.ms.notificacao.service;
 
 import br.com.fiap.hackaton.ms.notificacao.configuration.NotificacaoProperties;
-import br.com.fiap.hackaton.ms.notificacao.domain.dto.NotificacaoDto;
+import br.com.fiap.hackaton.ms.notificacao.domain.EventoExpiracaoReserva;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
 
 @Slf4j
 @Service
@@ -20,7 +18,7 @@ public class NotificacaoEmailServiceImpl implements NotificacaoService{
     private final NotificacaoProperties notificacaoProperties;
 
     @Override
-    public Boolean notificar(NotificacaoDto notificacao) {
+    public Boolean notificar(EventoExpiracaoReserva evento) {
 
         try {
 
@@ -28,9 +26,9 @@ public class NotificacaoEmailServiceImpl implements NotificacaoService{
 
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(notificacaoProperties.getFrom());
-            message.setTo(notificacao.getDestinatario());
-            message.setSubject(notificacao.getTitulo());
-            message.setText(notificacao.getMensagem());
+            message.setTo(evento.getDestinatario());
+            message.setSubject(evento.getAssunto());
+            message.setText(evento.getMensagem());
             javaMailSender.send(message);
 
             log.info("[EMAIL] - [SUCESSO] - Processamento Evento Notificacao Email.");

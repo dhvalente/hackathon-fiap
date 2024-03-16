@@ -31,7 +31,9 @@ public class TesteController {
         metadados.setTipoEvento(TipoEventoEnum.EXPIRACAO_RESERVA);
 
         EventoExpiracaoReserva eventoExpiracaoReserva = new EventoExpiracaoReserva();
-        eventoExpiracaoReserva.setMensagem("Reserva Expirada");
+        eventoExpiracaoReserva.setDestinatario("williankaminski.santos@gmail.com");
+        eventoExpiracaoReserva.setAssunto("Reserva Expirada");
+        eventoExpiracaoReserva.setMensagem("Olá usuario, sua reserva Expirada");
 
         Evento evento = new Evento();
         evento.setMetadados(metadados);

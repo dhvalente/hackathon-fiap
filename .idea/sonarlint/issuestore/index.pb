@@ -13,10 +13,6 @@ m
 =commons/src/main/java/br/com/fiap/hackaton/dto/Metadados.java,e\7\e7d59bacafefed8e42a3ee91506e12b591ae2df4
 j
 :commons/src/main/java/br/com/fiap/hackaton/dto/Evento.java,d\0\d06b6d73f3059c465ef2fde6e6e0080b36b3db92
-ƒ
-Sms-notificacao/src/main/java/br/com/fiap/hackaton/ms/notificacao/domain/Evento.java,5\1\51b260422a1c05767f188f6c1a44a692db870317
-“
-cms-notificacao/src/main/java/br/com/fiap/hackaton/ms/notificacao/domain/EventoExpiracaoReserva.java,0\4\04a7a15f3fccbdbedc429267256a2196485dbb97
 †
 Vms-notificacao/src/main/java/br/com/fiap/hackaton/ms/notificacao/domain/Metadados.java,9\a\9a08f4863583794f62541620c788996094790d72
 F

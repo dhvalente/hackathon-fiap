@@ -12,5 +12,5 @@ import java.io.Serializable;
 public class Evento implements Serializable {
 
     private Metadados metadados;
-    private Object payload;
+    private EventoExpiracaoReserva payload;
 }
