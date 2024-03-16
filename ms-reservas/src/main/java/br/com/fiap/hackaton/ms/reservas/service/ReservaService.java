@@ -97,15 +97,15 @@ public class ReservaService {
     return reservaRepository.findAll();
   }
 
-  public Reserva findReservaById(Long reservaId) {
+  public Reserva findReservaById(String reservaId) {
     log.info("Buscando reserva com ID: {}", reservaId);
     return reservaRepository
-        .findById(String.valueOf(reservaId))
+        .findById(reservaId)
         .orElseThrow(
             () -> new IllegalStateException("Reserva não encontrada com ID: " + reservaId));
   }
 
-  public Reserva updateReserva(Long reservaId, ReservaDto reservaDTO) {
+  public Reserva updateReserva(String reservaId, ReservaDto reservaDTO) {
     log.info("Atualizando reserva com ID: {}", reservaId);
     Reserva reserva = reservaRepository.findById(String.valueOf(reservaId))
             .orElseThrow(() -> new IllegalStateException("Reserva não encontrada com ID: " + reservaId));
@@ -157,7 +157,7 @@ public class ReservaService {
     return reservaRepository.save(reserva);
   }
 
-  public void deleteReserva(Long reservaId) {
+  public void deleteReserva(String reservaId) {
     log.info("Removendo reserva com ID: {}", reservaId);
     boolean exists = reservaRepository.existsById(String.valueOf(reservaId));
     if (!exists) {

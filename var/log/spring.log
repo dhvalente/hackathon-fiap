@@ -1329,3 +1329,418 @@ com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct 
 2024-03-16T00:33:18.338Z  INFO 66194 --- [http-nio-8081-exec-1] b.c.f.h.m.r.service.ReservaService       : Valor total final: 10.0
 2024-03-16T00:33:18.364Z  INFO 66194 --- [http-nio-8081-exec-1] b.c.f.h.m.r.service.ReservaService       : Reserva salva com sucesso: Reserva(id=65f4e8ce8c07f67aa24cda7e, clienteId=1, quartoIds=[Q00001], servicoOpcionalIds=[1], dataEntrada=2024-01-01, dataSaida=2024-01-02, numeroHospedes=2, valorTotal=10.0)
 
+2024-03-16T01:39:15.144Z  INFO 10004 --- [main] b.c.f.hackaton.ms.reservas.Application   : Starting Application using Java 21.0.2 with PID 10004 (/Users/mathsena/Desktop/fiap-hack/hackathon-fiap/ms-reservas/target/classes started by mathsena in /Users/mathsena/Desktop/fiap-hack/hackathon-fiap)
+2024-03-16T01:39:15.145Z  INFO 10004 --- [main] b.c.f.hackaton.ms.reservas.Application   : No active profile set, falling back to 1 default profile: "default"
+2024-03-16T01:39:15.519Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T01:39:15.519Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-03-16T01:39:15.531Z  INFO 10004 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-03-16T01:39:15.532Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
+2024-03-16T01:39:15.537Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T01:39:15.537Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-16T01:39:15.541Z  INFO 10004 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-03-16T01:39:15.541Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-03-16T01:39:15.554Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T01:39:15.554Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-03-16T01:39:15.561Z  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 MongoDB repository interface.
+2024-03-16T01:39:15.642Z  INFO 10004 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e40e8998-1101-3530-80cc-00acae787a61
+2024-03-16T01:39:15.820Z  INFO 10004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-16T01:39:15.827Z  INFO 10004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-16T01:39:15.827Z  INFO 10004 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-16T01:39:15.856Z  INFO 10004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-16T01:39:15.856Z  INFO 10004 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 694 ms
+2024-03-16T01:39:15.935Z  INFO 10004 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-16T01:39:15.967Z  INFO 10004 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-16T01:39:15.985Z  INFO 10004 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-16T01:39:16.111Z  INFO 10004 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-16T01:39:16.126Z  INFO 10004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-16T01:39:16.295Z  INFO 10004 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@799971ac
+2024-03-16T01:39:16.298Z  INFO 10004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-16T01:39:16.517Z  INFO 10004 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-16T01:39:16.520Z  INFO 10004 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-16T01:39:16.624Z  WARN 10004 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-16T01:39:16.754Z  INFO 10004 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "aarch64", "version": "14.2.1"}, "platform": "Java/Oracle Corporation/21.0.2+13-58"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='root', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@73230721, com.mongodb.Jep395RecordCodecProvider@10bcbbce, com.mongodb.KotlinCodecProvider@27234b7c]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-03-16T01:39:16.765Z  INFO 10004 --- [cluster-ClusterId{value='65f4f844b1fc404e42578cf6', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=18408042}
+2024-03-16T01:39:17.278Z  WARN 10004 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-03-16T01:39:17.282Z  INFO 10004 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-16T01:39:17.284Z  INFO 10004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-16T01:39:17.287Z  INFO 10004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-16T01:39:17.294Z  INFO 10004 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-16T01:39:17.301Z ERROR 10004 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2024-03-16T01:39:21.512Z  INFO 10012 --- [main] b.c.f.hackaton.ms.reservas.Application   : Starting Application using Java 21.0.2 with PID 10012 (/Users/mathsena/Desktop/fiap-hack/hackathon-fiap/ms-reservas/target/classes started by mathsena in /Users/mathsena/Desktop/fiap-hack/hackathon-fiap)
+2024-03-16T01:39:21.512Z  INFO 10012 --- [main] b.c.f.hackaton.ms.reservas.Application   : No active profile set, falling back to 1 default profile: "default"
+2024-03-16T01:39:21.844Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T01:39:21.845Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-03-16T01:39:21.858Z  INFO 10012 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-03-16T01:39:21.859Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
+2024-03-16T01:39:21.864Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T01:39:21.865Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-16T01:39:21.871Z  INFO 10012 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-03-16T01:39:21.871Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-03-16T01:39:21.886Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T01:39:21.886Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-03-16T01:39:21.898Z  INFO 10012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 1 MongoDB repository interface.
+2024-03-16T01:39:21.981Z  INFO 10012 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e40e8998-1101-3530-80cc-00acae787a61
+2024-03-16T01:39:22.164Z  INFO 10012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-16T01:39:22.169Z  INFO 10012 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-16T01:39:22.169Z  INFO 10012 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-16T01:39:22.198Z  INFO 10012 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-16T01:39:22.198Z  INFO 10012 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 669 ms
+2024-03-16T01:39:22.285Z  INFO 10012 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-16T01:39:22.324Z  INFO 10012 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-16T01:39:22.345Z  INFO 10012 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-16T01:39:22.463Z  INFO 10012 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-16T01:39:22.477Z  INFO 10012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-16T01:39:22.633Z  INFO 10012 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7210f559
+2024-03-16T01:39:22.633Z  INFO 10012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-16T01:39:22.843Z  INFO 10012 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-16T01:39:22.845Z  INFO 10012 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-16T01:39:22.938Z  WARN 10012 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-16T01:39:23.067Z  INFO 10012 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "aarch64", "version": "14.2.1"}, "platform": "Java/Oracle Corporation/21.0.2+13-58"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='root', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@4abfa2ff, com.mongodb.Jep395RecordCodecProvider@38c1b1a7, com.mongodb.KotlinCodecProvider@73230721]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-03-16T01:39:23.074Z  INFO 10012 --- [cluster-ClusterId{value='65f4f84b2ca4fe461a4c0b8b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=10445792}
+2024-03-16T01:39:23.584Z  INFO 10012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-03-16T01:39:23.591Z  INFO 10012 --- [main] b.c.f.hackaton.ms.reservas.Application   : Started Application in 2.289 seconds (process running for 2.594)
+2024-03-16T01:39:28.760Z  INFO 10012 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-16T01:39:28.761Z  INFO 10012 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-16T01:39:28.766Z  INFO 10012 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-16T01:39:30.080Z  INFO 10012 --- [http-nio-8081-exec-7] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 158 ms
+2024-03-16T01:50:45.797Z  INFO 10012 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.ReservaService       : Criando reserva para o cliente: 1
+2024-03-16T01:50:45.881Z  INFO 10012 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.ReservaService       : Cliente recuperado com sucesso: Cliente(id=1, nome=nome_b7fca66e4738, sobrenome=sobrenome_6afd0b6b6b57, cpf=cpf_1646fdaedd13, passaporte=passaporte_0cf3e04a9250, dataDeAniversario=2024-03-15, genero=MASCULINO, endereco=Endereco(id=1, rua=rua_77a8f2634f04, numero=numero_a985d1d9964e, cidade=cidade_2d25579af9de, bairro=bairro_e0b6634a7ee7, estado=estado_98c3296f8bdc, cep=cep_813860cccd09), paisDeOrigem=paisDeOrigem_036f1ff9df26, telefone=telefone_a2fa7bd404f6, email=email_aeffcf308291)
+2024-03-16T01:50:45.895Z  INFO 10012 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.ReservaService       : Quantidade de dias: 1
+2024-03-16T01:50:46.070Z ERROR 10012 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.ReservaService       : Quarto já reservado para as datas solicitadas: Q00001
+2024-03-16T01:50:46.071Z ERROR 10012 --- [http-nio-8081-exec-10] b.c.f.h.m.r.c.ReservaController          : Erro ao criar reserva: Quarto já reservado para as datas solicitadas: Q00001
+2024-03-16T01:51:07.453Z  INFO 10012 --- [http-nio-8081-exec-1] b.c.f.h.m.r.service.ReservaService       : Criando reserva para o cliente: 1
+2024-03-16T01:51:07.519Z  INFO 10012 --- [http-nio-8081-exec-1] b.c.f.h.m.r.service.ReservaService       : Cliente recuperado com sucesso: Cliente(id=1, nome=nome_b7fca66e4738, sobrenome=sobrenome_6afd0b6b6b57, cpf=cpf_1646fdaedd13, passaporte=passaporte_0cf3e04a9250, dataDeAniversario=2024-03-15, genero=MASCULINO, endereco=Endereco(id=1, rua=rua_77a8f2634f04, numero=numero_a985d1d9964e, cidade=cidade_2d25579af9de, bairro=bairro_e0b6634a7ee7, estado=estado_98c3296f8bdc, cep=cep_813860cccd09), paisDeOrigem=paisDeOrigem_036f1ff9df26, telefone=telefone_a2fa7bd404f6, email=email_aeffcf308291)
+2024-03-16T01:51:07.520Z  INFO 10012 --- [http-nio-8081-exec-1] b.c.f.h.m.r.service.ReservaService       : Quantidade de dias: 1
+2024-03-16T01:51:07.547Z  INFO 10012 --- [http-nio-8081-exec-1] b.c.f.h.m.r.service.ReservaService       : Quarto disponível: QuartoDto(id=Q00001, tipo=STANDARD_SIMPLES, totalPessoas=0, totalCamas=0, valorDiaria=0.0, moveis=[SOFA], predioId=null)
+2024-03-16T01:51:07.564Z  INFO 10012 --- [http-nio-8081-exec-1] b.c.f.h.m.r.service.ReservaService       : Valor total após adicionar quartos: 0.0
+2024-03-16T01:51:07.619Z ERROR 10012 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: feign.FeignException$InternalServerError: [500] during [GET] to [http://localhost:8085/servicos-opcionais/1] [ServicoOpcionalClient#buscarPorId(Long)]: [{"timestamp":"2024-03-16T01:51:07.602+00:00","status":500,"error":"Internal Server Error","trace":"java.lang.RuntimeException: Registro nao existe!\n\tat br.com.fiap.hackaton.msservicos.service.impl.S... (5802 bytes)]] with root cause
+
+feign.FeignException$InternalServerError: [500] during [GET] to [http://localhost:8085/servicos-opcionais/1] [ServicoOpcionalClient#buscarPorId(Long)]: [{"timestamp":"2024-03-16T01:51:07.602+00:00","status":500,"error":"Internal Server Error","trace":"java.lang.RuntimeException: Registro nao existe!\n\tat br.com.fiap.hackaton.msservicos.service.impl.S... (5802 bytes)]
+	at feign.FeignException.serverErrorStatus(FeignException.java:259) ~[feign-core-13.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:206) ~[feign-core-13.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:194) ~[feign-core-13.1.jar:na]
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103) ~[feign-core-13.1.jar:na]
+	at feign.InvocationContext.decodeError(InvocationContext.java:126) ~[feign-core-13.1.jar:na]
+	at feign.InvocationContext.proceed(InvocationContext.java:72) ~[feign-core-13.1.jar:na]
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63) ~[feign-core-13.1.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114) ~[feign-core-13.1.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70) ~[feign-core-13.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99) ~[feign-core-13.1.jar:na]
+	at jdk.proxy2/jdk.proxy2.$Proxy130.buscarPorId(Unknown Source) ~[na:na]
+	at br.com.fiap.hackaton.ms.reservas.service.ReservaService.createReserva(ReservaService.java:68) ~[classes/:na]
+	at br.com.fiap.hackaton.ms.reservas.controller.ReservaController.createReserva(ReservaController.java:41) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-03-16T01:51:37.104Z  INFO 10012 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.ReservaService       : Criando reserva para o cliente: 1
+2024-03-16T01:51:37.132Z  INFO 10012 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.ReservaService       : Cliente recuperado com sucesso: Cliente(id=1, nome=nome_b7fca66e4738, sobrenome=sobrenome_6afd0b6b6b57, cpf=cpf_1646fdaedd13, passaporte=passaporte_0cf3e04a9250, dataDeAniversario=2024-03-15, genero=MASCULINO, endereco=Endereco(id=1, rua=rua_77a8f2634f04, numero=numero_a985d1d9964e, cidade=cidade_2d25579af9de, bairro=bairro_e0b6634a7ee7, estado=estado_98c3296f8bdc, cep=cep_813860cccd09), paisDeOrigem=paisDeOrigem_036f1ff9df26, telefone=telefone_a2fa7bd404f6, email=email_aeffcf308291)
+2024-03-16T01:51:37.132Z  INFO 10012 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.ReservaService       : Quantidade de dias: 2
+2024-03-16T01:51:37.173Z  INFO 10012 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.ReservaService       : Quarto disponível: QuartoDto(id=Q00001, tipo=STANDARD_SIMPLES, totalPessoas=0, totalCamas=0, valorDiaria=0.0, moveis=[SOFA], predioId=null)
+2024-03-16T01:51:37.173Z  INFO 10012 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.ReservaService       : Valor total após adicionar quartos: 0.0
+2024-03-16T01:51:37.214Z ERROR 10012 --- [http-nio-8081-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: feign.FeignException$InternalServerError: [500] during [GET] to [http://localhost:8085/servicos-opcionais/1] [ServicoOpcionalClient#buscarPorId(Long)]: [{"timestamp":"2024-03-16T01:51:37.209+00:00","status":500,"error":"Internal Server Error","trace":"java.lang.RuntimeException: Registro nao existe!\n\tat br.com.fiap.hackaton.msservicos.service.impl.S... (5802 bytes)]] with root cause
+
+feign.FeignException$InternalServerError: [500] during [GET] to [http://localhost:8085/servicos-opcionais/1] [ServicoOpcionalClient#buscarPorId(Long)]: [{"timestamp":"2024-03-16T01:51:37.209+00:00","status":500,"error":"Internal Server Error","trace":"java.lang.RuntimeException: Registro nao existe!\n\tat br.com.fiap.hackaton.msservicos.service.impl.S... (5802 bytes)]
+	at feign.FeignException.serverErrorStatus(FeignException.java:259) ~[feign-core-13.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:206) ~[feign-core-13.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:194) ~[feign-core-13.1.jar:na]
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103) ~[feign-core-13.1.jar:na]
+	at feign.InvocationContext.decodeError(InvocationContext.java:126) ~[feign-core-13.1.jar:na]
+	at feign.InvocationContext.proceed(InvocationContext.java:72) ~[feign-core-13.1.jar:na]
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63) ~[feign-core-13.1.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114) ~[feign-core-13.1.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70) ~[feign-core-13.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99) ~[feign-core-13.1.jar:na]
+	at jdk.proxy2/jdk.proxy2.$Proxy130.buscarPorId(Unknown Source) ~[na:na]
+	at br.com.fiap.hackaton.ms.reservas.service.ReservaService.createReserva(ReservaService.java:68) ~[classes/:na]
+	at br.com.fiap.hackaton.ms.reservas.controller.ReservaController.createReserva(ReservaController.java:41) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-03-16T01:52:14.176Z  INFO 10012 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.ReservaService       : Criando reserva para o cliente: 1
+2024-03-16T01:52:14.245Z  INFO 10012 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.ReservaService       : Cliente recuperado com sucesso: Cliente(id=1, nome=nome_b7fca66e4738, sobrenome=sobrenome_6afd0b6b6b57, cpf=cpf_1646fdaedd13, passaporte=passaporte_0cf3e04a9250, dataDeAniversario=2024-03-15, genero=MASCULINO, endereco=Endereco(id=1, rua=rua_77a8f2634f04, numero=numero_a985d1d9964e, cidade=cidade_2d25579af9de, bairro=bairro_e0b6634a7ee7, estado=estado_98c3296f8bdc, cep=cep_813860cccd09), paisDeOrigem=paisDeOrigem_036f1ff9df26, telefone=telefone_a2fa7bd404f6, email=email_aeffcf308291)
+2024-03-16T01:52:14.245Z  INFO 10012 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.ReservaService       : Quantidade de dias: 2
+2024-03-16T01:52:14.268Z  INFO 10012 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.ReservaService       : Quarto disponível: QuartoDto(id=Q00001, tipo=STANDARD_SIMPLES, totalPessoas=0, totalCamas=0, valorDiaria=0.0, moveis=[SOFA], predioId=null)
+2024-03-16T01:52:14.268Z  INFO 10012 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.ReservaService       : Valor total após adicionar quartos: 0.0
+2024-03-16T01:52:14.313Z  INFO 10012 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.ReservaService       : Serviço opcional encontrado: br.com.fiap.hackaton.msservicos.dto.ServicoOpcionalResponse@3cf922dc
+2024-03-16T01:52:14.313Z  INFO 10012 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.ReservaService       : Valor total final: 250.0
+2024-03-16T01:52:14.343Z  INFO 10012 --- [http-nio-8081-exec-5] b.c.f.h.m.r.service.ReservaService       : Reserva salva com sucesso: Reserva(id=65f4fb4e2ca4fe461a4c0b8c, clienteId=1, quartoIds=[Q00001], servicoOpcionalIds=[1], dataEntrada=2024-05-16, dataSaida=2024-05-17, numeroHospedes=2, valorTotal=250.0)
+2024-03-16T01:52:44.406Z  INFO 10012 --- [http-nio-8081-exec-7] b.c.f.h.m.r.service.ReservaService       : Criando reserva para o cliente: 1
+2024-03-16T01:52:44.444Z  INFO 10012 --- [http-nio-8081-exec-7] b.c.f.h.m.r.service.ReservaService       : Cliente recuperado com sucesso: Cliente(id=1, nome=nome_b7fca66e4738, sobrenome=sobrenome_6afd0b6b6b57, cpf=cpf_1646fdaedd13, passaporte=passaporte_0cf3e04a9250, dataDeAniversario=2024-03-15, genero=MASCULINO, endereco=Endereco(id=1, rua=rua_77a8f2634f04, numero=numero_a985d1d9964e, cidade=cidade_2d25579af9de, bairro=bairro_e0b6634a7ee7, estado=estado_98c3296f8bdc, cep=cep_813860cccd09), paisDeOrigem=paisDeOrigem_036f1ff9df26, telefone=telefone_a2fa7bd404f6, email=email_aeffcf308291)
+2024-03-16T01:52:44.444Z  INFO 10012 --- [http-nio-8081-exec-7] b.c.f.h.m.r.service.ReservaService       : Quantidade de dias: 2
+2024-03-16T01:52:44.495Z ERROR 10012 --- [http-nio-8081-exec-7] b.c.f.h.m.r.service.ReservaService       : Quarto já reservado para as datas solicitadas: Q00001
+2024-03-16T01:52:44.496Z ERROR 10012 --- [http-nio-8081-exec-7] b.c.f.h.m.r.c.ReservaController          : Erro ao criar reserva: Quarto já reservado para as datas solicitadas: Q00001
+2024-03-16T01:55:08.948Z  INFO 10012 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Buscando todas as reservas
+2024-03-16T01:55:42.114Z  INFO 10012 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.ReservaService       : Buscando reserva com ID: 1
+2024-03-16T01:55:42.136Z ERROR 10012 --- [http-nio-8081-exec-10] b.c.f.h.m.r.c.ReservaController          : Reserva não encontrada: Reserva não encontrada com ID: 1
+2024-03-16T01:55:51.893Z  WARN 10012 --- [http-nio-8081-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "65f4955465b83f068425778d"]
+2024-03-16T01:56:04.737Z  WARN 10012 --- [http-nio-8081-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "65f4fb4e2ca4fe461a4c0b8c"]
+2024-03-16T02:01:00.893Z  INFO 10012 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-16T02:01:00.897Z  INFO 10012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-16T02:01:00.905Z  INFO 10012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-16T02:01:03.675Z  INFO 24393 --- [main] b.c.f.hackaton.ms.reservas.Application   : Starting Application using Java 21.0.2 with PID 24393 (/Users/mathsena/Desktop/fiap-hack/hackathon-fiap/ms-reservas/target/classes started by mathsena in /Users/mathsena/Desktop/fiap-hack/hackathon-fiap)
+2024-03-16T02:01:03.676Z  INFO 24393 --- [main] b.c.f.hackaton.ms.reservas.Application   : No active profile set, falling back to 1 default profile: "default"
+2024-03-16T02:01:04.117Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T02:01:04.117Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-03-16T02:01:04.131Z  INFO 24393 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-03-16T02:01:04.131Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2024-03-16T02:01:04.136Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T02:01:04.137Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-16T02:01:04.140Z  INFO 24393 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-03-16T02:01:04.140Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-03-16T02:01:04.154Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T02:01:04.154Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-03-16T02:01:04.162Z  INFO 24393 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 MongoDB repository interface.
+2024-03-16T02:01:04.248Z  INFO 24393 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e40e8998-1101-3530-80cc-00acae787a61
+2024-03-16T02:01:04.446Z  INFO 24393 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-16T02:01:04.452Z  INFO 24393 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-16T02:01:04.453Z  INFO 24393 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-16T02:01:04.483Z  INFO 24393 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-16T02:01:04.483Z  INFO 24393 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 788 ms
+2024-03-16T02:01:04.568Z  INFO 24393 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-16T02:01:04.608Z  INFO 24393 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-16T02:01:04.626Z  INFO 24393 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-16T02:01:04.751Z  INFO 24393 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-16T02:01:04.766Z  INFO 24393 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-16T02:01:04.957Z  INFO 24393 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@799971ac
+2024-03-16T02:01:04.961Z  INFO 24393 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-16T02:01:05.227Z  INFO 24393 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-16T02:01:05.235Z  INFO 24393 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-16T02:01:05.348Z  WARN 24393 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-16T02:01:05.477Z  INFO 24393 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "aarch64", "version": "14.2.1"}, "platform": "Java/Oracle Corporation/21.0.2+13-58"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='root', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@792b9dd3, com.mongodb.Jep395RecordCodecProvider@cbc3bf3, com.mongodb.KotlinCodecProvider@31f9f9b3]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-03-16T02:01:05.486Z  INFO 24393 --- [cluster-ClusterId{value='65f4fd61a45fbe632baef603', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=12976083}
+2024-03-16T02:01:06.031Z  INFO 24393 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-03-16T02:01:06.038Z  INFO 24393 --- [main] b.c.f.hackaton.ms.reservas.Application   : Started Application in 2.608 seconds (process running for 3.101)
+2024-03-16T02:01:10.533Z  INFO 24393 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-16T02:01:10.534Z  INFO 24393 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-16T02:01:10.535Z  INFO 24393 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-16T02:01:10.609Z  INFO 24393 --- [http-nio-8081-exec-2] b.c.f.h.m.r.service.ReservaService       : Buscando reserva com ID: 65f4fb4e2ca4fe461a4c0b8c
+2024-03-16T02:01:35.350Z  INFO 24393 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.ReservaService       : Buscando todas as reservas
+2024-03-16T02:01:37.675Z  INFO 24393 --- [http-nio-8081-exec-4] b.c.f.h.m.r.service.ReservaService       : Buscando reserva com ID: 65f4fb4e2ca4fe461a4c0b8c
+2024-03-16T02:02:47.595Z  WARN 24393 --- [http-nio-8081-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "65f4fb4e2ca4fe461a4c0b8c"]
+2024-03-16T02:03:46.337Z  INFO 24393 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-16T02:03:46.357Z  INFO 24393 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-16T02:03:46.373Z  INFO 24393 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-16T02:03:49.496Z  INFO 26138 --- [main] b.c.f.hackaton.ms.reservas.Application   : Starting Application using Java 21.0.2 with PID 26138 (/Users/mathsena/Desktop/fiap-hack/hackathon-fiap/ms-reservas/target/classes started by mathsena in /Users/mathsena/Desktop/fiap-hack/hackathon-fiap)
+2024-03-16T02:03:49.497Z  INFO 26138 --- [main] b.c.f.hackaton.ms.reservas.Application   : No active profile set, falling back to 1 default profile: "default"
+2024-03-16T02:03:49.884Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T02:03:49.885Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-03-16T02:03:49.897Z  INFO 26138 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-03-16T02:03:49.898Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
+2024-03-16T02:03:49.903Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T02:03:49.903Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-16T02:03:49.907Z  INFO 26138 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-03-16T02:03:49.907Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-03-16T02:03:49.919Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-16T02:03:49.919Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-03-16T02:03:49.926Z  INFO 26138 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 MongoDB repository interface.
+2024-03-16T02:03:50.011Z  INFO 26138 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e40e8998-1101-3530-80cc-00acae787a61
+2024-03-16T02:03:50.194Z  INFO 26138 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-16T02:03:50.200Z  INFO 26138 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-16T02:03:50.200Z  INFO 26138 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-16T02:03:50.229Z  INFO 26138 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-16T02:03:50.230Z  INFO 26138 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 716 ms
+2024-03-16T02:03:50.309Z  INFO 26138 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-16T02:03:50.342Z  INFO 26138 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-16T02:03:50.359Z  INFO 26138 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-16T02:03:50.476Z  INFO 26138 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-16T02:03:50.492Z  INFO 26138 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-16T02:03:50.659Z  INFO 26138 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@799971ac
+2024-03-16T02:03:50.660Z  INFO 26138 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-16T02:03:50.880Z  INFO 26138 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-16T02:03:50.882Z  INFO 26138 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-16T02:03:50.985Z  WARN 26138 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-16T02:03:51.111Z  INFO 26138 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Darwin", "name": "Mac OS X", "architecture": "aarch64", "version": "14.2.1"}, "platform": "Java/Oracle Corporation/21.0.2+13-58"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='root', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@73230721, com.mongodb.Jep395RecordCodecProvider@10bcbbce, com.mongodb.KotlinCodecProvider@27234b7c]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-03-16T02:03:51.122Z  INFO 26138 --- [cluster-ClusterId{value='65f4fe0748c78a4bb35193b9', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17650917}
+2024-03-16T02:03:51.642Z  INFO 26138 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-03-16T02:03:51.650Z  INFO 26138 --- [main] b.c.f.hackaton.ms.reservas.Application   : Started Application in 2.349 seconds (process running for 2.858)
+2024-03-16T02:03:56.498Z  INFO 26138 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-16T02:03:56.498Z  INFO 26138 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-16T02:03:56.500Z  INFO 26138 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-03-16T02:03:56.562Z  INFO 26138 --- [http-nio-8081-exec-1] b.c.f.h.m.r.service.ReservaService       : Buscando reserva com ID: 65f4fb4e2ca4fe461a4c0b8c
+2024-03-16T02:03:58.943Z  INFO 26138 --- [http-nio-8081-exec-3] b.c.f.h.m.r.service.ReservaService       : Atualizando reserva com ID: 65f4fb4e2ca4fe461a4c0b8c
+2024-03-16T02:04:06.881Z  INFO 26138 --- [http-nio-8081-exec-4] b.c.f.h.m.r.service.ReservaService       : Atualizando reserva com ID: 65f4fb4e2ca4fe461a4c0b8c
+2024-03-16T02:04:06.942Z ERROR 26138 --- [http-nio-8081-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: feign.FeignException$InternalServerError: [500] during [GET] to [http://localhost:8085/servicos-opcionais/2] [ServicoOpcionalClient#buscarPorId(Long)]: [{"timestamp":"2024-03-16T02:04:06.933+00:00","status":500,"error":"Internal Server Error","trace":"java.lang.RuntimeException: Registro nao existe!\n\tat br.com.fiap.hackaton.msservicos.service.impl.S... (5802 bytes)]] with root cause
+
+feign.FeignException$InternalServerError: [500] during [GET] to [http://localhost:8085/servicos-opcionais/2] [ServicoOpcionalClient#buscarPorId(Long)]: [{"timestamp":"2024-03-16T02:04:06.933+00:00","status":500,"error":"Internal Server Error","trace":"java.lang.RuntimeException: Registro nao existe!\n\tat br.com.fiap.hackaton.msservicos.service.impl.S... (5802 bytes)]
+	at feign.FeignException.serverErrorStatus(FeignException.java:259) ~[feign-core-13.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:206) ~[feign-core-13.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:194) ~[feign-core-13.1.jar:na]
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103) ~[feign-core-13.1.jar:na]
+	at feign.InvocationContext.decodeError(InvocationContext.java:126) ~[feign-core-13.1.jar:na]
+	at feign.InvocationContext.proceed(InvocationContext.java:72) ~[feign-core-13.1.jar:na]
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63) ~[feign-core-13.1.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114) ~[feign-core-13.1.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70) ~[feign-core-13.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99) ~[feign-core-13.1.jar:na]
+	at jdk.proxy2/jdk.proxy2.$Proxy130.buscarPorId(Unknown Source) ~[na:na]
+	at br.com.fiap.hackaton.ms.reservas.service.ReservaService.updateReserva(ReservaService.java:140) ~[classes/:na]
+	at br.com.fiap.hackaton.ms.reservas.controller.ReservaController.updateReserva(ReservaController.java:97) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-03-16T02:04:18.453Z  INFO 26138 --- [http-nio-8081-exec-6] b.c.f.h.m.r.service.ReservaService       : Atualizando reserva com ID: 65f4fb4e2ca4fe461a4c0b8c
+2024-03-16T02:04:34.067Z  INFO 26138 --- [http-nio-8081-exec-7] b.c.f.h.m.r.service.ReservaService       : Atualizando reserva com ID: 65f4fb4e2ca4fe461a4c0b8c
+2024-03-16T02:05:05.674Z  INFO 26138 --- [http-nio-8081-exec-8] b.c.f.h.m.r.service.ReservaService       : Removendo reserva com ID: 65f4fb4e2ca4fe461a4c0b8c
+2024-03-16T02:05:22.497Z  INFO 26138 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Criando reserva para o cliente: 1
+2024-03-16T02:05:22.554Z  INFO 26138 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Cliente recuperado com sucesso: Cliente(id=1, nome=nome_b7fca66e4738, sobrenome=sobrenome_6afd0b6b6b57, cpf=cpf_1646fdaedd13, passaporte=passaporte_0cf3e04a9250, dataDeAniversario=2024-03-15, genero=MASCULINO, endereco=Endereco(id=1, rua=rua_77a8f2634f04, numero=numero_a985d1d9964e, cidade=cidade_2d25579af9de, bairro=bairro_e0b6634a7ee7, estado=estado_98c3296f8bdc, cep=cep_813860cccd09), paisDeOrigem=paisDeOrigem_036f1ff9df26, telefone=telefone_a2fa7bd404f6, email=email_aeffcf308291)
+2024-03-16T02:05:22.558Z  INFO 26138 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Quantidade de dias: 2
+2024-03-16T02:05:22.590Z  INFO 26138 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Quarto disponível: QuartoDto(id=Q00001, tipo=STANDARD_SIMPLES, totalPessoas=0, totalCamas=0, valorDiaria=0.0, moveis=[SOFA], predioId=null)
+2024-03-16T02:05:22.592Z  INFO 26138 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Valor total após adicionar quartos: 0.0
+2024-03-16T02:05:22.624Z  INFO 26138 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Serviço opcional encontrado: br.com.fiap.hackaton.msservicos.dto.ServicoOpcionalResponse@188ea779
+2024-03-16T02:05:22.624Z  INFO 26138 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Valor total final: 250.0
+2024-03-16T02:05:22.646Z  INFO 26138 --- [http-nio-8081-exec-9] b.c.f.h.m.r.service.ReservaService       : Reserva salva com sucesso: Reserva(id=65f4fe6248c78a4bb35193ba, clienteId=1, quartoIds=[Q00001], servicoOpcionalIds=[1], dataEntrada=2024-05-16, dataSaida=2024-05-17, numeroHospedes=2, valorTotal=250.0)
+2024-03-16T02:05:28.005Z  INFO 26138 --- [http-nio-8081-exec-10] b.c.f.h.m.r.service.ReservaService       : Buscando todas as reservas
+2024-03-16T02:05:37.549Z  INFO 26138 --- [http-nio-8081-exec-2] b.c.f.h.m.r.service.ReservaService       : Buscando reserva com ID: 65f4fe6248c78a4bb35193ba
