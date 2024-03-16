@@ -139,9 +139,104 @@ curl --location --request PUT 'http://localhost:8082/api/v1/localidades/1' \
             ]
         }
 
-    <p>Excluir localidade por Id</p>
+<p>Excluir localidade por Id</p>
 
-    curl --location --request DELETE 'http://localhost:8082/api/v1/localidades/1'
+curl --location --request DELETE 'http://localhost:8082/api/v1/localidades/1'
+
+<p>Criar Quarto</p>
+
+curl --location --request POST 'http://localhost:8082/api/v1/quartos' \
+--header 'Content-Type: application/json' \
+--data '{
+	  "id": "Q00003",
+	  "tipo": "STANDARD_SIMPLES",
+	  "totalPessoas": 0,
+	  "totalCamas": 0,
+	  "valorDiaria": 0.00,
+	  "moveis": [
+	    "SOFA"
+	  ]
+}'
+
+<p>Listar todos os Quartos</p>
+
+curl --location --request GET 'http://localhost:8082/api/v1/quartos'
+
+<p>Buscar Quarto por ID</p>
+
+curl --location --request GET 'http://localhost:8082/api/v1/quartos/1'
+
+<p>Atualizar Quarto</p>
+
+curl --location --request PUT 'http://localhost:8082/api/v1/quartos/1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id": "id_6bd04eadddbc",
+    "tipo": "STANDARD_SIMPLES",
+    "totalPessoas": 2,
+    "totalCamas": 2,
+    "valorDiaria": 400.00,
+    "moveis": [
+        "SOFA"
+    ]
+}'
+
+<p>Excluir quarto por ID</p>	
+
+curl --location --request DELETE 'http://localhost:8082/api/v1/quartos/3'
+
+<p>Criar Predio</p>
+
+curl --location --request POST 'http://localhost:8082/api/v1/predios' \
+--header 'Content-Type: application/json' \
+--data '{
+  "id": "P00003",
+  "nome": "Prédio teste",
+  "quartos": [
+    {
+      "id": "Q00003",
+      "tipo": "STANDARD_SIMPLES",
+      "totalPessoas": 0,
+      "totalCamas": 0,
+      "valorDiaria": 0.00,
+      "moveis": [
+        "SOFA"
+      ]
+    }
+  ]
+}'
+
+<p>Listar todos os prédios</p>
+
+curl --location --request GET 'http://localhost:8082/api/v1/predios'
+
+<p>Buscar premio por ID</p>
+
+curl --location --request GET 'http://localhost:8082/api/v1/predios/P00001'
+
+<p>Alterar predio</p>
+curl --location --request PUT 'http://localhost:8082/api/v1/predios/P00001' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id": "P00001",
+    "nome": "Casa Principal",
+    "quartos": [
+        {
+            "id": "Q00001",
+            "tipo": "STANDARD_SIMPLES",
+            "totalPessoas": 2,
+            "totalCamas": 2,
+            "valorDiaria": 400.00,
+            "moveis": [
+                "SOFA"
+            ]
+        }
+    ]
+}'
+
+<p>Excluir predio por ID</p>
+
+curl --location --request DELETE 'http://localhost:8082/api/v1/predios/P00001'
 
 ### 2. Gestão de Serviços e Opcionais
 
