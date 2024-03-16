@@ -35,8 +35,8 @@ Em resumo, pensamos em uma arquitetura de microserviços para fornecer uma estru
 
 Este módulo permite a administração detalhada dos quartos disponíveis nas propriedades hoteleiras, desde a definição das localidades e prédios até a configuração de cada quarto. Permite também a gestão de Enums como TipoQuarto, Movel e Amenidade.
 
-  Comandos curls para teste em linha de comando:
-  ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
+   Comandos curls para teste em linha de comando:
+  ** Deixar em uma unica linha de comando do seu Sistema Operacional e tirar o caracter \ de quebra de linha.
 
   Criar Localidade
   curl --location --request POST 'http://localhost:8082/api/v1/localidades' \
@@ -148,9 +148,10 @@ curl --location --request PUT 'http://localhost:8082/api/v1/localidades/1' \
 Aqui, os administradores podem gerenciar todos os serviços extras e itens opcionais oferecidos aos hóspedes, facilitando a oferta e a cobrança desses serviços aos clientes.
 
   Comandos curls para teste em linha de comando:
-  ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
+  ** Deixar em uma unica linha de comando do seu Sistema Operacional e tirar o caracter \ de quebra de linha.
 
   Criar Serviço
+  
   curl --location --request POST 'http://localhost:8085/servicos-opcionais' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -203,6 +204,8 @@ curl --location --request GET 'http://localhost:8085/servicos-opcionais/nome?nom
 ### 3. Gestão de Clientes
 
 Responsável pelo registro e manutenção das informações dos clientes do hotel, armazena dados pessoais e de contato. Esse módulo é crucial para personalizar a experiência do hóspede e gerenciar as informações dos clientes de forma segura e eficiente.
+
+
 
 ### 4. Gestão de Reservas
 
