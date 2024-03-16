@@ -205,6 +205,74 @@ curl --location --request GET 'http://localhost:8085/servicos-opcionais/nome?nom
 
 Responsável pelo registro e manutenção das informações dos clientes do hotel, armazena dados pessoais e de contato. Esse módulo é crucial para personalizar a experiência do hóspede e gerenciar as informações dos clientes de forma segura e eficiente.
 
+  Comandos curls para teste em linha de comando:
+  ** Deixar em uma unica linha de comando do seu Sistema Operacional e tirar o caracter \ de quebra de linha.
+
+Criar Cliente já com Endereço.
+
+curl --location --request POST 'http://localhost:8080/v1/clientes' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "nome": "João",
+  "sobrenome": "da Silva",
+  "cpf": "123.456.789-00",
+  "passaporte": "ABC123",
+  "dataDeAniversario": "1990-01-01",
+  "genero": "MASCULINO",
+  "endereco": {
+    "rua": "Rua das Flores",
+    "numero": 123,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "12345-678"
+  },
+  "paisDeOrigem": "Brasil",
+  "nivel": "USER",
+  "email": "joao@example.com",
+  "usuario": "joaosilva",
+  "senha": "senha123",
+  "telefone": "(11) 91234-5678"
+}'
+
+
+Listar todos clientes
+
+curl --location --request GET 'http://localhost:8080/v1/clientes'
+
+Listar cliente por Id
+
+curl --location --request GET 'http://localhost:8080/v1/clientes/1'
+
+Excluir cliente por ID
+
+curl --location --request DELETE 'http://localhost:8080/v1/clientes/1'
+
+Atualizar CLiente
+
+curl --location --request PUT 'http://localhost:8080/v1/clientes/2' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "nome": "João",
+  "sobrenome": "da Silva",
+  "cpf": "123.456.789-00",
+  "passaporte": "ABC123",
+  "dataDeAniversario": "1990-01-01",
+  "genero": "FEMININO",
+  "endereco": {
+    "rua": "Rua das Flores",
+    "numero": 123,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "12345-678"
+  },
+  "paisDeOrigem": "Brasil",
+  "nivel": "USER",
+  "email": "joao@example.com",
+  "usuario": "joaosilva",
+  "senha": "senha123",
+  "telefone": "(11) 91234-5678"
+}'
+
 
 
 ### 4. Gestão de Reservas
