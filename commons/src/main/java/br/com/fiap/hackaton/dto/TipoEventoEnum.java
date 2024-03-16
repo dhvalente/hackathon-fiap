@@ -1,19 +1,29 @@
 package br.com.fiap.hackaton.dto;
 
-
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.io.Serializable;
 import java.util.Arrays;
 
 @Getter
-@AllArgsConstructor
 public enum TipoEventoEnum implements Serializable {
 
     EXPIRACAO_RESERVA("expiracao_reserva", EventoExpiracaoReserva.class);
     private String nome;
     private Class classe;
+
+    TipoEventoEnum(String nome, Class classe) {
+        this.nome = nome;
+        this.classe = classe;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Class getClasse() {
+        return classe;
+    }
 
     public static Class obterClassePorNomeTipoEvento(String nomeTipoEvento){
 

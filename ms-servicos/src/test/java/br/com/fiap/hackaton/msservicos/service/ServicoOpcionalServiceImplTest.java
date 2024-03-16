@@ -118,7 +118,7 @@ public class ServicoOpcionalServiceImplTest {
 
         Long id = Long.valueOf(1);
         servicoEOpcionalRequest.setNome("Chiclete");
-        servicoEOpcionalResponse.setNome("Chiclete");
+
 
 
         // Mockito

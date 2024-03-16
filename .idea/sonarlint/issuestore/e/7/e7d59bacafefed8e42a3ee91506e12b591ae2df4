@@ -1,0 +1,8 @@
+
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦çäÅøÿÿÿÿ8¯ôôÒã1
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë‡„Ë8¯ôôÒã1
+k	java:S116	"ORename this field "UUID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ö‚8¯•‘Òã1
+V
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8Ş¼ôÒã1
+M
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8ß¼ôÒã1
