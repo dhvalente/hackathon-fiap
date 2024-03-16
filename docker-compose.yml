@@ -1,17 +1,49 @@
 version: "3.2"
 services:
+  mysql:
+    image: mysql:latest
+    container_name: userms
+    environment:
+      MYSQL_ROOT_PASSWORD: fiap-root
+      MYSQL_DATABASE: userms-mysql
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: fiap
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+  ms-usuarios:
+    container_name: ms-servicos
+    image: postgres:9.4
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: dbServicos
+    ports:
+      - 5432:5432
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
   rabbitmq:
-    image: rabbitmq:3-management-alpine
+    image: rabbitmq:3-management
     container_name: 'rabbitmq'
     ports:
         - 5672:5672
         - 15672:15672
+        - 15692:15692
     volumes:
-        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+      - ./rabbitmq_definitions.json:/etc/rabbitmq/definitions.json
     networks:
         - rabbitmq_hackaton_fiap
-
 networks:
   rabbitmq_hackaton_fiap:
     driver: bridge
+volumes:
+  mysql-data:
