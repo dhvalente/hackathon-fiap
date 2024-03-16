@@ -3,8 +3,6 @@ C
 ms-customer/pom.xml,7\b\7b94ee4cbd4c0b2c3fbf44a96b53ec2d322ded47
 å
 \ms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas/configuration/RabbitMQConfig.java,d\6\d6e39230fbb7cbd87722c44357eb75b7adaba1be
-ì
-cms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas/configuration/ApplicationProperties.java,4\4\441ea0e2be5b68a299894feb108235b88c7f4fed
 z
 Jcommons/src/main/java/br/com/fiap/hackaton/dto/EventoExpiracaoReserva.java,3\1\319f2c0b7692b6c663ba563ec923e41e79d88d59
 r
@@ -23,11 +21,5 @@ cms-notificacao/src/main/java/br/com/fiap/hackaton/ms/notificacao/domain/EventoE
 Vms-notificacao/src/main/java/br/com/fiap/hackaton/ms/notificacao/domain/Metadados.java,9\a\9a08f4863583794f62541620c788996094790d72
 F
 ms-notificacao/pom.xml,1\9\19b75584cd67a147ebcc49d1fe301744e9a78b2f
-Ö
-Ums-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas/service/EventoService.java,2\5\258d1af1f2c32bd25ef289a36c80460af0e9bd25
 C
 ms-reservas/pom.xml,8\1\816f28c3f36acc074516ab0d934c58085e71130e
-ä
-Zms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas/controller/TesteController.java,a\7\a7bc2c2b84a9657f22a40a0393e14bc1cb03c91e
-ç
-]ms-notificacao/src/main/java/br/com/fiap/hackaton/ms/notificacao/listener/EventoListener.java,c\0\c001d9d73a547ba1791611a0ac7ef660feb96fd6
