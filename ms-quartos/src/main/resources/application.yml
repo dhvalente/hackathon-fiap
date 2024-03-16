@@ -7,3 +7,5 @@ spring:
       port: 27017
       database: ms-quartos
       authentication-database: admin
+server:
+  port: 8082

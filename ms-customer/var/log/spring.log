@@ -3910,3 +3910,44 @@ Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'lo
 2024-03-14T21:54:05.777-03:00  INFO 30008 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-14T21:54:05.782-03:00  INFO 30008 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-03-14T21:54:05.799-03:00  INFO 30008 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-15T23:25:51.591Z  INFO 21159 --- [main] b.c.f.h.c.ClienteApplicationTests        : Starting ClienteApplicationTests using Java 21.0.2 with PID 21159 (started by mathsena in /Users/mathsena/Desktop/fiap-hack/hackathon-fiap/ms-customer)
+2024-03-15T23:25:51.594Z  INFO 21159 --- [main] b.c.f.h.c.ClienteApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-03-15T23:25:52.261Z  INFO 21159 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-15T23:25:52.262Z  INFO 21159 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-03-15T23:25:52.288Z  INFO 21159 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.customer.repository.ClienteRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-03-15T23:25:52.289Z  INFO 21159 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface br.com.fiap.hackaton.customer.repository.EnderecoRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-03-15T23:25:52.290Z  INFO 21159 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JDBC repository interfaces.
+2024-03-15T23:25:52.298Z  INFO 21159 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-15T23:25:52.299Z  INFO 21159 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15T23:25:52.316Z  INFO 21159 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+2024-03-15T23:25:52.654Z  INFO 21159 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15T23:25:52.715Z  INFO 21159 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-15T23:25:52.741Z  INFO 21159 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-15T23:25:52.829Z  INFO 21159 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-15T23:25:52.852Z  INFO 21159 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-15T23:25:53.217Z  INFO 21159 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2568c451
+2024-03-15T23:25:53.219Z  INFO 21159 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-15T23:25:54.218Z  INFO 21159 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-15T23:25:54.290Z  INFO 21159 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15T23:25:54.706Z  WARN 21159 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15T23:25:55.513Z  INFO 21159 --- [main] b.c.f.h.c.ClienteApplicationTests        : Started ClienteApplicationTests in 4.151 seconds (process running for 6.829)
+2024-03-15T23:25:55.630Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - obterClientePorId - PARAMETER[1]
+2024-03-15T23:25:55.631Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - obterClientePorId - PARAMETER[1]
+2024-03-15T23:25:55.632Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - obterClientePorId - PARAMETER[1]
+2024-03-15T23:25:55.632Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - obterClientePorId - PARAMETER[1]
+2024-03-15T23:25:55.635Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - delete - PARAMETER[1}]
+2024-03-15T23:25:55.635Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - obterClientePorId - PARAMETER[1]
+2024-03-15T23:25:55.635Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - obterClientePorId - PARAMETER[1]
+2024-03-15T23:25:55.635Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - delete - PARAMETER[1}]
+2024-03-15T23:25:55.637Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - criar
+2024-03-15T23:25:55.637Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - criar
+2024-03-15T23:25:55.639Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - delete - PARAMETER[1}]
+2024-03-15T23:25:55.639Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - obterClientePorId - PARAMETER[1]
+2024-03-15T23:25:55.639Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - obterClientePorId - PARAMETER[1]
+2024-03-15T23:25:55.639Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - delete - PARAMETER[1}]
+2024-03-15T23:25:55.642Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - update - PARAMETER[1}]
+2024-03-15T23:25:55.645Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : START - [Cliente] - obterTodos
+2024-03-15T23:25:55.646Z  INFO 21159 --- [main] b.c.f.h.c.s.impl.ClienteServiceImpl      : FINAL - [Cliente] - obterTodos
+2024-03-15T23:25:55.655Z  INFO 21159 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15T23:25:55.657Z  INFO 21159 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-15T23:25:55.662Z  INFO 21159 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
