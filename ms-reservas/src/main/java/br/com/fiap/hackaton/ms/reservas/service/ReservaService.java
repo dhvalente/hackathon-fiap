@@ -14,10 +14,7 @@ import br.com.fiap.hackaton.ms.reservas.repository.ReservaRepository;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 import br.com.fiap.hackaton.msservicos.dto.ServicoOpcionalResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -38,7 +35,7 @@ public class ReservaService {
   public Reserva createReserva(ReservaDto reservaDTO) {
     log.info("Criando reserva para o cliente: {}", reservaDTO.getClienteId());
     ResponseEntity<Cliente> clienteResponse =
-            clienteClient.findClienteById(reservaDTO.getClienteId());
+        clienteClient.findClienteById(reservaDTO.getClienteId());
     if (clienteResponse.getStatusCode().isError() || clienteResponse.getBody() == null) {
       log.error("Cliente não encontrado: {}", reservaDTO.getClienteId());
       throw new GenericException("Cliente não encontrado.");
@@ -46,7 +43,7 @@ public class ReservaService {
     log.info("Cliente recuperado com sucesso: {}", clienteResponse.getBody());
 
     long quantidadeDeDias =
-            ChronoUnit.DAYS.between(reservaDTO.getDataEntrada(), reservaDTO.getDataSaida()) + 1;
+        ChronoUnit.DAYS.between(reservaDTO.getDataEntrada(), reservaDTO.getDataSaida()) + 1;
     log.info("Quantidade de dias: {}", quantidadeDeDias);
 
     double valorTotal = 0.0;
@@ -60,9 +57,9 @@ public class ReservaService {
       }
 
       List<Reserva> reservasExistentes =
-              reservaRepository
-                      .findByQuartoIdsContainsAndDataSaidaGreaterThanEqualAndDataEntradaLessThanEqual(
-                              quartoId, reservaDTO.getDataEntrada(), reservaDTO.getDataSaida());
+          reservaRepository
+              .findByQuartoIdsContainsAndDataSaidaGreaterThanEqualAndDataEntradaLessThanEqual(
+                  quartoId, reservaDTO.getDataEntrada(), reservaDTO.getDataSaida());
       if (!reservasExistentes.isEmpty()) {
         log.error("Quarto já reservado para as datas solicitadas: {}", quartoId);
         throw new GenericException("Quarto já reservado para as datas solicitadas: " + quartoId);
@@ -77,16 +74,23 @@ public class ReservaService {
 
     for (String servicoId : reservaDTO.getServicoOpcionalIds()) {
       ResponseEntity<ServicoOpcionalResponse> servicoResponse =
-              servicoOpcionalClient.buscarPorId(Long.parseLong(servicoId));
+          servicoOpcionalClient.buscarPorId(Long.parseLong(servicoId));
       if (servicoResponse.getStatusCode().isError() || servicoResponse.getBody() == null) {
         log.error("Serviço opcional não encontrado: {}", servicoId);
         throw new GenericException("Serviço opcional não encontrado: " + servicoId);
       }
-      log.info("Serviço opcional encontrado: {}", servicoResponse.getBody());
-      valorTotal +=
-              servicoResponse
-                      .getBody()
-                      .getValor(); // Os serviços opcionais são cobrados por reserva, não por dia
+      ServicoOpcionalResponse servico = servicoResponse.getBody();
+      log.info("Serviço opcional encontrado: {}", servico);
+
+      // Aplica o preço com base no tipo de serviço opcional
+      switch (servico.getTipo()) {
+        case ITEM, SERVICO:
+          valorTotal += servico.getValor();
+          break;
+        default:
+          log.warn("Tipo de serviço opcional não reconhecido: {}", servico.getTipo());
+          break;
+      }
     }
     log.info("Valor total final: {}", valorTotal);
 
@@ -94,6 +98,7 @@ public class ReservaService {
     reserva.setClienteId(String.valueOf(reservaDTO.getClienteId()));
     reserva.setQuartoIds(reservaDTO.getQuartoIds());
     reserva.setServicoOpcionalIds(reservaDTO.getServicoOpcionalIds());
+    reserva.setTipoServico(reservaDTO.getTipoServico());
     reserva.setDataEntrada(reservaDTO.getDataEntrada());
     reserva.setDataSaida(reservaDTO.getDataSaida());
     reserva.setNumeroHospedes(reservaDTO.getNumeroHospedes());
@@ -114,48 +119,42 @@ public class ReservaService {
   public Reserva findReservaById(String reservaId) {
     log.info("Buscando reserva com ID: {}", reservaId);
     return reservaRepository
-            .findById(reservaId)
-            .orElseThrow(() -> new GenericException("Reserva não encontrada com ID: " + reservaId));
+        .findById(reservaId)
+        .orElseThrow(() -> new GenericException("Reserva não encontrada com ID: " + reservaId));
   }
 
   public Reserva updateReserva(String reservaId, ReservaDto reservaDTO) {
     log.info("Atualizando reserva com ID: {}", reservaId);
     Reserva reserva =
-            reservaRepository
-                    .findById(String.valueOf(reservaId))
-                    .orElseThrow(() -> new GenericException("Reserva não encontrada com ID: " + reservaId));
+        reservaRepository
+            .findById(String.valueOf(reservaId))
+            .orElseThrow(() -> new GenericException("Reserva não encontrada com ID: " + reservaId));
 
-    // Verifica se o cliente existe
     ResponseEntity<Cliente> clienteResponse =
-            clienteClient.findClienteById(reservaDTO.getClienteId());
+        clienteClient.findClienteById(reservaDTO.getClienteId());
     if (clienteResponse.getStatusCode().isError() || clienteResponse.getBody() == null) {
       throw new GenericException("Cliente não encontrado.");
     }
 
     long quantidadeDeDias =
-            ChronoUnit.DAYS.between(reservaDTO.getDataEntrada(), reservaDTO.getDataSaida()) + 1;
+        ChronoUnit.DAYS.between(reservaDTO.getDataEntrada(), reservaDTO.getDataSaida()) + 1;
 
     double valorTotal = 0.0;
     List<String> quartosSelecionados = new ArrayList<>();
 
-    // Verifica a disponibilidade de cada quarto
     for (String quartoId : reservaDTO.getQuartoIds()) {
       ResponseEntity<QuartoDto> quartoResponse = quartoClient.getQuartoById(quartoId);
       if (quartoResponse.getStatusCode().isError() || quartoResponse.getBody() == null) {
         throw new GenericException("Quarto não encontrado: " + quartoId);
       }
 
-      // Aqui você deve implementar uma lógica para verificar se o quarto está disponível
-      // para as novas datas, se necessário.
-
       quartosSelecionados.add(quartoId);
       valorTotal += quartoResponse.getBody().getValorDiaria() * quantidadeDeDias;
     }
 
-    // Verifica cada serviço opcional
     for (String servicoId : reservaDTO.getServicoOpcionalIds()) {
       ResponseEntity<ServicoOpcionalResponse> servicoResponse =
-              servicoOpcionalClient.buscarPorId(Long.parseLong(servicoId));
+          servicoOpcionalClient.buscarPorId(Long.parseLong(servicoId));
       if (servicoResponse.getStatusCode().isError() || servicoResponse.getBody() == null) {
         throw new GenericException("Serviço opcional não encontrado: " + servicoId);
       }
@@ -163,7 +162,6 @@ public class ReservaService {
       valorTotal += servicoResponse.getBody().getValor();
     }
 
-    // Atualiza os dados da reserva
     reserva.setClienteId(reservaDTO.getClienteId().toString());
     reserva.setQuartoIds(reservaDTO.getQuartoIds());
     reserva.setServicoOpcionalIds(reservaDTO.getServicoOpcionalIds());
@@ -187,18 +185,16 @@ public class ReservaService {
   public void notificar(ReservaDto reservaDTO) {
     log.info("Notificando cliente da reserva: {}", reservaDTO);
     String cliente =
-       Objects.requireNonNull(clienteClient.findClienteById(reservaDTO.getClienteId())
-                       .getBody())
-               .getEmail();
-    String mensagem = String.format(
+        Objects.requireNonNull(clienteClient.findClienteById(reservaDTO.getClienteId()).getBody())
+            .getEmail();
+    String mensagem =
+        String.format(
             "Olá %s, sua reserva foi criada com sucesso! Data de entrada: %s, Data de saída: %s ",
-            Objects.requireNonNull(clienteClient.findClienteById(reservaDTO.getClienteId())
-                            .getBody())
-                    .getNome(),
+            Objects.requireNonNull(
+                    clienteClient.findClienteById(reservaDTO.getClienteId()).getBody())
+                .getNome(),
             reservaDTO.getDataEntrada().toString(),
-            reservaDTO.getDataSaida().toString()
-
-    );
+            reservaDTO.getDataSaida().toString());
 
     Metadados metadados = new Metadados();
     metadados.setUUID(UUID.randomUUID().toString());
@@ -216,6 +212,5 @@ public class ReservaService {
     evento.setPayload(eventoExpiracaoReserva);
 
     eventoService.publicarEvento(evento);
-
   }
 }

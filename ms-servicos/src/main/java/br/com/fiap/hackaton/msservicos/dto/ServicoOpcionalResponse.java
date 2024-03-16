@@ -11,6 +11,7 @@ import lombok.*;
 @Getter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ServicoOpcionalResponse {
 

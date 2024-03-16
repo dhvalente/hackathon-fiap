@@ -2,6 +2,7 @@ package br.com.fiap.hackaton.ms.reservas.controller;
 
 import br.com.fiap.hackaton.ms.reservas.domain.Reserva;
 import br.com.fiap.hackaton.ms.reservas.dtos.ReservaDto;
+import br.com.fiap.hackaton.ms.reservas.exceptions.GenericException;
 import br.com.fiap.hackaton.ms.reservas.service.ReservaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -38,8 +39,12 @@ public class ReservaController {
         @ApiResponse(responseCode = "400", description = "Erro na requisição")
       })
   public ResponseEntity<Reserva> createReserva(@RequestBody @Valid ReservaDto reservaDTO) {
+    try {
       Reserva reserva = reservaService.createReserva(reservaDTO);
       return ResponseEntity.ok(reserva);
+    } catch (Exception e) {
+      throw new GenericException("Erro ao criar reserva: " + e.getMessage());
+    }
   }
 
   @GetMapping
@@ -64,8 +69,12 @@ public class ReservaController {
         @ApiResponse(responseCode = "404", description = "Reserva não encontrada")
       })
   public ResponseEntity<Reserva> getReservaById(@PathVariable String id) {
+    try {
       Reserva reserva = reservaService.findReservaById(id);
       return ResponseEntity.ok(reserva);
+    } catch (Exception e) {
+      throw new GenericException("Reserva não encontrada para o ID: " + id);
+    }
   }
 
   @PutMapping("/{id}")
@@ -84,8 +93,12 @@ public class ReservaController {
       })
   public ResponseEntity<Reserva> updateReserva(
       @PathVariable String id, @RequestBody ReservaDto reservaDTO) {
+    try {
       Reserva updatedReserva = reservaService.updateReserva(id, reservaDTO);
       return ResponseEntity.ok(updatedReserva);
+    } catch (Exception e) {
+      throw new GenericException("Erro ao atualizar a reserva: " + e.getMessage());
+    }
   }
 
   @DeleteMapping("/{id}")
@@ -96,7 +109,11 @@ public class ReservaController {
         @ApiResponse(responseCode = "404", description = "Reserva não encontrada")
       })
   public ResponseEntity<Void> deleteReserva(@PathVariable String id) {
+    try {
       reservaService.deleteReserva(id);
       return ResponseEntity.ok().build();
+    } catch (Exception e) {
+      throw new GenericException("Erro ao deletar reserva: " + e.getMessage());
+    }
   }
 }

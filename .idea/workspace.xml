@@ -15,6 +15,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 &amp; Mockito" />
       </list>
     </option>
   </component>
@@ -57,6 +58,10 @@
     "JUnit.ClienteServiceImplTest.testAtualizarCliente.executor": "Debug",
     "JUnit.ClienteServiceImplTest.testCriarCliente.executor": "Run",
     "JUnit.ClienteServiceImplTest.testObterTodosClientes.executor": "Run",
+    "JUnit.ReservaServiceTest.executor": "Run",
+    "JUnit.ReservaServiceTest.testCreateReserva.executor": "Run",
+    "JUnit.ReservaServiceTest.testFindReservaById.executor": "Run",
+    "JUnit.ReservaServiceTest.testNotificar.executor": "Run",
     "JUnit.java in ms-costumer.executor": "Run",
     "Maven.ms-costumer [clean].executor": "Run",
     "Maven.ms-costumer [compile].executor": "Run",
@@ -83,8 +88,9 @@
     "Spring Boot.MsQuartosApplication.executor": "Run",
     "Spring Boot.MsServicosApplication.executor": "Run",
     "Spring Boot.NotificacaoApplication.executor": "Run",
+    "Spring Boot.ReservasApplication.executor": "Run",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/mathsena/Desktop/fiapMaldita/hackathon-fiap",
+    "last_opened_file_path": "/Users/mathsena/Desktop/fiapPos/hackathon-fiap",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -101,6 +107,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ms-reservas/src/main/resources" />
       <recent name="$PROJECT_DIR$/ms-reservas/src/main/java/br/com/fiap/hackaton/ms/reservas" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/doc/img" />
+      <recent name="$PROJECT_DIR$/collections-postman" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="br.com.fiap.hackaton.ms.reservas.client" />
@@ -122,33 +132,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.NotificacaoApplication">
-    <configuration name="CustomerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.customer.CustomerApplication" />
-      <module name="ms-costumer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.customer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsServicosApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.msservicos.MsServicosApplication" />
-      <module name="ms-servicos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.msservicos.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ReservaServiceTest.testCreateReserva">
     <configuration name="NotificacaoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.ms.notificacao.NotificacaoApplication" />
       <module name="ms-notificacao" />
@@ -162,23 +146,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReservasApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.ms.reservas.ReservasApplication" />
+    <configuration name="ReservaServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-reservas" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.fiap.hackaton.ms.reservas.*" />
+          <option name="PATTERN" value="br.com.fiap.hackaton.ms.reservas.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.ms.reservas.service" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.ms.reservas.service.ReservaServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in ms-costumer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-costumer" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/ms-customer/src/test/java" />
+    <configuration name="ReservaServiceTest.testCreateReserva" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-reservas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.fiap.hackaton.ms.reservas.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.ms.reservas.service" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.ms.reservas.service.ReservaServiceTest" />
+      <option name="METHOD_NAME" value="testCreateReserva" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReservaServiceTest.testFindReservaById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-reservas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.fiap.hackaton.ms.reservas.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.ms.reservas.service" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.ms.reservas.service.ReservaServiceTest" />
+      <option name="METHOD_NAME" value="testFindReservaById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReservaServiceTest.testNotificar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-reservas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.fiap.hackaton.ms.reservas.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.fiap.hackaton.ms.reservas.service" />
+      <option name="MAIN_CLASS_NAME" value="br.com.fiap.hackaton.ms.reservas.service.ReservaServiceTest" />
+      <option name="METHOD_NAME" value="testNotificar" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -230,10 +256,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.NotificacaoApplication" />
-      <item itemvalue="Application.ReservasApplication" />
-      <item itemvalue="Application.CustomerApplication" />
-      <item itemvalue="Application.MsServicosApplication" />
-      <item itemvalue="JUnit.java in ms-costumer" />
+      <item itemvalue="JUnit.ReservaServiceTest" />
+      <item itemvalue="JUnit.ReservaServiceTest.testCreateReserva" />
+      <item itemvalue="JUnit.ReservaServiceTest.testFindReservaById" />
+      <item itemvalue="JUnit.ReservaServiceTest.testNotificar" />
       <item itemvalue="Spring Boot.Application (1)" />
       <item itemvalue="Spring Boot.CustomerApplication" />
       <item itemvalue="Spring Boot.MsQuartosApplication" />
@@ -243,11 +269,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ReservaServiceTest.testCreateReserva" />
+        <item itemvalue="JUnit.ReservaServiceTest" />
+        <item itemvalue="JUnit.ReservaServiceTest.testFindReservaById" />
+        <item itemvalue="JUnit.ReservaServiceTest.testNotificar" />
         <item itemvalue="Application.NotificacaoApplication" />
-        <item itemvalue="Application.ReservasApplication" />
-        <item itemvalue="Application.MsServicosApplication" />
-        <item itemvalue="Application.CustomerApplication" />
-        <item itemvalue="JUnit.java in ms-costumer" />
       </list>
     </recent_temporary>
   </component>
@@ -268,6 +294,7 @@
       <workItem from="1710543508927" duration="4142000" />
       <workItem from="1710547669122" duration="4139000" />
       <workItem from="1710556452682" duration="802000" />
+      <workItem from="1710586688197" duration="7526000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção do security">
       <option name="closed" value="true" />

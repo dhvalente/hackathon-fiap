@@ -1,4 +1,5 @@
 version: "3.2"
+
 services:
   mysql:
     image: mysql:latest
@@ -12,6 +13,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
+
   ms-usuarios:
     container_name: ms-servicos
     image: postgres:9.4
@@ -23,7 +25,8 @@ services:
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: dbServicos
     ports:
-      - 5432:5432
+      - "5432:5432"
+
   mongodb:
     image: mongo:latest
     ports:
@@ -31,19 +34,36 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
+
   rabbitmq:
     image: rabbitmq:3-management
     container_name: 'rabbitmq'
     ports:
-        - 5672:5672
-        - 15672:15672
-        - 15692:15692
+      - 5672:5672
+      - 15672:15672
+      - 15692:15692
     volumes:
       - ./rabbitmq_definitions.json:/etc/rabbitmq/definitions.json
-    networks:
-        - rabbitmq_hackaton_fiap
+
+  mongodb_quartos:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
+  mongodb_reservas:
+    image: mongo:latest
+    ports:
+      - "27019:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
 networks:
   rabbitmq_hackaton_fiap:
     driver: bridge
+
 volumes:
   mysql-data:

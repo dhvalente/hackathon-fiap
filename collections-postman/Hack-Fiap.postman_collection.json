@@ -1,0 +1,846 @@
+{
+	"info": {
+		"_postman_id": "f6048915-4d4a-4ad4-876f-43dcbf4d7f20",
+		"name": "Hack-Fiap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29521078"
+	},
+	"item": [
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "Criar nova reserva",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clienteId\": 1,\n    \"quartoIds\": [\n        \"Q00001\"\n    ],\n    \"servicoOpcionalIds\": [\n        \"1\"\n    ],\n    \"dataEntrada\": \"2024-05-16\",\n    \"dataSaida\": \"2024-05-17\",\n    \"numeroHospedes\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/reservas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"reservas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar todas as Reservas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/reservas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"reservas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Reserva Por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/reservas/65f4fe6248c78a4bb35193ba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"reservas",
+								"65f4fe6248c78a4bb35193ba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletando uma reserva",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/reservas/65f4fb4e2ca4fe461a4c0b8c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"reservas",
+								"65f4fb4e2ca4fe461a4c0b8c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar uma reserva",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clienteId\": 1,\n    \"quartoIds\": [\n        \"Q00001\"\n    ],\n    \"servicoOpcionalIds\": [\n        \"2\"\n    ],\n    \"dataEntrada\": \"2024-06-16\",\n    \"dataSaida\": \"2024-06-20\",\n    \"numeroHospedes\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/reservas/65f57f0609122e4ecaa9d3c8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"reservas",
+								"65f57f0609122e4ecaa9d3c8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serviços",
+			"item": [
+				{
+					"name": "cadastro de serviços",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nome\":\"Massagem\",\r\n    \"valor\":\"250.00\",\r\n\t\"tipo\":\"SERVICO\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/servicos-opcionais",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"servicos-opcionais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cadastro de itens",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nome\":\"Cerveja\",\r\n    \"valor\":\"5.00\",\r\n\t\"tipo\":\"ITEM\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/servicos-opcionais",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"servicos-opcionais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar todos serviços e opcionais",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/servicos-opcionais?page=0&size=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"servicos-opcionais"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar servicos e opcionais",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Chocolate\",\r\n    \"valor\": \"3.0\",\r\n    \"tipo\": \"ITEM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/servicos-opcionais/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"servicos-opcionais",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluir serviços e opcionais",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/servicos-opcionais/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"servicos-opcionais",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selecionar por id um serviço ou opcionais ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/servicos-opcionais/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"servicos-opcionais",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selecionar por nome de serviço ou opcionais",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/servicos-opcionais/nome?nome=Chocolate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"servicos-opcionais",
+								"nome"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Chocolate"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ms-quartos",
+			"item": [
+				{
+					"name": "Localidades",
+					"item": [
+						{
+							"name": "Criar Localidade",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"2\",\n  \"nome\": \"Fazenda da Pós Tech\",\n  \"endereco\": {\n    \"id\": 1,\n    \"rua\": \"Rua da Pós Tech, 567\",\n    \"numero\": \"567\",\n    \"cidade\": \"Cidade da Pós Tech\",\n    \"bairro\": \"Bairro da Pós Tech\",\n    \"estado\": \"Estado da Pós Tech\",\n    \"cep\": \"01000-002\"\n  },\n  \"amenidades\": [\n    \"PISCINA_ADULTO_AQUECIDA_COBERTA\",\n    \"PISCINA_ADULTO_NAO_AQUECIDA_ABERTA\",\n    \"PISCINA_INFANTIL_AQUECIDA_COBERTA\",\n    \"PISCINA_INFANTIL_NAO_AQUECIDA_ABERTA\",\n    \"RESTAURANTE_SELF_SERVICE\",\n    \"RESTAURANTE_SELF_SERVICE\",\n    \"RESTAURANTE_A_LA_CARTE\",\n    \"AREA_KIDS\",\n    \"EQUIPE_ENTRETENIMENTO_INFANTIL\",\n    \"EQUIPE_ENTRETENIMENTO_ADULTO\"\n  ],\n  \"predios\": [\n    {\n      \"id\": \"2\",\n      \"nome\": \"Casa Principal\",\n      \"quartos\": [\n        {\n          \"id\": \"1\",\n          \"tipo\": \"STANDARD_SIMPLES\",\n          \"totalPessoas\": 2,\n          \"totalCamas\": 1,\n          \"valorDiaria\": 350.00,\n          \"moveis\": [\n            \"SOFA\"\n          ],\n          \"predioId\": \"1\"\n        }\n      ],\n       \"localidadeId\": \"1\"\n    }\n  ]\n}\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/localidades",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"localidades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Localidades",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/localidades",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"localidades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Localidades Por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/localidades/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"localidades",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Localidade",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Fazenda da Pós Tech II\",\n    \"endereco\": {\n        \"id\": 1,\n        \"rua\": \"Rua da Pós Tech, 567\",\n        \"numero\": \"567\",\n        \"cidade\": \"Cidade da Pós Tech\",\n        \"bairro\": \"Bairro da Pós Tech\",\n        \"estado\": \"Estado da Pós Tech\",\n        \"cep\": \"01000-002\"\n    },\n    \"amenidades\": [\n        \"PISCINA_ADULTO_AQUECIDA_COBERTA\",\n        \"PISCINA_ADULTO_NAO_AQUECIDA_ABERTA\",\n        \"PISCINA_INFANTIL_AQUECIDA_COBERTA\",\n        \"PISCINA_INFANTIL_NAO_AQUECIDA_ABERTA\",\n        \"RESTAURANTE_SELF_SERVICE\",\n        \"RESTAURANTE_SELF_SERVICE\",\n        \"RESTAURANTE_A_LA_CARTE\",\n        \"AREA_KIDS\",\n        \"EQUIPE_ENTRETENIMENTO_INFANTIL\"\n    ],\n    \"predios\": [\n        {\n            \"id\": \"P00002\",\n            \"nome\": \"Casa Principal\",\n            \"quartos\": [\n                {\n                    \"id\": \"Q00001\",\n                    \"tipo\": \"STANDARD_SIMPLES\",\n                    \"totalPessoas\": 2,\n                    \"totalCamas\": 1,\n                    \"valorDiaria\": 350.00,\n                    \"moveis\": [\n                        \"SOFA\"\n                    ]\n                }\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/localidades/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"localidades",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Localidade",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/localidades/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"localidades",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Quartos",
+					"item": [
+						{
+							"name": "Criar Quarto",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"Q00003\",\n  \"tipo\": \"STANDARD_SIMPLES\",\n  \"totalPessoas\": 0,\n  \"totalCamas\": 0,\n  \"valorDiaria\": 0.00,\n  \"moveis\": [\n    \"SOFA\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/quartos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"quartos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Todos os Quartos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/quartos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"quartos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Quartos por Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/quartos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"quartos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Quarto",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"id_6bd04eadddbc\",\n    \"tipo\": \"STANDARD_SIMPLES\",\n    \"totalPessoas\": 2,\n    \"totalCamas\": 2,\n    \"valorDiaria\": 400.00,\n    \"moveis\": [\n        \"SOFA\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/quartos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"quartos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Quarto",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/quartos/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"quartos",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "predios",
+					"item": [
+						{
+							"name": "Criar Prédio",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"P00003\",\n  \"nome\": \"Prédio teste\",\n  \"quartos\": [\n    {\n      \"id\": \"Q00003\",\n      \"tipo\": \"STANDARD_SIMPLES\",\n      \"totalPessoas\": 0,\n      \"totalCamas\": 0,\n      \"valorDiaria\": 0.00,\n      \"moveis\": [\n        \"SOFA\"\n      ]\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/predios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"predios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Todos os Prédios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/predios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"predios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Prédio por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/predios/P00001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"predios",
+										"P00001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Alterar um Prédio",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"P00001\",\n    \"nome\": \"Casa Principal\",\n    \"quartos\": [\n        {\n            \"id\": \"Q00001\",\n            \"tipo\": \"STANDARD_SIMPLES\",\n            \"totalPessoas\": 2,\n            \"totalCamas\": 2,\n            \"valorDiaria\": 400.00,\n            \"moveis\": [\n                \"SOFA\"\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/predios/P00001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"predios",
+										"P00001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Predio",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/v1/predios/P00001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"predios",
+										"P00001"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "Api para gestão de quartos"
+		},
+		{
+			"name": "ms-clientes",
+			"item": [
+				{
+					"name": "Criar Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"João\",\r\n  \"sobrenome\": \"da Silva\",\r\n  \"cpf\": \"123.456.789-00\",\r\n  \"passaporte\": \"ABC123\",\r\n  \"dataDeAniversario\": \"1990-01-01\",\r\n  \"genero\": \"MASCULINO\",\r\n  \"endereco\": {\r\n    \"rua\": \"Rua das Flores\",\r\n    \"numero\": 123,\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"paisDeOrigem\": \"Brasil\",\r\n  \"nivel\": \"USER\",\r\n  \"email\": \"joao@example.com\",\r\n  \"usuario\": \"joaosilva\",\r\n  \"senha\": \"senha123\",\r\n  \"telefone\": \"(11) 91234-5678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/clientes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/clientes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"João\",\r\n  \"sobrenome\": \"da Silva\",\r\n  \"cpf\": \"123.456.789-00\",\r\n  \"passaporte\": \"ABC123\",\r\n  \"dataDeAniversario\": \"1990-01-01\",\r\n  \"genero\": \"FEMININO\",\r\n  \"endereco\": {\r\n    \"rua\": \"Rua das Flores\",\r\n    \"numero\": 123,\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"cep\": \"12345-678\"\r\n  },\r\n  \"paisDeOrigem\": \"Brasil\",\r\n  \"nivel\": \"USER\",\r\n  \"email\": \"joao@example.com\",\r\n  \"usuario\": \"joaosilva\",\r\n  \"senha\": \"senha123\",\r\n  \"telefone\": \"(11) 91234-5678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/clientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"clientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

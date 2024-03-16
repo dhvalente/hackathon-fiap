@@ -14,6 +14,7 @@ public class Reserva {
   private String clienteId;
   private List<String> quartoIds;
   private List<String> servicoOpcionalIds;
+  private String tipoServico;
   private LocalDate dataEntrada;
   private LocalDate dataSaida;
   private Integer numeroHospedes;

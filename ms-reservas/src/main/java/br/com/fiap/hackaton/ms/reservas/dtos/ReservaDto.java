@@ -18,6 +18,8 @@ public class ReservaDto {
 
     private List<String> servicoOpcionalIds;
 
+    private String tipoServico;
+
     @NotNull(message = "A data de entrada não pode ser nula")
     private LocalDate dataEntrada;
 
