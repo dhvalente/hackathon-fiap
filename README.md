@@ -35,10 +35,11 @@ Em resumo, pensamos em uma arquitetura de microserviços para fornecer uma estru
 
 Este módulo permite a administração detalhada dos quartos disponíveis nas propriedades hoteleiras, desde a definição das localidades e prédios até a configuração de cada quarto. Permite também a gestão de Enums como TipoQuarto, Movel e Amenidade.
 
-   Comandos curls para teste em linha de comando:
-  ** Deixar em uma unica linha de comando do seu Sistema Operacional e tirar o caracter \ de quebra de linha.
-
+Comandos curls para teste em linha de comando:
+** Deixar em uma unica linha de comando do seu Sistema Operacional e tirar o caracter \ de quebra de linha.
+<p></p>
 <p>Criar Localidade</p>
+<p></p>
   curl --location --request POST 'http://localhost:8082/api/v1/localidades' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -143,7 +144,7 @@ curl --location --request PUT 'http://localhost:8082/api/v1/localidades/1' \
 
 curl --location --request DELETE 'http://localhost:8082/api/v1/localidades/1'
 
-<p>Criar Predio</p>
+<p>Criar Prédio</p>
 
 curl --location --request POST 'http://localhost:8082/api/v1/predios' \
 --header 'Content-Type: application/json' \
@@ -168,11 +169,11 @@ curl --location --request POST 'http://localhost:8082/api/v1/predios' \
 
 curl --location --request GET 'http://localhost:8082/api/v1/predios'
 
-<p>Buscar predio  por ID</p>
+<p>Buscar prédio  por ID</p>
 
 curl --location --request GET 'http://localhost:8082/api/v1/predios/P00001'
 
-<p>Alterar predio</p>
+<p>Alterar prédio</p>
 curl --location --request PUT 'http://localhost:8082/api/v1/predios/P00001' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -192,7 +193,7 @@ curl --location --request PUT 'http://localhost:8082/api/v1/predios/P00001' \
     ]
 }'
 
-<p>Excluir predio por ID</p>
+<p>Excluir prédio por ID</p>
 
 curl --location --request DELETE 'http://localhost:8082/api/v1/predios/P00001'
 
@@ -270,7 +271,7 @@ curl --location --request POST 'http://localhost:8085/servicos-opcionais' \
 
 }'
 
-<p>Listar todos os serviços e Opcionais</p>
+<p>Listar todos os Serviços e Opcionais</p>
 
 curl --location --request GET 'http://localhost:8085/servicos-opcionais?page=0&size=10'
 
@@ -292,7 +293,7 @@ curl --location --request DELETE 'http://localhost:8085/servicos-opcionais/1'
 
 curl --location --request GET 'http://localhost:8085/servicos-opcionais/2'
 
-<p>Selecionar por noe um serviço ou opcional</p>
+<p>Selecionar por nome um serviço ou opcional</p>
 
 curl --location --request GET 'http://localhost:8085/servicos-opcionais/nome?nome=Chocolate'
 
@@ -385,9 +386,9 @@ Este microserviço é responsável pela criação de reservas em hotéis. Ele in
   Comandos curls para teste em linha de comando:
   ** Deixar em uma unica linha de comando do seru Sistema Operacional e oc carcter \ e quebra de linha.
 
-  <p>Criar Reserva</p>
+<p>Criar Reserva</p>
   
-  curl --location --request POST 'http://localhost:8081/api/reservas' \
+curl --location --request POST 'http://localhost:8081/api/reservas' \
 --header 'Content-Type: application/json' \
 --data '{
     "clienteId": 1,
