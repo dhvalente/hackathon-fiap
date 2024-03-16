@@ -63,7 +63,7 @@ public class ReservaController {
             }),
         @ApiResponse(responseCode = "404", description = "Reserva não encontrada")
       })
-  public ResponseEntity<Reserva> getReservaById(@PathVariable Long id) {
+  public ResponseEntity<Reserva> getReservaById(@PathVariable String id) {
       Reserva reserva = reservaService.findReservaById(id);
       return ResponseEntity.ok(reserva);
   }
@@ -83,7 +83,7 @@ public class ReservaController {
         @ApiResponse(responseCode = "400", description = "Erro ao atualizar a reserva")
       })
   public ResponseEntity<Reserva> updateReserva(
-      @PathVariable Long id, @RequestBody ReservaDto reservaDTO) {
+      @PathVariable String id, @RequestBody ReservaDto reservaDTO) {
       Reserva updatedReserva = reservaService.updateReserva(id, reservaDTO);
       return ResponseEntity.ok(updatedReserva);
   }
@@ -95,7 +95,7 @@ public class ReservaController {
         @ApiResponse(responseCode = "200", description = "Reserva removida com sucesso"),
         @ApiResponse(responseCode = "404", description = "Reserva não encontrada")
       })
-  public ResponseEntity<Void> deleteReserva(@PathVariable Long id) {
+  public ResponseEntity<Void> deleteReserva(@PathVariable String id) {
       reservaService.deleteReserva(id);
       return ResponseEntity.ok().build();
   }
